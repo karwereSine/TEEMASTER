@@ -1,0 +1,162 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>产品分类系列 | T-Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/products.css">
+    <meta name="theme-color" content="#0a0a0a">
+    <style>
+        body {
+            background-color: #050505;
+        }
+
+        .tm-category-main {
+            padding-top: calc(var(--tm-header-height) + 40px);
+            min-height: 80vh;
+            max-width: var(--tm-max-width);
+            margin: 0 auto;
+            padding-bottom: 60px;
+        }
+
+        .tm-category-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="tm-header scrolled" id="tm-header">
+        <div class="tm-header-container">
+            <a href="index.html" class="tm-logo">T-Master</a>
+            <nav class="tm-nav">
+                <ul class="tm-nav-list">
+                    <li><a href="index.html#hero" data-i18n="nav-return-home">首页</a></li>
+                    <li><a href="index.html#products" data-i18n="nav-return-prod">返回产品大厅</a></li>
+                </ul>
+            </nav>
+            <a href="index.html" class="tm-back-btn-mobile">⬅ <span data-i18n="nav-back">返回</span></a>
+        </div>
+    </header>
+
+    <main class="tm-category-main">
+        <div class="tm-category-header">
+            <h1 class="tm-section-title" id="cat-title">产品分类</h1>
+            <p class="tm-section-subtitle" id="cat-subtitle">PRODUCTS CATEGORY</p>
+        </div>
+
+        <div class="tm-grid" id="category-grid">
+        </div>
+    </main>
+
+    <footer class="tm-footer">
+        <div class="tm-footer-logo">T-MASTER</div>
+        <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 T-Master Ltd. 保留所有权利.</div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        const categoryData = {
+            'simulator': {
+                title: { zh: '室内模拟器系列', en: 'Simulator Series', ko: '실내 시뮬레이터 시리즈' },
+                sub: 'SIMULATOR SERIES',
+                items: [
+                    {
+                        name: { zh: 'T-Master 高尔夫模拟器', en: 'T-Master Golf Simulator', ko: 'T-Master 골프 시뮬레이터' },
+                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
+                        img: 'img/products/TEEMASTER高尔夫模拟器/golf_simulator.png',
+                        link: 'product-sim.html'
+                    },
+                    {
+                        name: { zh: '果岭贝贝智能推杆模拟器', en: 'Green Baby Putter Simulator', ko: '그린베이비 퍼팅 시뮬레이터' },
+                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
+                        img: 'img/products/果岭贝贝智能高尔夫推杆模拟器/gl3.jpg',
+                        link: 'product-putter.html'
+                    }
+                ]
+            },
+            'tee-up': {
+                title: { zh: '智能发球机系列', en: 'Auto Tee-Up Series', ko: '스마트 오토 티업 시리즈' },
+                sub: 'AUTO TEE-UP SERIES',
+                items: [
+                    {
+                        name: { zh: '立式智能发球机', en: 'Upright Smart Tee-Up', ko: '스탠드형 스마트 오토 티업' },
+                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
+                        img: 'img/products/立式发球机/autotee_new.png',
+                        link: 'product-autotee.html'
+                    },
+                    {
+                        name: { zh: '练习场智能发球机', en: 'Range Auto Tee-Up', ko: '드라이빙 레인지 오토 티업' },
+                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
+                        img: 'img/products/练习场发球机/dr_tee_new.png',
+                        link: 'product-dr-tee.html'
+                    }
+                ]
+            },
+            'distributor': {
+                title: { zh: '自动配球机系列', en: 'Ball Distributor Series', ko: '자동 볼 배분기 시리즈' },
+                sub: 'BALL DISTRIBUTOR SERIES',
+                items: [
+                    {
+                        name: { zh: '125型 智能配球机', en: 'Model 125 Distributor', ko: '125형 스마트 배분기' },
+                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
+                        img: 'img/products/各种供球机/125供球机.png',
+                        link: 'product-distributor.html?type=125'
+                    },
+                    {
+                        name: { zh: '160型 智能配球机', en: 'Model 160 Distributor', ko: '160형 스마트 배분기' },
+                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
+                        img: 'img/products/各种供球机/160供球机.png',
+                        link: 'product-distributor.html?type=160'
+                    },
+                    {
+                        name: { zh: '185型 智能配球机', en: 'Model 185 Distributor', ko: '185형 스마트 배분기' },
+                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
+                        img: 'img/products/各种供球机/185供球机_new.png',
+                        link: 'product-distributor.html?type=185'
+                    }
+                ]
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const catId = urlParams.get('cat');
+            const data = categoryData[catId];
+            const lang = localStorage.getItem('tm-lang') || 'zh';
+
+            if (data) {
+                document.getElementById('cat-title').textContent = data.title[lang] || data.title.zh;
+                document.getElementById('cat-subtitle').textContent = data.sub;
+
+                const grid = document.getElementById('category-grid');
+                data.items.forEach((item, index) => {
+                    const itemName = item.name[lang] || item.name.zh;
+                    const itemDesc = item.desc[lang] || item.desc.zh;
+                    grid.innerHTML += `
+            <a href="${item.link}" class="tm-card tm-reveal active" style="transition-delay: ${index * 0.1}s">
+              <img src="${item.img}" alt="${itemName}" class="tm-card-img">
+              <div class="tm-card-content">
+                <h3 class="tm-card-title">${itemName}</h3>
+                <p class="tm-card-desc">${itemDesc}</p>
+              </div>
+            </a>
+          `;
+                });
+            } else {
+                document.getElementById('cat-title').textContent = "未找到分类";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>自动发球机 | T-Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <meta name="theme-color" content="#0a0a0a">
+</head>
+
+<body>
+
+    <header class="tm-header scrolled" id="tm-header">
+        <div class="tm-header-container">
+            <a href="index.html" class="tm-logo">T-Master</a>
+            <nav class="tm-nav">
+                <ul class="tm-nav-list">
+                    <li><a href="index.html#hero" data-i18n="nav-return-home">首页</a></li>
+                    <li><a href="category.html?cat=tee-up" data-i18n="nav-return-cat">返回产品分类</a></li>
+                </ul>
+            </nav>
+            <a href="category.html?cat=tee-up" class="tm-back-btn-mobile">⬅ <span data-i18n="nav-back">返回</span></a>
+        </div>
+    </header>
+
+    <main class="tm-pdp-main">
+        <section class="tm-pdp-hero">
+            <div class="tm-pdp-gallery">
+                <img id="pdp-main-img" src="img/products/立式发球机/autotee_new.png" alt="Auto Tee-Up">
+            </div>
+            <div class="tm-pdp-info">
+                <h1 class="tm-pdp-title">立式智能发球机</h1>
+                <p class="tm-pdp-subtitle">SMART AUTO TEE-UP SYSTEM</p>
+                <p class="tm-pdp-desc">
+                    专为现代化高尔夫练习场量身打造。高效稳定的全自动升降供球反馈系统，极大地优化了发球时间与运营效率。耐用的防震设计与智能控制面板相得益彰，提供科技与实用并存的服务。
+                </p>
+
+                <div class="tm-pdp-thumbs">
+                    <img src="img/products/立式发球机/autotee_new.png" onclick="changeMainImg(this.src)" class="active">
+                    <img src="img/products/立式发球机/白+黑.jpg" onclick="changeMainImg(this.src)">
+                    <img src="img/products/立式发球机/微信图片_202409091020072.jpg" onclick="changeMainImg(this.src)">
+                </div>
+
+                <a href="#details" class="tm-pdp-scroll-btn">详看业务资料参数 ↓</a>
+            </div>
+        </section>
+
+        <!-- 高清合并长图展示区域 -->
+        <section id="details" class="tm-pdp-details-section">
+            <div class="tm-pdp-long-image-container" id="pdf-image-container">
+                <!-- JS 动态载入分页 PNG -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="tm-footer">
+        <div class="tm-footer-logo">T-MASTER</div>
+        <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 T-Master Ltd. 保留所有权利.</div>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+    <script>
+        function changeMainImg(src) {
+            document.getElementById('pdp-main-img').src = src;
+            document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
+                img.classList.remove('active');
+                if (img.src === src) img.classList.add('active');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('pdf-image-container');
+            const totalPages = 5;
+            const basePath = 'img/products/立式发球机/TEEMASTER 立式智能发球机-业务资料1/';
+
+            let htmlContent = '';
+            for (let i = 1; i <= totalPages; i++) {
+                htmlContent += `<img src="${basePath}TEEMASTER 立式智能发球机-业务资料${i}.jpg" alt="Page ${i}" loading="lazy" onerror="this.style.display='none'">`;
+            }
+            container.innerHTML = htmlContent;
+        });
+    </script>
+</body>
+
+</html>

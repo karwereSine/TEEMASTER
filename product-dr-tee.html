@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>练习场发球机 | T-Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <meta name="theme-color" content="#0a0a0a">
+</head>
+
+<body>
+
+    <header class="tm-header scrolled" id="tm-header">
+        <div class="tm-header-container">
+            <a href="index.html" class="tm-logo">T-Master</a>
+            <nav class="tm-nav">
+                <ul class="tm-nav-list">
+                    <li><a href="index.html#hero" data-i18n="nav-return-home">首页</a></li>
+                    <li><a href="category.html?cat=tee-up" data-i18n="nav-return-cat">返回产品分类</a></li>
+                </ul>
+            </nav>
+            <a href="category.html?cat=tee-up" class="tm-back-btn-mobile">⬅ <span data-i18n="nav-back">返回</span></a>
+        </div>
+    </header>
+
+    <main class="tm-pdp-main">
+        <section class="tm-pdp-hero">
+            <div class="tm-pdp-gallery">
+                <img id="pdp-main-img" src="img/products/练习场发球机/dr_tee_new.png" alt="Driving Range Auto Tee">
+            </div>
+            <div class="tm-pdp-info">
+                <h1 class="tm-pdp-title">练习场智能发球机</h1>
+                <p class="tm-pdp-subtitle">DRIVING RANGE AUTOMATION</p>
+                <p class="tm-pdp-desc">
+                    这套自动化出球系统具备极简操作台和防阻滞底板结构，可以大幅降低规模化练习场的运营与人工维护成本。高度适应户外及半户外场景，耐候抗震，长期保值。
+                </p>
+
+                <div class="tm-pdp-thumbs">
+                    <img src="img/products/练习场发球机/dr_tee_new.png" onclick="changeMainImg(this.src)" class="active">
+                    <img src="img/products/练习场发球机/微信图片_20240229103312.jpg" onclick="changeMainImg(this.src)">
+                    <img src="img/products/练习场发球机/微信图片_20240305144108.jpg" onclick="changeMainImg(this.src)">
+                    <img src="img/products/练习场发球机/微信图片_20240305144111.jpg" onclick="changeMainImg(this.src)">
+                </div>
+
+                <a href="#details" class="tm-pdp-scroll-btn">详看业务资料参数 ↓</a>
+            </div>
+        </section>
+
+        <!-- 高清合并长图展示区域 -->
+        <section id="details" class="tm-pdp-details-section">
+            <div class="tm-pdp-long-image-container" id="pdf-image-container">
+                <!-- JS 动态载入分页 PNG -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="tm-footer">
+        <div class="tm-footer-logo">T-MASTER</div>
+        <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 T-Master Ltd. 保留所有权利.</div>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+    <script>
+        function changeMainImg(src) {
+            document.getElementById('pdp-main-img').src = src;
+            document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
+                img.classList.remove('active');
+                if (img.src === src) img.classList.add('active');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('pdf-image-container');
+            const totalPages = 8;
+            const basePath = 'img/products/练习场发球机/TEEMASTER 练习场智能发球机-G新/';
+
+            let htmlContent = '';
+            for (let i = 1; i <= totalPages; i++) {
+                htmlContent += `<img src="${basePath}TEEMASTER 练习场智能发球机-G新 ${i}.jpg" alt="Page ${i}" loading="lazy" onerror="this.style.display='none'">`;
+            }
+            container.innerHTML = htmlContent;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+/* Hero Section Styles */
+.tm-hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--tm-color-bg);
+}
+
+.tm-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.5;
+    /* Darken the image for text readability */
+}
+
+.tm-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.1) 40%, rgba(10, 10, 10, 0.9) 100%);
+    z-index: 2;
+}
+
+.tm-hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 var(--tm-spacing-md);
+    margin-top: 50px;
+    /* Offset for header */
+}
+
+.tm-hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--tm-color-text);
+    margin-bottom: var(--tm-spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.tm-hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--tm-color-primary);
+    margin-bottom: var(--tm-spacing-xl);
+    letter-spacing: 4px;
+}
+
+.tm-hero-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--tm-color-text);
+    border: 2px solid var(--tm-color-text);
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--tm-transition-smooth);
+}
+
+.tm-hero-btn:hover {
+    background-color: var(--tm-color-text);
+    color: var(--tm-color-bg);
+    border-color: var(--tm-color-text);
+}
+
+/* Initial animation states */
+.tm-fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeUpAnim 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.tm-delay-1 {
+    animation-delay: 0.3s;
+}
+
+.tm-delay-2 {
+    animation-delay: 0.6s;
+}
+
+.tm-delay-3 {
+    animation-delay: 0.9s;
+}
+
+@keyframes fadeUpAnim {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .tm-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .tm-hero-subtitle {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+}

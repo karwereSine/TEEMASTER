@@ -1,0 +1,106 @@
+/* Contact & Footer Section */
+.tm-contact-section {
+    padding: var(--tm-spacing-xl) var(--tm-spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tm-contact-form {
+    background-color: var(--tm-color-bg-secondary);
+    border: 1px solid var(--tm-color-border);
+    padding: var(--tm-spacing-lg);
+    border-radius: 8px;
+}
+
+.tm-form-group {
+    margin-bottom: var(--tm-spacing-md);
+}
+
+.tm-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--tm-color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tm-form-control {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: var(--tm-color-bg);
+    border: 1px solid var(--tm-color-border);
+    color: var(--tm-color-text);
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: var(--tm-transition-fast);
+}
+
+.tm-form-control:focus {
+    border-color: var(--tm-color-text-muted);
+    outline: none;
+}
+
+textarea.tm-form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.tm-submit-btn {
+    background-color: var(--tm-color-text);
+    color: var(--tm-color-bg);
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    transition: var(--tm-transition-smooth);
+}
+
+.tm-submit-btn:hover {
+    background-color: var(--tm-color-primary);
+    opacity: 0.9;
+}
+
+/* Footer */
+.tm-footer {
+    background-color: #000;
+    border-top: 1px solid var(--tm-color-border);
+    padding: var(--tm-spacing-lg) var(--tm-spacing-lg) var(--tm-spacing-md);
+    text-align: center;
+}
+
+.tm-footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--tm-color-text);
+    margin-bottom: var(--tm-spacing-md);
+}
+
+.tm-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--tm-spacing-md);
+    margin-bottom: var(--tm-spacing-lg);
+}
+
+.tm-footer-links a {
+    color: var(--tm-color-text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tm-footer-links a:hover {
+    color: var(--tm-color-text);
+}
+
+.tm-footer-copy {
+    color: #444;
+    font-size: 0.8rem;
+}

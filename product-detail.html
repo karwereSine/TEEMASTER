@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>产品详情 | T-Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <meta name="theme-color" content="#0a0a0a">
+</head>
+
+<body>
+
+    <!-- 共享全局 Header (这里复用 index 的 Header，但添加深色背景保证可见性) -->
+    <header class="tm-header scrolled" id="tm-header">
+        <div class="tm-header-container">
+            <a href="index.html" class="tm-logo">T-Master</a>
+            <nav class="tm-nav">
+                <ul class="tm-nav-list">
+                    <li><a href="index.html#hero">首页 / 홈</a></li>
+                    <li><a href="index.html#products">返回产品大厅 / 제품 목록으로</a></li>
+                </ul>
+            </nav>
+            <!-- 简易返回按钮，桌面端隐藏 -->
+            <a href="index.html" class="tm-back-btn-mobile">⬅ 返回 / 뒤로가기</a>
+        </div>
+    </header>
+
+    <main class="tm-pdp-main">
+        <!-- 产品首屏概览 (轮播/画廊效果占位) -->
+        <section class="tm-pdp-hero">
+            <div class="tm-pdp-gallery">
+                <!-- 主大图展示位 -->
+                <img id="pdp-main-img" src="img/products/果岭贝贝智能高尔夫推杆模拟器/gl3.jpg" alt="Product Image">
+            </div>
+            <div class="tm-pdp-info">
+                <h1 class="tm-pdp-title">果岭贝贝智能推杆模拟器</h1>
+                <p class="tm-pdp-subtitle">GREEN BABY PUTTER SIMULATOR</p>
+                <p class="tm-pdp-desc">
+                    结合高精度传感系统与极佳的娱乐互动性，为您在家中或办公室内打造完美的果岭推杆体验。沉浸式场景设计，毫米级精度捕捉，是职业与业余爱好者提升推杆稳定性的绝佳利器。
+                </p>
+
+                <div class="tm-pdp-thumbs">
+                    <!-- 缩略图列表 -->
+                    <img src="img/products/果岭贝贝智能高尔夫推杆模拟器/gl1.jpg" onclick="changeMainImg(this.src)" class="active">
+                    <img src="img/products/果岭贝贝智能高尔夫推杆模拟器/gl2.jpg" onclick="changeMainImg(this.src)">
+                    <img src="img/products/果岭贝贝智能高尔夫推杆模拟器/gl4.jpg" onclick="changeMainImg(this.src)">
+                    <img src="img/products/果岭贝贝智能高尔夫推杆模拟器/微信图片_202301131742328.jpg" onclick="changeMainImg(this.src)">
+                </div>
+
+                <a href="#details" class="tm-pdp-scroll-btn">详看业务资料参数 ↓</a>
+            </div>
+        </section>
+
+        <!-- 长图/PDF详细参数直出区域 -->
+        <section id="details" class="tm-pdp-details-section">
+            <div class="tm-pdp-long-image-container">
+                <!-- 
+          此区域预留给 PDF 转出的高清图片 
+          （一旦用户完成 PDF->Pic 的转换，直接把图片 img 标签填在这里即可无缝衔接）
+        -->
+                <div class="tm-pdp-pdf-placeholder">
+                    <h3>[业务资料参数长图占位区]</h3>
+                    <p>请将此处替换为从 PDF 导出的高清长截图。</p>
+                    <p class="tm-pdp-note">예: &lt;img src="img/products/...-detail-1.jpg" style="width:100%"&gt;</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 全局 Footer -->
+    <footer class="tm-footer">
+        <div class="tm-footer-logo">T-MASTER</div>
+        <div class="tm-footer-copy">&copy; 2026 T-Master Ltd. 保留所有权利.</div>
+    </footer>
+
+    <script>
+        function changeMainImg(src) {
+            document.getElementById('pdp-main-img').src = src;
+            // 简单的高亮切换逻辑
+            document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
+                img.classList.remove('active');
+                if (img.src === src) img.classList.add('active');
+            });
+        }
+    </script>
+</body>
+
+</html>
