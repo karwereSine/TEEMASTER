@@ -1,0 +1,372 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>高尔夫用品 | T-Master</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <meta name="description" content="T-Master 高尔夫用品 — 球包、配件、球杆、服装、球鞋等全品类高尔夫商品。">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <style>
+        body {
+            background-color: #050505;
+        }
+
+        /* Page Main */
+        .tm-gear-main {
+            padding-top: calc(var(--tm-header-height) + 60px);
+            max-width: var(--tm-max-width);
+            margin: 0 auto;
+            padding-bottom: 80px;
+            padding-left: var(--tm-spacing-lg);
+            padding-right: var(--tm-spacing-lg);
+        }
+
+        .tm-gear-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .tm-gear-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--tm-color-text);
+            margin-bottom: 8px;
+        }
+
+        .tm-gear-header .tm-sub {
+            font-size: 1rem;
+            color: var(--tm-color-accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .tm-gear-header .tm-desc {
+            font-size: 1rem;
+            color: var(--tm-color-text-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Category Grid */
+        .tm-gear-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tm-gear-card {
+            background-color: var(--tm-color-bg-secondary);
+            border: 1px solid var(--tm-color-border);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: var(--tm-transition-smooth);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tm-gear-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--tm-color-accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tm-gear-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tm-gear-card:hover {
+            border-color: var(--tm-color-accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(211, 47, 47, 0.15);
+        }
+
+        .tm-gear-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 4px;
+        }
+
+        .tm-gear-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .tm-gear-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--tm-color-text);
+        }
+
+        .tm-gear-card p {
+            font-size: 0.85rem;
+            color: var(--tm-color-text-muted);
+            line-height: 1.5;
+        }
+
+        .tm-gear-card .tm-item-count {
+            font-size: 0.75rem;
+            color: var(--tm-color-accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Scroll reveal */
+        .tm-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .tm-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section Title Shared */
+        .tm-section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--tm-color-text);
+        }
+
+        .tm-section-subtitle {
+            font-size: 1rem;
+            color: var(--tm-color-accent);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .tm-gear-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tm-gear-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .tm-gear-card {
+                padding: 20px 16px;
+            }
+
+            .tm-gear-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tm-gear-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="tm-header scrolled" id="tm-header">
+        <div class="tm-header-container">
+            <a href="index.html" class="tm-logo">T-Master</a>
+            <nav class="tm-nav">
+                <ul class="tm-nav-list">
+                    <li><a href="index.html" data-i18n="nav-home">首页</a></li>
+                    <li><a href="products.html" data-i18n="nav-products">产品中心</a></li>
+                    <li><a href="golf-gear.html" data-i18n="nav-golf-gear"
+                            style="color: var(--tm-color-accent);">高尔夫用品</a></li>
+                    <li><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav-contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <div class="tm-lang-switcher">
+                <select id="lang-select">
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                    <option value="ko">한국어</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="tm-gear-main">
+        <div class="tm-gear-header tm-reveal">
+            <h1 data-i18n="gear-page-title">高尔夫用品</h1>
+            <p class="tm-sub" data-i18n="gear-page-sub">GOLF GEAR</p>
+            <p class="tm-desc" data-i18n="gear-page-desc">从球包到球鞋，从球杆到配件，T-Master 为您提供全品类高尔夫用品，满足您在球场上的一切需求。</p>
+        </div>
+
+        <div class="tm-gear-grid" id="gear-grid">
+            <!-- 动态渲染 -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="tm-footer">
+        <div class="tm-footer-inner">
+            <div class="tm-footer-brand">
+                <div class="tm-footer-logo">T-MASTER</div>
+                <p class="tm-footer-tagline" data-i18n="footer-tagline">Smart Golf Platform</p>
+            </div>
+            <div class="tm-footer-nav">
+                <h4 data-i18n="footer-nav-title">快速导航</h4>
+                <a href="index.html" data-i18n="nav-home">首页</a>
+                <a href="products.html" data-i18n="nav-products">产品中心</a>
+                <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a>
+                <a href="index.html#platform" data-i18n="nav-platform">数字化平台</a>
+            </div>
+            <div class="tm-footer-legal">
+                <h4 data-i18n="footer-legal-title">法律信息</h4>
+                <a href="#" data-i18n="footer-privacy">隐私政策</a>
+                <a href="#" data-i18n="footer-terms">服务条款</a>
+                <a href="#" data-i18n="legal-sitemap">网站地图</a>
+            </div>
+        </div>
+        <div class="tm-footer-bottom">
+            <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2025 T-MASTER. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        const gearCategories = [
+            {
+                id: 'bags',
+                icon: 'img/gear-icons/高尔夫球包.png',
+                i18nKey: 'gear-cat-bags',
+                name: { zh: '高尔夫球包', en: 'Golf Bags', ko: '골프 가방' },
+                desc: { zh: '球包套装、波士顿包、支架包等9款', en: '9 types incl. sets, Boston bags, stand bags', ko: '세트, 보스턴백, 스탠드백 등 9종' },
+                count: '9 SKUs'
+            },
+            {
+                id: 'accessories',
+                icon: 'img/gear-icons/高尔夫配件.png',
+                i18nKey: 'gear-cat-accessories',
+                name: { zh: '高尔夫配件', en: 'Accessories', ko: '액세서리' },
+                desc: { zh: '手套、帽、腰带、袜子、杆头套等', en: 'Gloves, hats, belts, socks, headcovers', ko: '글러브, 모자, 벨트, 양말, 헤드커버' },
+                count: '9 SKUs'
+            },
+            {
+                id: 'balls',
+                icon: 'img/gear-icons/高尔夫球.png',
+                i18nKey: 'gear-cat-balls',
+                name: { zh: '高尔夫球', en: 'Golf Balls', ko: '골프볼' },
+                desc: { zh: '练习球、两片球、三片球、四片球、设计球', en: 'Practice, 2/3/4-piece, designer balls', ko: '연습볼, 2/3/4피스, 디자인볼' },
+                count: '5 Types'
+            },
+            {
+                id: 'clubs',
+                icon: 'img/gear-icons/高尔夫球杆.png',
+                i18nKey: 'gear-cat-clubs',
+                name: { zh: '高尔夫球杆', en: 'Golf Clubs', ko: '골프 클럽' },
+                desc: { zh: '全套、一号木、球道木、铁杆、推杆等', en: 'Full sets, drivers, woods, irons, putters', ko: '풀세트, 드라이버, 우드, 아이언, 퍼터' },
+                count: '7 Types'
+            },
+            {
+                id: 'apparel',
+                icon: 'img/gear-icons/高尔夫服装.png',
+                i18nKey: 'gear-cat-apparel',
+                name: { zh: '高尔夫服装', en: 'Golf Apparel', ko: '골프 의류' },
+                desc: { zh: 'T恤、裤装、外套、雨衣、裙子等13款', en: '13 styles incl. shirts, pants, jackets', ko: '셔츠, 바지, 자켓 등 13종' },
+                count: '13 SKUs'
+            },
+            {
+                id: 'shoes',
+                icon: 'img/gear-icons/高尔夫球鞋.png',
+                i18nKey: 'gear-cat-shoes',
+                name: { zh: '高尔夫球鞋', en: 'Golf Shoes', ko: '골프화' },
+                desc: { zh: 'BOA TYPE、普通 TYPE、手工定制 TYPE', en: 'BOA, Regular, Handcrafted types', ko: 'BOA, 일반, 핸드메이드 타입' },
+                count: '3 Types'
+            },
+            {
+                id: 'fitting',
+                icon: 'img/gear-icons/定制配件.png',
+                i18nKey: 'gear-cat-fitting',
+                name: { zh: '定制配件', en: 'Fitting Parts', ko: '피팅 파츠' },
+                desc: { zh: '握把、杆身、杆头、保养用品、练习器具', en: 'Grips, shafts, heads, maintenance, training aids', ko: '그립, 샤프트, 헤드, 관리용품, 연습기구' },
+                count: '5 SKUs'
+            },
+            {
+                id: 'beauty',
+                icon: 'img/gear-icons/高尔夫美容.png',
+                i18nKey: 'gear-cat-beauty',
+                name: { zh: '高尔夫美容', en: 'Golf Beauty', ko: '골프 뷰티' },
+                desc: { zh: '防晒霜、贴片、纸巾、颈部护理', en: 'Sunscreen, patches, tissues, neck care', ko: '선크림, 패치, 티슈, 넥케어' },
+                count: '4 SKUs'
+            },
+            {
+                id: 'practice',
+                icon: 'img/gear-icons/练习用品.png',
+                i18nKey: 'gear-cat-practice',
+                name: { zh: '练习用品', en: 'Practice Goods', ko: '연습 용품' },
+                desc: { zh: '高尔夫练习辅助工具与训练器材', en: 'Golf practice aids and training equipment', ko: '골프 연습 보조 도구 및 트레이닝 장비' },
+                count: '3 SKUs'
+            },
+            {
+                id: 'screen',
+                icon: 'img/gear-icons/屏幕制作.png',
+                i18nKey: 'gear-cat-screen',
+                name: { zh: '屏幕制作', en: 'Screen Making', ko: '스크린 제작' },
+                desc: { zh: '屏幕布、球杆支架、打击垫', en: 'Screen cloth, club racks, hitting mats', ko: '스크린천, 클럽거치대, 타격매트' },
+                count: '3 Types'
+            },
+            {
+                id: 'park',
+                icon: 'img/gear-icons/公园高尔夫.png',
+                i18nKey: 'gear-cat-park',
+                name: { zh: '公园高尔夫', en: 'Park Golf', ko: '파크 골프' },
+                desc: { zh: '公园高尔夫球杆、球、球包', en: 'Park golf clubs, balls, and bags', ko: '파크골프 클럽, 볼, 가방' },
+                count: '3 Types'
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lang = localStorage.getItem('tm-lang') || 'zh';
+            const grid = document.getElementById('gear-grid');
+
+            gearCategories.forEach((cat, index) => {
+                const name = cat.name[lang] || cat.name.zh;
+                const desc = cat.desc[lang] || cat.desc.zh;
+                grid.innerHTML += `
+          <a href="category.html?cat=gear-${cat.id}" class="tm-gear-card tm-reveal" style="transition-delay: ${index * 0.05}s">
+            <div class="tm-gear-icon"><img src="${cat.icon}" alt="${name}"></div>
+            <h3>${name}</h3>
+            <p>${desc}</p>
+            <span class="tm-item-count">${cat.count}</span>
+          </a>
+        `;
+            });
+
+            // Trigger reveal animations
+            setTimeout(() => {
+                document.querySelectorAll('.tm-reveal').forEach(el => el.classList.add('active'));
+            }, 100);
+        });
+    </script>
+</body>
+
+</html>

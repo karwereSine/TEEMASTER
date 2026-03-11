@@ -11,19 +11,23 @@
     margin: 0 auto;
     padding: 0 var(--tm-spacing-lg);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--tm-spacing-xl);
 }
 
 .tm-platform-content {
     flex: 1;
+    min-width: 0;
+    padding-top: 20px;
 }
 
 .tm-platform-visual {
     flex: 1;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     position: relative;
+    min-width: 0;
 }
 
 /* App Screenshots Showcase */
@@ -88,6 +92,11 @@
 .tm-feature-text p {
     font-size: 0.95rem;
     color: var(--tm-color-text-muted);
+}
+
+/* 平台区域标题红线左对齐（覆盖全局居中） */
+.tm-platform-section .tm-section-title::after {
+    margin: 20px 0 0;
 }
 
 @media (max-width: 900px) {

@@ -25,11 +25,72 @@
             max-width: var(--tm-max-width);
             margin: 0 auto;
             padding-bottom: 60px;
+            padding-left: var(--tm-spacing-lg);
+            padding-right: var(--tm-spacing-lg);
         }
 
         .tm-category-header {
             text-align: center;
             margin-bottom: 40px;
+        }
+
+        .tm-category-desc {
+            font-size: 0.95rem;
+            color: var(--tm-color-text-muted);
+            max-width: 600px;
+            margin: 12px auto 0;
+            line-height: 1.6;
+        }
+
+        /* Enhanced card for gear items */
+        .tm-card {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .tm-card-img-placeholder {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-bottom: 1px solid var(--tm-color-border);
+        }
+
+        .tm-card-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: var(--tm-color-accent);
+            color: #fff;
+            margin-top: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Breadcrumb */
+        .tm-breadcrumb {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--tm-color-text-muted);
+            margin-bottom: 24px;
+        }
+
+        .tm-breadcrumb a {
+            color: var(--tm-color-text-muted);
+            transition: color 0.2s;
+        }
+
+        .tm-breadcrumb a:hover {
+            color: var(--tm-color-text);
+        }
+
+        .tm-breadcrumb span {
+            color: var(--tm-color-accent);
         }
     </style>
 </head>
@@ -40,18 +101,29 @@
             <a href="index.html" class="tm-logo">T-Master</a>
             <nav class="tm-nav">
                 <ul class="tm-nav-list">
-                    <li><a href="index.html#hero" data-i18n="nav-return-home">首页</a></li>
-                    <li><a href="index.html#products" data-i18n="nav-return-prod">返回产品大厅</a></li>
+                    <li><a href="index.html" data-i18n="nav-home">首页</a></li>
+                    <li><a href="products.html" data-i18n="nav-products">产品中心</a></li>
+                    <li><a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a></li>
+                    <li><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav-contact">联系我们</a></li>
                 </ul>
             </nav>
-            <a href="index.html" class="tm-back-btn-mobile">⬅ <span data-i18n="nav-back">返回</span></a>
+            <div class="tm-lang-switcher">
+                <select id="lang-select">
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                    <option value="ko">한국어</option>
+                </select>
+            </div>
         </div>
     </header>
 
     <main class="tm-category-main">
+        <div class="tm-breadcrumb" id="breadcrumb"></div>
         <div class="tm-category-header">
             <h1 class="tm-section-title" id="cat-title">产品分类</h1>
             <p class="tm-section-subtitle" id="cat-subtitle">PRODUCTS CATEGORY</p>
+            <p class="tm-category-desc" id="cat-desc"></p>
         </div>
 
         <div class="tm-grid" id="category-grid">
@@ -59,74 +131,235 @@
     </main>
 
     <footer class="tm-footer">
-        <div class="tm-footer-logo">T-MASTER</div>
-        <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 T-Master Ltd. 保留所有权利.</div>
+        <div class="tm-footer-inner">
+            <div class="tm-footer-brand">
+                <div class="tm-footer-logo">T-MASTER</div>
+                <p class="tm-footer-tagline" data-i18n="footer-tagline">Smart Golf Platform</p>
+            </div>
+            <div class="tm-footer-nav">
+                <h4 data-i18n="footer-nav-title">快速导航</h4>
+                <a href="index.html" data-i18n="nav-home">首页</a>
+                <a href="products.html" data-i18n="nav-products">产品中心</a>
+                <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a>
+            </div>
+            <div class="tm-footer-legal">
+                <h4 data-i18n="footer-legal-title">法律信息</h4>
+                <a href="#" data-i18n="footer-privacy">隐私政策</a>
+                <a href="#" data-i18n="footer-terms">服务条款</a>
+            </div>
+        </div>
+        <div class="tm-footer-bottom">
+            <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2025 T-MASTER. All Rights Reserved.</div>
+        </div>
     </footer>
 
     <script src="js/app.js"></script>
     <script>
-        const categoryData = {
+        // ========================================
+        // 智能硬件分类数据（原有）
+        // ========================================
+        const hardwareData = {
             'simulator': {
                 title: { zh: '室内模拟器系列', en: 'Simulator Series', ko: '실내 시뮬레이터 시리즈' },
                 sub: 'SIMULATOR SERIES',
+                parent: 'products',
                 items: [
-                    {
-                        name: { zh: 'T-Master 高尔夫模拟器', en: 'T-Master Golf Simulator', ko: 'T-Master 골프 시뮬레이터' },
-                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
-                        img: 'img/products/TEEMASTER高尔夫模拟器/golf_simulator.png',
-                        link: 'product-sim.html'
-                    },
-                    {
-                        name: { zh: '果岭贝贝智能推杆模拟器', en: 'Green Baby Putter Simulator', ko: '그린베이비 퍼팅 시뮬레이터' },
-                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
-                        img: 'img/products/果岭贝贝智能高尔夫推杆模拟器/gl3.jpg',
-                        link: 'product-putter.html'
-                    }
+                    { name: { zh: 'T-Master 高尔夫模拟器', en: 'T-Master Golf Simulator', ko: 'T-Master 골프 시뮬레이터' }, desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' }, img: 'img/products/TEEMASTER高尔夫模拟器/golf_simulator.png', link: 'product-sim.html' },
+                    { name: { zh: '果岭贝贝智能推杆模拟器', en: 'Green Baby Putter Simulator', ko: '그린베이비 퍼팅 시뮬레이터' }, desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' }, img: 'img/products/果岭贝贝智能高尔夫推杆模拟器/gl3.jpg', link: 'product-putter.html' }
                 ]
             },
             'tee-up': {
                 title: { zh: '智能发球机系列', en: 'Auto Tee-Up Series', ko: '스마트 오토 티업 시리즈' },
                 sub: 'AUTO TEE-UP SERIES',
+                parent: 'products',
                 items: [
-                    {
-                        name: { zh: '立式智能发球机', en: 'Upright Smart Tee-Up', ko: '스탠드형 스마트 오토 티업' },
-                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
-                        img: 'img/products/立式发球机/autotee_new.png',
-                        link: 'product-autotee.html'
-                    },
-                    {
-                        name: { zh: '练习场智能发球机', en: 'Range Auto Tee-Up', ko: '드라이빙 레인지 오토 티업' },
-                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
-                        img: 'img/products/练习场发球机/dr_tee_new.png',
-                        link: 'product-dr-tee.html'
-                    }
+                    { name: { zh: '立式智能发球机', en: 'Upright Smart Tee-Up', ko: '스탠드형 스마트 오토 티업' }, desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' }, img: 'img/products/立式发球机/autotee_new.png', link: 'product-autotee.html' },
+                    { name: { zh: '练习场智能发球机', en: 'Range Auto Tee-Up', ko: '드라이빙 레인지 오토 티업' }, desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' }, img: 'img/products/练习场发球机/dr_tee_new.png', link: 'product-dr-tee.html' }
                 ]
             },
             'distributor': {
                 title: { zh: '自动配球机系列', en: 'Ball Distributor Series', ko: '자동 볼 배분기 시리즈' },
                 sub: 'BALL DISTRIBUTOR SERIES',
+                parent: 'products',
                 items: [
-                    {
-                        name: { zh: '125型 智能配球机', en: 'Model 125 Distributor', ko: '125형 스마트 배분기' },
-                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
-                        img: 'img/products/各种供球机/125供球机.png',
-                        link: 'product-distributor.html?type=125'
-                    },
-                    {
-                        name: { zh: '160型 智能配球机', en: 'Model 160 Distributor', ko: '160형 스마트 배분기' },
-                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
-                        img: 'img/products/各种供球机/160供球机.png',
-                        link: 'product-distributor.html?type=160'
-                    },
-                    {
-                        name: { zh: '185型 智能配球机', en: 'Model 185 Distributor', ko: '185형 스마트 배분기' },
-                        desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' },
-                        img: 'img/products/各种供球机/185供球机_new.png',
-                        link: 'product-distributor.html?type=185'
-                    }
+                    { name: { zh: '125型 智能配球机', en: 'Model 125 Distributor', ko: '125형 스마트 배분기' }, desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' }, img: 'img/products/各种供球机/125供球机.png', link: 'product-distributor.html?type=125' },
+                    { name: { zh: '160型 智能配球机', en: 'Model 160 Distributor', ko: '160형 스마트 배분기' }, desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' }, img: 'img/products/各种供球机/160供球机.png', link: 'product-distributor.html?type=160' },
+                    { name: { zh: '185型 智能配球机', en: 'Model 185 Distributor', ko: '185형 스마트 배분기' }, desc: { zh: '点击查看设备详情参数', en: 'Click to view specs', ko: '상세 제원 보기' }, img: 'img/products/各种供球机/185供球机_new.png', link: 'product-distributor.html?type=185' }
                 ]
             }
         };
+
+        // ========================================
+        // 高尔夫用品分类数据（60+ SKU）
+        // ========================================
+        const gearData = {
+            'gear-bags': {
+                title: { zh: '高尔夫球包', en: 'Golf Bags', ko: '골프 가방' },
+                sub: 'GOLF BAGS',
+                desc: { zh: '覆盖球场、旅行、日常多场景的全系球包产品线', en: 'Full range of bags for course, travel and daily use', ko: '코스, 여행, 일상 등 다양한 상황에 맞는 골프 가방 라인업' },
+                icon: '🎒',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'bag-set', name: { zh: '高尔夫球包套装', en: 'Golf Bag Set', ko: '골프백 세트' }, desc: { zh: '完整球包+配件套装组合', en: 'Complete bag & accessory combo', ko: '완전한 백+액세서리 세트' }, emoji: '🧳' },
+                    { id: 'boston-bag', name: { zh: '波士顿包', en: 'Boston Bag', ko: '보스턴백' }, desc: { zh: '大容量旅行/衣物包', en: 'Large capacity travel/clothing bag', ko: '대용량 여행/의류 가방' }, emoji: '👜' },
+                    { id: 'stand-bag', name: { zh: '支架包', en: 'Stand Bag', ko: '스탠드백' }, desc: { zh: '轻便自立式球包', en: 'Lightweight self-standing bag', ko: '경량 자립식 골프백' }, emoji: '🏌️' },
+                    { id: 'half-bag', name: { zh: '半包', en: 'Half Bag', ko: '하프백' }, desc: { zh: '便携练习用迷你球包', en: 'Compact practice mini bag', ko: '컴팩트 연습용 미니백' }, emoji: '🎒' },
+                    { id: 'bag-cart', name: { zh: '球包推车', en: 'Bag Cart', ko: '백카트' }, desc: { zh: '易折叠球包运输推车', en: 'Foldable bag transport cart', ko: '접이식 백 운반 카트' }, emoji: '🛒' },
+                    { id: 'bag-cover', name: { zh: '球包套', en: 'Bag Cover', ko: '백커버' }, desc: { zh: '运输防护球包罩', en: 'Protective bag travel cover', ko: '보호용 백 커버' }, emoji: '🛡️' },
+                    { id: 'shoe-bag', name: { zh: '球鞋袋', en: 'Shoe Bag', ko: '신발가방' }, desc: { zh: '独立收纳球鞋袋', en: 'Separate shoe storage bag', ko: '별도 신발 수납 가방' }, emoji: '👟' },
+                    { id: 'small-bag', name: { zh: '高尔夫小包', en: 'Small Pouch', ko: '골프 파우치' }, desc: { zh: '随身携带配件小包', en: 'Carry-along accessory pouch', ko: '휴대용 액세서리 파우치' }, emoji: '👛' },
+                    { id: 'ball-bag', name: { zh: '球袋', en: 'Ball Bag', ko: '볼백' }, desc: { zh: '练习球收纳袋', en: 'Practice ball storage bag', ko: '연습볼 수납 가방' }, emoji: '🏐' }
+                ]
+            },
+            'gear-accessories': {
+                title: { zh: '高尔夫配件', en: 'Accessories', ko: '액세서리' },
+                sub: 'GOLF ACCESSORIES',
+                desc: { zh: '提升球场体验的必备配件与护具', en: 'Essential accessories & protection for the course', ko: '코스에서의 경험을 높여주는 필수 액세서리' },
+                icon: '🧤',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'glove', name: { zh: '高尔夫手套', en: 'Golf Gloves', ko: '골프 글러브' }, desc: { zh: '增强握杆稳定性', en: 'Enhanced grip stability', ko: '그립 안정성 향상' }, emoji: '🧤' },
+                    { id: 'cap', name: { zh: '高尔夫帽', en: 'Golf Caps', ko: '골프 모자' }, desc: { zh: '防晒透气运动帽', en: 'UV protection sport caps', ko: '자외선 차단 스포츠 모자' }, emoji: '🧢' },
+                    { id: 'belt', name: { zh: '高尔夫腰带', en: 'Golf Belts', ko: '골프 벨트' }, desc: { zh: '时尚功能兼备', en: 'Style meets function', ko: '스타일과 기능의 결합' }, emoji: '👔' },
+                    { id: 'socks', name: { zh: '高尔夫袜子', en: 'Golf Socks', ko: '골프 양말' }, desc: { zh: '透气减震运动袜', en: 'Breathable cushion sport socks', ko: '통기성 쿠션 스포츠 양말' }, emoji: '🧦' },
+                    { id: 'arm-guard', name: { zh: '护臂', en: 'Arm Guard', ko: '암가드' }, desc: { zh: 'UV防护冰感袖套', en: 'UV protection cooling sleeves', ko: 'UV 차단 쿨링 슬리브' }, emoji: '💪' },
+                    { id: 'headcover', name: { zh: '杆头套', en: 'Headcovers', ko: '헤드커버' }, desc: { zh: '保护球杆杆头', en: 'Club head protection', ko: '클럽 헤드 보호' }, emoji: '🎩' },
+                    { id: 'cleaner', name: { zh: '清洁器', en: 'Club Cleaner', ko: '클리너' }, desc: { zh: '球杆/球清洁工具', en: 'Club & ball cleaning tools', ko: '클럽/볼 청소 도구' }, emoji: '🧹' },
+                    { id: 'tee', name: { zh: '球座', en: 'Golf Tees', ko: '골프 티' }, desc: { zh: '各种材质高度球座', en: 'Various material & height tees', ko: '다양한 재질 및 높이의 골프 티' }, emoji: '📌' },
+                    { id: 'winter-gear', name: { zh: '防寒用品', en: 'Winter Gear', ko: '방한용품' }, desc: { zh: '暖手器/耳罩等保暖配件', en: 'Hand warmers, ear muffs & more', ko: '핸드워머, 이어머프 등 보온용품' }, emoji: '❄️' }
+                ]
+            },
+            'gear-balls': {
+                title: { zh: '高尔夫球', en: 'Golf Balls', ko: '골프볼' },
+                sub: 'GOLF BALLS',
+                desc: { zh: '从练习到比赛，覆盖全场景的高性能球系列', en: 'High-performance balls for practice to competition', ko: '연습부터 대회까지 전 상황을 커버하는 고성능 골프볼' },
+                icon: '⛳',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'practice-ball', name: { zh: '练习球', en: 'Practice Balls', ko: '연습볼' }, desc: { zh: '日常训练用球，耐用经济', en: 'Durable & economical training balls', ko: '내구성 있고 경제적인 연습볼' }, emoji: '🟡' },
+                    { id: '2piece-ball', name: { zh: '两片球', en: '2-Piece Balls', ko: '2피스볼' }, desc: { zh: '远距离/高耐久性', en: 'Distance & durability focused', ko: '비거리/내구성 중심' }, emoji: '⚪' },
+                    { id: '3piece-ball', name: { zh: '三片球', en: '3-Piece Balls', ko: '3피스볼' }, desc: { zh: '综合性能平衡', en: 'Balanced performance', ko: '밸런스드 퍼포먼스' }, emoji: '🔵' },
+                    { id: '4piece-ball', name: { zh: '四片球', en: '4-Piece Balls', ko: '4피스볼' }, desc: { zh: '巡回赛级旋转控制', en: 'Tour-level spin control', ko: '투어레벨 스핀 컨트롤' }, emoji: '🔴' },
+                    { id: 'design-ball', name: { zh: '设计高尔夫球', en: 'Designer Golf Balls', ko: '디자인 골프볼' }, desc: { zh: '定制图案/Logo球', en: 'Custom pattern/logo balls', ko: '맞춤 패턴/로고 볼' }, emoji: '🎨' }
+                ]
+            },
+            'gear-clubs': {
+                title: { zh: '高尔夫球杆', en: 'Golf Clubs', ko: '골프 클럽' },
+                sub: 'GOLF CLUBS',
+                desc: { zh: '从一号木到推杆，全套专业球杆配置', en: 'Full professional club lineup from driver to putter', ko: '드라이버부터 퍼터까지 풀 프로 클럽 라인업' },
+                icon: '🏌️',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'full-set', name: { zh: '全套球杆', en: 'Full Set', ko: '풀세트' }, desc: { zh: '一站式全套球杆方案', en: 'One-stop full club solution', ko: '원스톱 풀 클럽 솔루션' }, emoji: '🏌️' },
+                    { id: 'driver', name: { zh: '一号木 (Driver)', en: 'Driver', ko: '드라이버' }, desc: { zh: '最大化开球距离', en: 'Maximize tee-off distance', ko: '티오프 비거리 극대화' }, emoji: '💨' },
+                    { id: 'fairway-wood', name: { zh: '球道木 (Fairway Wood)', en: 'Fairway Wood', ko: '페어웨이 우드' }, desc: { zh: '球道长距离击球', en: 'Long fairway shots', ko: '페어웨이 장거리 샷' }, emoji: '🌲' },
+                    { id: 'hybrid', name: { zh: '混合杆 (Hybrid)', en: 'Hybrid', ko: '하이브리드' }, desc: { zh: '铁木兼容易打性', en: 'Iron-wood hybrid playability', ko: '아이언-우드 하이브리드 플레이어빌리티' }, emoji: '🔄' },
+                    { id: 'iron', name: { zh: '铁杆 (Iron)', en: 'Irons', ko: '아이언' }, desc: { zh: '精准中短距离控制', en: 'Precise mid-short distance control', ko: '정밀 중단거리 컨트롤' }, emoji: '⚡' },
+                    { id: 'wedge', name: { zh: '挖起杆/切杆 (Wedge)', en: 'Wedges', ko: '웨지' }, desc: { zh: '短打/沙坑脱困', en: 'Short game & bunker escape', ko: '숏게임/벙커 탈출' }, emoji: '⛳' },
+                    { id: 'putter', name: { zh: '推杆 (Putter)', en: 'Putter', ko: '퍼터' }, desc: { zh: '果岭上的精准之选', en: 'Precision on the green', ko: '그린 위의 정밀한 선택' }, emoji: '🎯' }
+                ]
+            },
+            'gear-apparel': {
+                title: { zh: '高尔夫服装', en: 'Golf Apparel', ko: '골프 의류' },
+                sub: 'GOLF APPAREL',
+                desc: { zh: '兼顾功能性与时尚感的专业高尔夫服饰系列', en: 'Professional golf wear balancing function and style', ko: '기능성과 패션을 겸비한 프로 골프 의류 시리즈' },
+                icon: '👕',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'long-sleeve', name: { zh: '长袖T恤', en: 'Long Sleeve T-Shirt', ko: '긴소매 티셔츠' }, desc: { zh: '透气速干长袖', en: 'Breathable quick-dry long sleeve', ko: '통기성 속건 긴소매' }, emoji: '👔' },
+                    { id: 'short-sleeve', name: { zh: '短袖T恤', en: 'Short Sleeve T-Shirt', ko: '반소매 티셔츠' }, desc: { zh: '轻量运动短袖', en: 'Lightweight sport short sleeve', ko: '경량 스포츠 반소매' }, emoji: '👕' },
+                    { id: 'long-pants', name: { zh: '长裤', en: 'Long Pants', ko: '긴바지' }, desc: { zh: '弹力修身长裤', en: 'Stretch slim-fit pants', ko: '스트레치 슬림핏 바지' }, emoji: '👖' },
+                    { id: 'shorts', name: { zh: '短裤', en: 'Shorts', ko: '반바지' }, desc: { zh: '活动自如运动短裤', en: 'Active mobility sport shorts', ko: '자유로운 활동의 스포츠 반바지' }, emoji: '🩳' },
+                    { id: 'rainwear', name: { zh: '雨衣/雨披', en: 'Rainwear', ko: '레인웨어' }, desc: { zh: '防水透气雨具', en: 'Waterproof breathable rain gear', ko: '방수 통기성 레인기어' }, emoji: '🌧️' },
+                    { id: 'windbreaker', name: { zh: '防风外套', en: 'Windbreaker', ko: '윈드브레이커' }, desc: { zh: '轻量防风夹克', en: 'Lightweight wind jacket', ko: '경량 방풍 자켓' }, emoji: '🧥' },
+                    { id: 'down-jacket', name: { zh: '羽绒服', en: 'Down Jacket', ko: '다운자켓' }, desc: { zh: '高保暖轻量羽绒', en: 'High warmth lightweight down', ko: '고보온 경량 다운' }, emoji: '🧣' },
+                    { id: 'knitwear', name: { zh: '针织/毛衣', en: 'Knitwear', ko: '니트웨어' }, desc: { zh: '舒适保暖针织衫', en: 'Comfortable warm knitwear', ko: '편안한 보온 니트웨어' }, emoji: '🧶' },
+                    { id: 'vest', name: { zh: '背心', en: 'Vest', ko: '조끼' }, desc: { zh: '多功能运动背心', en: 'Multi-function sport vest', ko: '다기능 스포츠 조끼' }, emoji: '🦺' },
+                    { id: 'shirt', name: { zh: '衬衫', en: 'Shirt', ko: '셔츠' }, desc: { zh: '正式场合高尔夫衬衫', en: 'Formal occasion golf shirt', ko: '포멀한 골프 셔츠' }, emoji: '👔' },
+                    { id: 'skirt', name: { zh: '裙子', en: 'Skirt', ko: '스커트' }, desc: { zh: '女士运动裙装', en: "Women's sport skirt", ko: '여성 스포츠 스커트' }, emoji: '👗' },
+                    { id: 'underwear', name: { zh: '内衣', en: 'Underwear', ko: '언더웨어' }, desc: { zh: '运动功能内衣', en: 'Sport functional underwear', ko: '스포츠 기능성 언더웨어' }, emoji: '🩱' },
+                    { id: 'golf-underwear', name: { zh: '高尔夫内衣', en: 'Golf Underwear', ko: '골프 이너웨어' }, desc: { zh: '高尔夫专用贴身衣物', en: 'Golf-specific base layers', ko: '골프 전용 이너웨어' }, emoji: '🏷️' }
+                ]
+            },
+            'gear-shoes': {
+                title: { zh: '高尔夫球鞋', en: 'Golf Shoes', ko: '골프화' },
+                sub: 'GOLF SHOES',
+                desc: { zh: '稳定、舒适、防滑的专业高尔夫鞋款', en: 'Stable, comfortable and anti-slip professional golf shoes', ko: '안정적이고 편안한 미끄럼 방지 프로 골프화' },
+                icon: '👟',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'boa-shoes', name: { zh: 'BOA TYPE 球鞋', en: 'BOA Type Shoes', ko: 'BOA 타입 골프화' }, desc: { zh: 'BOA 旋钮快速系紧系统', en: 'BOA dial quick-lace system', ko: 'BOA 다이얼 퀵레이스 시스템' }, emoji: '🔄' },
+                    { id: 'normal-shoes', name: { zh: '普通 TYPE 球鞋', en: 'Regular Type Shoes', ko: '일반 타입 골프화' }, desc: { zh: '经典系带高尔夫鞋', en: 'Classic lace-up golf shoes', ko: '클래식 레이스업 골프화' }, emoji: '👟' },
+                    { id: 'custom-shoes', name: { zh: '手工定制 TYPE', en: 'Handcrafted Type', ko: '핸드메이드 타입' }, desc: { zh: '手工打造定制鞋款', en: 'Handcrafted custom shoes', ko: '수제 맞춤 골프화' }, emoji: '✨' }
+                ]
+            },
+            'gear-fitting': {
+                title: { zh: '定制配件', en: 'Fitting Parts', ko: '피팅 파츠' },
+                sub: 'FITTING PARTS',
+                desc: { zh: '个性化定制你的球杆配置与保养方案', en: 'Customize your club setup and maintenance', ko: '클럽 셋업과 관리를 맞춤화하세요' },
+                icon: '🔧',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'grip', name: { zh: '握把 (Grip)', en: 'Grips', ko: '그립' }, desc: { zh: '多种材质/粗细握把选择', en: 'Multiple material & size options', ko: '다양한 재질/사이즈 옵션' }, emoji: '✊' },
+                    { id: 'shaft', name: { zh: '杆身 (Shaft)', en: 'Shafts', ko: '샤프트' }, desc: { zh: '碳素/钢材不同弹性杆身', en: 'Carbon/steel flex shaft options', ko: '카본/스틸 플렉스 샤프트' }, emoji: '📏' },
+                    { id: 'club-head', name: { zh: '杆头 (Head)', en: 'Club Heads', ko: '헤드' }, desc: { zh: '不同角度/重量杆头', en: 'Various loft/weight head options', ko: '다양한 로프트/무게 헤드' }, emoji: '🔨' },
+                    { id: 'maintenance', name: { zh: '保养用品', en: 'Maintenance', ko: '관리용품' }, desc: { zh: '球杆清洁/保养套装', en: 'Club cleaning & care kit', ko: '클럽 청소/관리 키트' }, emoji: '🧴' },
+                    { id: 'training-aid', name: { zh: '练习器具', en: 'Training Aids', ko: '연습기구' }, desc: { zh: '挥杆矫正/力量训练工具', en: 'Swing correction & strength tools', ko: '스윙 교정/근력 훈련 도구' }, emoji: '🎯' }
+                ]
+            },
+            'gear-beauty': {
+                title: { zh: '高尔夫美容', en: 'Golf Beauty', ko: '골프 뷰티' },
+                sub: 'GOLF BEAUTY',
+                desc: { zh: '户外运动专属的护肤与防护产品', en: 'Skincare & protection made for outdoor sports', ko: '아웃도어 스포츠를 위한 스킨케어 & 보호 제품' },
+                icon: '✨',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'sunscreen', name: { zh: '防晒霜', en: 'Sunscreen', ko: '선크림' }, desc: { zh: '高倍数运动防晒', en: 'High SPF sport sunscreen', ko: '고SPF 스포츠 선크림' }, emoji: '☀️' },
+                    { id: 'patches', name: { zh: '贴片', en: 'Patches', ko: '패치' }, desc: { zh: '防护/冷感贴片', en: 'Protection & cooling patches', ko: '보호/쿨링 패치' }, emoji: '💊' },
+                    { id: 'tissues', name: { zh: '纸巾', en: 'Tissues', ko: '티슈' }, desc: { zh: '便携湿巾/纸巾', en: 'Portable wet wipes & tissues', ko: '휴대용 물티슈/티슈' }, emoji: '🧻' },
+                    { id: 'neck-care', name: { zh: '颈部护理', en: 'Neck Care', ko: '넥케어' }, desc: { zh: '颈部防晒/冷感围巾', en: 'Neck UV protection & cooling scarf', ko: '목 자외선 차단/쿨링 스카프' }, emoji: '🧣' }
+                ]
+            },
+            'gear-practice': {
+                title: { zh: '练习用品', en: 'Practice Goods', ko: '연습 용품' },
+                sub: 'PRACTICE GOODS',
+                desc: { zh: '高尔夫练习辅助工具与训练器材', en: 'Golf practice aids and training equipment', ko: '골프 연습 보조 도구 및 트레이닝 장비' },
+                icon: '🎯',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'swing-trainer', name: { zh: '挥杆练习器', en: 'Swing Trainer', ko: '스윙 트레이너' }, desc: { zh: '纠正挥杆姿势', en: 'Correct your swing form', ko: '스윙 자세 교정' }, emoji: '🏌️' },
+                    { id: 'putting-mat', name: { zh: '推杆练习垫', en: 'Putting Mat', ko: '퍼팅 연습 매트' }, desc: { zh: '室内果岭推杆练习', en: 'Indoor putting green practice', ko: '실내 퍼팅 그린 연습' }, emoji: '🟩' },
+                    { id: 'net', name: { zh: '练习网', en: 'Practice Net', ko: '연습 네트' }, desc: { zh: '便携击球练习网', en: 'Portable hitting practice net', ko: '휴대용 타격 연습 네트' }, emoji: '🥅' }
+                ]
+            },
+            'gear-screen': {
+                title: { zh: '屏幕制作', en: 'Screen Making', ko: '스크린 제작' },
+                sub: 'SCREEN MAKING',
+                desc: { zh: '高尔夫模拟器配套屏幕与打击设施', en: 'Simulator screens and hitting facilities', ko: '골프 시뮬레이터 스크린 및 타격 시설' },
+                icon: '🖥️',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'screen-cloth', name: { zh: '屏幕布', en: 'Screen Cloth', ko: '스크린천' }, desc: { zh: '高清投影屏幕布', en: 'HD projection screen cloth', ko: 'HD 프로젝션 스크린천' }, emoji: '🖥️' },
+                    { id: 'club-rack', name: { zh: '球杆支架', en: 'Club Rack', ko: '클럽 거치대' }, desc: { zh: '球杆存放展示架', en: 'Club storage display rack', ko: '클럽 보관 전시대' }, emoji: '🗄️' },
+                    { id: 'hitting-mat', name: { zh: '打击垫', en: 'Hitting Mat', ko: '타격 매트' }, desc: { zh: '仿真草坪打击垫', en: 'Realistic turf hitting mat', ko: '리얼 잔디 타격 매트' }, emoji: '🟫' }
+                ]
+            },
+            'gear-park': {
+                title: { zh: '公园高尔夫', en: 'Park Golf', ko: '파크 골프' },
+                sub: 'PARK GOLF',
+                desc: { zh: '适合全年龄段的休闲公园高尔夫装备', en: 'Leisure park golf equipment for all ages', ko: '전 연령대를 위한 레저 파크골프 장비' },
+                icon: '🌳',
+                parent: 'golf-gear',
+                items: [
+                    { id: 'park-clubs', name: { zh: '公园高尔夫球杆', en: 'Park Golf Clubs', ko: '파크골프 클럽' }, desc: { zh: '轻量休闲公园球杆', en: 'Lightweight leisure park clubs', ko: '경량 레저 파크골프 클럽' }, emoji: '🏑' },
+                    { id: 'park-balls', name: { zh: '公园高尔夫球', en: 'Park Golf Balls', ko: '파크골프 볼' }, desc: { zh: '专用大尺寸公园球', en: 'Dedicated large-size park balls', ko: '전용 대형 파크골프 볼' }, emoji: '🟠' },
+                    { id: 'park-bags', name: { zh: '公园高尔夫球包', en: 'Park Golf Bags', ko: '파크골프 가방' }, desc: { zh: '便携公园高尔夫球包', en: 'Portable park golf bag', ko: '휴대용 파크골프 가방' }, emoji: '🎒' }
+                ]
+            }
+        };
+
+        // 合并所有分类数据
+        const categoryData = { ...hardwareData, ...gearData };
 
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -134,27 +367,57 @@
             const data = categoryData[catId];
             const lang = localStorage.getItem('tm-lang') || 'zh';
 
+            // Breadcrumb
+            const breadcrumb = document.getElementById('breadcrumb');
+            const isGear = catId && catId.startsWith('gear-');
+            if (isGear) {
+                breadcrumb.innerHTML = `<a href="index.html" data-i18n="nav-home">首页</a> / <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a> / <span id="bc-current"></span>`;
+            } else {
+                breadcrumb.innerHTML = `<a href="index.html" data-i18n="nav-home">首页</a> / <a href="products.html" data-i18n="nav-products">产品中心</a> / <span id="bc-current"></span>`;
+            }
+
             if (data) {
-                document.getElementById('cat-title').textContent = data.title[lang] || data.title.zh;
+                const catTitle = data.title[lang] || data.title.zh;
+                document.getElementById('cat-title').textContent = catTitle;
                 document.getElementById('cat-subtitle').textContent = data.sub;
+                const bcCurrent = document.getElementById('bc-current');
+                if (bcCurrent) bcCurrent.textContent = catTitle;
+
+                if (data.desc) {
+                    document.getElementById('cat-desc').textContent = data.desc[lang] || data.desc.zh;
+                }
 
                 const grid = document.getElementById('category-grid');
                 data.items.forEach((item, index) => {
                     const itemName = item.name[lang] || item.name.zh;
                     const itemDesc = item.desc[lang] || item.desc.zh;
+                    const link = item.link || `gear-detail.html?cat=${catId}&id=${item.id}`;
+
+                    // Use image if available, otherwise emoji placeholder
+                    const imgHtml = item.img
+                        ? `<img src="${item.img}" alt="${itemName}" class="tm-card-img">`
+                        : `<div class="tm-card-img-placeholder">${item.emoji || '🏌️'}</div>`;
+
+                    const badgeHtml = item.id ? `<span class="tm-card-badge">${item.id.toUpperCase()}</span>` : '';
+
                     grid.innerHTML += `
-            <a href="${item.link}" class="tm-card tm-reveal active" style="transition-delay: ${index * 0.1}s">
-              <img src="${item.img}" alt="${itemName}" class="tm-card-img">
-              <div class="tm-card-content">
-                <h3 class="tm-card-title">${itemName}</h3>
-                <p class="tm-card-desc">${itemDesc}</p>
-              </div>
-            </a>
-          `;
+                        <a href="${link}" class="tm-card tm-reveal active" style="transition-delay: ${index * 0.05}s">
+                            ${imgHtml}
+                            <div class="tm-card-content">
+                                <h3 class="tm-card-title">${itemName}</h3>
+                                <p class="tm-card-desc">${itemDesc}</p>
+                                ${badgeHtml}
+                            </div>
+                        </a>
+                    `;
                 });
             } else {
                 document.getElementById('cat-title').textContent = "未找到分类";
+                document.getElementById('cat-desc').textContent = "请从首页导航进入正确的分类页面。";
             }
+
+            // Apply i18n
+            updateLanguage(lang);
         });
     </script>
 </body>

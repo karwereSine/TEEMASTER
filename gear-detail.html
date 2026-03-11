@@ -1,0 +1,504 @@
+<!doctype html>
+<html class="no-js" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>产品详情 | T-Master Golf Gear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <style>
+        body {
+            background-color: #050505;
+        }
+
+        .tm-detail-main {
+            padding-top: calc(var(--tm-header-height) + 40px);
+            max-width: var(--tm-max-width);
+            margin: 0 auto;
+            padding-left: var(--tm-spacing-lg);
+            padding-right: var(--tm-spacing-lg);
+            padding-bottom: 80px;
+        }
+
+        /* Breadcrumb */
+        .tm-breadcrumb {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--tm-color-text-muted);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .tm-breadcrumb a {
+            color: var(--tm-color-text-muted);
+            transition: color 0.2s;
+        }
+
+        .tm-breadcrumb a:hover {
+            color: var(--tm-color-text);
+        }
+
+        .tm-breadcrumb .current {
+            color: var(--tm-color-accent);
+        }
+
+        /* Product Hero */
+        .tm-gear-detail-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--tm-spacing-lg);
+            margin-bottom: var(--tm-spacing-xl);
+        }
+
+        .tm-gear-visual {
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border: 1px solid var(--tm-color-border);
+            border-radius: 12px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tm-gear-visual::after {
+            content: '产品图片待上传';
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: var(--tm-color-text-muted);
+            opacity: 0.5;
+        }
+
+        .tm-gear-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .tm-gear-info .tm-badge {
+            display: inline-block;
+            background: var(--tm-color-accent);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            align-self: flex-start;
+        }
+
+        .tm-gear-info h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--tm-color-text);
+            line-height: 1.2;
+        }
+
+        .tm-gear-info .tm-en-name {
+            font-size: 1rem;
+            color: var(--tm-color-text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .tm-gear-info .tm-desc {
+            font-size: 1rem;
+            color: var(--tm-color-text-muted);
+            line-height: 1.8;
+        }
+
+        .tm-gear-info .tm-cta {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 2px solid var(--tm-color-accent);
+            color: var(--tm-color-accent);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            border-radius: 4px;
+        }
+
+        .tm-gear-info .tm-cta:hover {
+            background: var(--tm-color-accent);
+            color: #fff;
+        }
+
+        /* Specs placeholder */
+        .tm-specs-section {
+            background: var(--tm-color-bg-secondary);
+            border: 1px solid var(--tm-color-border);
+            border-radius: 12px;
+            padding: var(--tm-spacing-lg);
+        }
+
+        .tm-specs-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--tm-color-text);
+            margin-bottom: var(--tm-spacing-md);
+        }
+
+        .tm-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .tm-spec-item {
+            padding: 16px;
+            background: var(--tm-color-bg);
+            border: 1px solid var(--tm-color-border);
+            border-radius: 8px;
+        }
+
+        .tm-spec-item dt {
+            font-size: 0.8rem;
+            color: var(--tm-color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .tm-spec-item dd {
+            font-size: 1rem;
+            color: var(--tm-color-text);
+            font-weight: 600;
+        }
+
+        /* Related Products */
+        .tm-related {
+            margin-top: var(--tm-spacing-xl);
+        }
+
+        .tm-related h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--tm-color-text);
+            margin-bottom: var(--tm-spacing-md);
+        }
+
+        .tm-related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .tm-related-card {
+            background: var(--tm-color-bg-secondary);
+            border: 1px solid var(--tm-color-border);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: var(--tm-transition-fast);
+            text-decoration: none;
+        }
+
+        .tm-related-card:hover {
+            border-color: var(--tm-color-accent);
+            transform: translateY(-3px);
+        }
+
+        .tm-related-card .emoji {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .tm-related-card h4 {
+            font-size: 0.9rem;
+            color: var(--tm-color-text);
+        }
+
+        /* Scroll reveal */
+        .tm-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .tm-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .tm-gear-detail-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .tm-gear-visual {
+                min-height: 280px;
+                font-size: 4rem;
+            }
+
+            .tm-gear-info h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="tm-header scrolled" id="tm-header">
+        <div class="tm-header-container">
+            <a href="index.html" class="tm-logo">T-Master</a>
+            <nav class="tm-nav">
+                <ul class="tm-nav-list">
+                    <li><a href="index.html" data-i18n="nav-home">首页</a></li>
+                    <li><a href="products.html" data-i18n="nav-products">产品中心</a></li>
+                    <li><a href="golf-gear.html" data-i18n="nav-golf-gear"
+                            style="color: var(--tm-color-accent);">高尔夫用品</a></li>
+                    <li><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav-contact">联系我们</a></li>
+                </ul>
+            </nav>
+            <div class="tm-lang-switcher">
+                <select id="lang-select">
+                    <option value="zh">中文</option>
+                    <option value="en">English</option>
+                    <option value="ko">한국어</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="tm-detail-main">
+        <div class="tm-breadcrumb" id="breadcrumb"></div>
+
+        <div class="tm-gear-detail-hero tm-reveal">
+            <div class="tm-gear-visual" id="product-visual">🏌️</div>
+            <div class="tm-gear-info">
+                <span class="tm-badge" id="product-badge">GOLF GEAR</span>
+                <h1 id="product-title">产品名称</h1>
+                <p class="tm-en-name" id="product-en-name">Product Name</p>
+                <p class="tm-desc" id="product-desc">产品描述</p>
+                <a href="index.html#contact" class="tm-cta" data-i18n="form-submit">✈ 咨询订购</a>
+            </div>
+        </div>
+
+        <div class="tm-specs-section tm-reveal" style="transition-delay: 0.15s;">
+            <h2 id="specs-title">📋 产品规格参数</h2>
+            <div class="tm-specs-grid" id="specs-grid">
+                <!-- Dynamic specs -->
+            </div>
+        </div>
+
+        <div class="tm-related tm-reveal" style="transition-delay: 0.3s;">
+            <h2 id="related-title">🔗 同系列产品</h2>
+            <div class="tm-related-grid" id="related-grid">
+                <!-- Dynamic related products -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="tm-footer">
+        <div class="tm-footer-inner">
+            <div class="tm-footer-brand">
+                <div class="tm-footer-logo">T-MASTER</div>
+                <p class="tm-footer-tagline" data-i18n="footer-tagline">Smart Golf Platform</p>
+            </div>
+            <div class="tm-footer-nav">
+                <h4 data-i18n="footer-nav-title">快速导航</h4>
+                <a href="index.html" data-i18n="nav-home">首页</a>
+                <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a>
+            </div>
+            <div class="tm-footer-legal">
+                <h4 data-i18n="footer-legal-title">法律信息</h4>
+                <a href="#" data-i18n="footer-privacy">隐私政策</a>
+                <a href="#" data-i18n="footer-terms">服务条款</a>
+            </div>
+        </div>
+        <div class="tm-footer-bottom">
+            <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2025 T-MASTER. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Product detail specs data
+        const gearSpecs = {
+            // Bags
+            'bag-set': { emoji: '🧳', specs: [{ l: 'Type', v: 'Full Set' }, { l: 'Material', v: 'PU / Nylon' }, { l: 'Weight', v: '~3.5 kg' }, { l: 'Dividers', v: '14-way' }] },
+            'boston-bag': { emoji: '👜', specs: [{ l: 'Type', v: 'Boston' }, { l: 'Material', v: 'PU Leather' }, { l: 'Capacity', v: '45L' }, { l: 'Shoulder', v: 'Detachable' }] },
+            'stand-bag': { emoji: '🏌️', specs: [{ l: 'Type', v: 'Stand' }, { l: 'Weight', v: '~2.2 kg' }, { l: 'Legs', v: 'Auto-deploy' }, { l: 'Pockets', v: '7' }] },
+            'half-bag': { emoji: '🎒', specs: [{ l: 'Type', v: 'Half' }, { l: 'Capacity', v: '6-7 clubs' }, { l: 'Weight', v: '~1.2 kg' }, { l: 'Use', v: 'Practice' }] },
+            'bag-cart': { emoji: '🛒', specs: [{ l: 'Type', v: 'Cart' }, { l: 'Foldable', v: 'Yes' }, { l: 'Wheels', v: '3-wheel' }, { l: 'Load', v: '15 kg' }] },
+            'bag-cover': { emoji: '🛡️', specs: [{ l: 'Material', v: 'Waterproof Nylon' }, { l: 'Padded', v: 'Yes' }, { l: 'Wheels', v: 'Built-in' }, { l: 'Use', v: 'Travel' }] },
+            'shoe-bag': { emoji: '👟', specs: [{ l: 'Material', v: 'Breathable Mesh' }, { l: 'Ventilation', v: 'Yes' }, { l: 'Size', v: 'Universal' }, { l: 'Zip', v: 'YKK' }] },
+            'small-bag': { emoji: '👛', specs: [{ l: 'Type', v: 'Pouch' }, { l: 'Material', v: 'PU Leather' }, { l: 'Pockets', v: '3' }, { l: 'Closure', v: 'Magnetic' }] },
+            'ball-bag': { emoji: '🏐', specs: [{ l: 'Capacity', v: '50 balls' }, { l: 'Material', v: 'Mesh / Nylon' }, { l: 'Drawstring', v: 'Yes' }, { l: 'Use', v: 'Range' }] },
+            // Accessories
+            'glove': { emoji: '🧤', specs: [{ l: 'Material', v: 'Cabretta Leather' }, { l: 'Sizes', v: 'S / M / L / XL' }, { l: 'Grip', v: 'Enhanced' }, { l: 'Breathable', v: 'Yes' }] },
+            'cap': { emoji: '🧢', specs: [{ l: 'Material', v: 'Polyester' }, { l: 'UPF', v: '50+' }, { l: 'Adjustable', v: 'Yes' }, { l: 'Sweatband', v: 'Built-in' }] },
+            'belt': { emoji: '👔', specs: [{ l: 'Material', v: 'Genuine Leather' }, { l: 'Buckle', v: 'Auto-lock' }, { l: 'Width', v: '35mm' }, { l: 'Sizes', v: 'Free' }] },
+            'socks': { emoji: '🧦', specs: [{ l: 'Material', v: 'Merino Blend' }, { l: 'Cushion', v: 'Arch support' }, { l: 'Height', v: 'Mid-calf' }, { l: 'Moisture', v: 'Wicking' }] },
+            'arm-guard': { emoji: '💪', specs: [{ l: 'UPF', v: '50+' }, { l: 'Cooling', v: 'Ice-feel' }, { l: 'Stretch', v: '4-way' }, { l: 'Sizes', v: 'S-XL' }] },
+            'headcover': { emoji: '🎩', specs: [{ l: 'Material', v: 'Knit / PU' }, { l: 'Types', v: 'Driver / Wood / Putter' }, { l: 'Number Tag', v: 'Yes' }, { l: 'Lining', v: 'Fleece' }] },
+            'cleaner': { emoji: '🧹', specs: [{ l: 'Type', v: 'Brush + Towel' }, { l: 'Material', v: 'Microfiber' }, { l: 'Retractable', v: 'Yes' }, { l: 'Clip', v: 'Carabiner' }] },
+            'tee': { emoji: '📌', specs: [{ l: 'Material', v: 'Wood / Plastic' }, { l: 'Heights', v: '54 / 70 / 83mm' }, { l: 'Pack', v: '50-100 pcs' }, { l: 'Eco', v: 'Biodegradable' }] },
+            'winter-gear': { emoji: '❄️', specs: [{ l: 'Type', v: 'Hand Warmer' }, { l: 'Duration', v: '8+ hours' }, { l: 'Eco', v: 'Reusable' }, { l: 'Material', v: 'Fleece' }] },
+            // Balls
+            'practice-ball': { emoji: '🟡', specs: [{ l: 'Type', v: 'Practice' }, { l: 'Layer', v: '1-piece' }, { l: 'Durability', v: 'High' }, { l: 'Use', v: 'Range / Home' }] },
+            '2piece-ball': { emoji: '⚪', specs: [{ l: 'Type', v: '2-Piece' }, { l: 'Core', v: 'Solid rubber' }, { l: 'Cover', v: 'Surlyn' }, { l: 'Best For', v: 'Distance' }] },
+            '3piece-ball': { emoji: '🔵', specs: [{ l: 'Type', v: '3-Piece' }, { l: 'Core', v: 'Dual core' }, { l: 'Cover', v: 'Urethane' }, { l: 'Best For', v: 'Balance' }] },
+            '4piece-ball': { emoji: '🔴', specs: [{ l: 'Type', v: '4-Piece' }, { l: 'Core', v: 'Multi-layer' }, { l: 'Cover', v: 'Cast Urethane' }, { l: 'Best For', v: 'Tour Spin' }] },
+            'design-ball': { emoji: '🎨', specs: [{ l: 'Type', v: 'Custom' }, { l: 'Print', v: 'Full color' }, { l: 'MOQ', v: '12 dozen' }, { l: 'Best For', v: 'Gift / Event' }] },
+            // Clubs
+            'full-set': { emoji: '🏌️', specs: [{ l: 'Clubs', v: '12-14 pcs' }, { l: 'Shaft', v: 'Graphite / Steel' }, { l: 'Flex', v: 'R / S / SR' }, { l: 'Includes', v: 'Bag + Covers' }] },
+            'driver': { emoji: '💨', specs: [{ l: 'Loft', v: '9° / 10.5° / 12°' }, { l: 'Volume', v: '460cc' }, { l: 'Shaft', v: 'Graphite' }, { l: 'Material', v: 'Titanium' }] },
+            'fairway-wood': { emoji: '🌲', specs: [{ l: 'Loft', v: '15° / 18° / 21°' }, { l: 'Size', v: '#3 / #5 / #7' }, { l: 'Shaft', v: 'Graphite' }, { l: 'Sole', v: 'Low CG' }] },
+            'hybrid': { emoji: '🔄', specs: [{ l: 'Loft', v: '19° / 22° / 25°' }, { l: 'Replaces', v: '3-5 Iron' }, { l: 'Shaft', v: 'Graphite' }, { l: 'Forgiveness', v: 'High' }] },
+            'iron': { emoji: '⚡', specs: [{ l: 'Set', v: '#5-PW (6pcs)' }, { l: 'Type', v: 'Cavity back' }, { l: 'Shaft', v: 'Steel / Graphite' }, { l: 'Forgiveness', v: 'Mid-High' }] },
+            'wedge': { emoji: '⛳', specs: [{ l: 'Loft', v: '50° / 52° / 56° / 60°' }, { l: 'Bounce', v: '8° / 10° / 12°' }, { l: 'Grind', v: 'Standard / Wide' }, { l: 'Finish', v: 'Chrome' }] },
+            'putter': { emoji: '🎯', specs: [{ l: 'Type', v: 'Blade / Mallet' }, { l: 'Insert', v: 'Soft feel' }, { l: 'Length', v: '33" / 34" / 35"' }, { l: 'Grip', v: 'Super stroke' }] },
+            // Apparel
+            'long-sleeve': { emoji: '👔', specs: [{ l: 'Material', v: 'Polyester blend' }, { l: 'Feature', v: 'Quick-dry' }, { l: 'Sizes', v: 'S-3XL' }, { l: 'UPF', v: '30+' }] },
+            'short-sleeve': { emoji: '👕', specs: [{ l: 'Material', v: 'Polyester' }, { l: 'Feature', v: 'Breathable' }, { l: 'Sizes', v: 'S-3XL' }, { l: 'Collar', v: 'Polo' }] },
+            'long-pants': { emoji: '👖', specs: [{ l: 'Material', v: 'Stretch fabric' }, { l: 'Fit', v: 'Slim / Regular' }, { l: 'Sizes', v: '28-38' }, { l: 'Pockets', v: '4' }] },
+            'shorts': { emoji: '🩳', specs: [{ l: 'Material', v: 'Stretch nylon' }, { l: 'Length', v: 'Above knee' }, { l: 'Sizes', v: '28-38' }, { l: 'Feature', v: 'Quick-dry' }] },
+            'rainwear': { emoji: '🌧️', specs: [{ l: 'Waterproof', v: '20,000mm' }, { l: 'Breathable', v: '10,000g' }, { l: 'Seam', v: 'Fully sealed' }, { l: 'Pack', v: 'Jacket + Pants' }] },
+            'windbreaker': { emoji: '🧥', specs: [{ l: 'Material', v: 'Ripstop nylon' }, { l: 'Weight', v: '~180g' }, { l: 'Windproof', v: 'Yes' }, { l: 'Packable', v: 'Yes' }] },
+            'down-jacket': { emoji: '🧣', specs: [{ l: 'Fill', v: '90% Goose down' }, { l: 'Power', v: '700FP' }, { l: 'Weight', v: '~350g' }, { l: 'Packable', v: 'Yes' }] },
+            'knitwear': { emoji: '🧶', specs: [{ l: 'Material', v: 'Merino wool blend' }, { l: 'Weight', v: 'Mid-weight' }, { l: 'Sizes', v: 'S-3XL' }, { l: 'Wash', v: 'Machine safe' }] },
+            'vest': { emoji: '🦺', specs: [{ l: 'Type', v: 'Padded / Fleece' }, { l: 'Insulation', v: 'PrimaLoft' }, { l: 'Pockets', v: '3' }, { l: 'Sizes', v: 'S-3XL' }] },
+            'shirt': { emoji: '👔', specs: [{ l: 'Material', v: 'Cotton blend' }, { l: 'Fit', v: 'Classic' }, { l: 'Collar', v: 'Button-down' }, { l: 'Sizes', v: 'S-3XL' }] },
+            'skirt': { emoji: '👗', specs: [{ l: 'Material', v: 'Stretch fabric' }, { l: 'Length', v: 'Above knee' }, { l: 'Feature', v: 'Inner shorts' }, { l: 'Sizes', v: 'XS-XL' }] },
+            'underwear': { emoji: '🩱', specs: [{ l: 'Material', v: 'Nylon / Spandex' }, { l: 'Feature', v: 'Moisture wicking' }, { l: 'Seamless', v: 'Yes' }, { l: 'Sizes', v: 'S-XL' }] },
+            'golf-underwear': { emoji: '🏷️', specs: [{ l: 'Material', v: 'Coolmax fiber' }, { l: 'UPF', v: '30+' }, { l: 'Compression', v: 'Light' }, { l: 'Sizes', v: 'S-XL' }] },
+            // Shoes
+            'boa-shoes': { emoji: '🔄', specs: [{ l: 'System', v: 'BOA Dial' }, { l: 'Sole', v: 'Spikeless' }, { l: 'Waterproof', v: 'Yes' }, { l: 'Sizes', v: '240-290mm' }] },
+            'normal-shoes': { emoji: '👟', specs: [{ l: 'System', v: 'Lace-up' }, { l: 'Sole', v: 'Spike / Spikeless' }, { l: 'Waterproof', v: 'Yes' }, { l: 'Sizes', v: '240-290mm' }] },
+            'custom-shoes': { emoji: '✨', specs: [{ l: 'Type', v: 'Handcrafted' }, { l: 'Material', v: 'Premium Leather' }, { l: 'Custom', v: 'Size + Design' }, { l: 'Lead Time', v: '4-6 weeks' }] },
+            // Fitting
+            'grip': { emoji: '✊', specs: [{ l: 'Material', v: 'Rubber / Cord' }, { l: 'Sizes', v: 'Standard / Midsize / Oversize' }, { l: 'Weight', v: '45-65g' }, { l: 'Taper', v: 'Standard' }] },
+            'shaft': { emoji: '📏', specs: [{ l: 'Material', v: 'Carbon / Steel' }, { l: 'Flex', v: 'L / R / S / X' }, { l: 'Weight', v: '40-130g' }, { l: 'Tip', v: '0.335 / 0.370"' }] },
+            'club-head': { emoji: '🔨', specs: [{ l: 'Material', v: 'Titanium / SS' }, { l: 'Loft', v: 'Various' }, { l: 'Lie', v: 'Adjustable' }, { l: 'Finish', v: 'Chrome / Matte' }] },
+            'maintenance': { emoji: '🧴', specs: [{ l: 'Kit Contents', v: 'Brush + Towel + Polish' }, { l: 'Use', v: 'Club / Grip care' }, { l: 'Eco', v: 'Non-toxic' }, { l: 'Pack', v: 'Travel set' }] },
+            'training-aid': { emoji: '🎯', specs: [{ l: 'Type', v: 'Swing / Alignment' }, { l: 'Use', v: 'Indoor / Outdoor' }, { l: 'Material', v: 'Fiberglass' }, { l: 'Adjustable', v: 'Yes' }] },
+            // Beauty
+            'sunscreen': { emoji: '☀️', specs: [{ l: 'SPF', v: '50+ PA++++' }, { l: 'Type', v: 'Spray / Lotion' }, { l: 'Waterproof', v: 'Yes' }, { l: 'Volume', v: '50ml / 100ml' }] },
+            'patches': { emoji: '💊', specs: [{ l: 'Type', v: 'UV / Cooling' }, { l: 'Duration', v: '4-6 hours' }, { l: 'Skin Safe', v: 'Hypoallergenic' }, { l: 'Pack', v: '10 / 30 pcs' }] },
+            'tissues': { emoji: '🧻', specs: [{ l: 'Type', v: 'Wet / Dry' }, { l: 'Size', v: 'Portable' }, { l: 'Antibacterial', v: 'Yes' }, { l: 'Pack', v: '10-30 sheets' }] },
+            'neck-care': { emoji: '🧣', specs: [{ l: 'Type', v: 'Cooling Scarf' }, { l: 'UPF', v: '50+' }, { l: 'Material', v: 'Ice-feel fabric' }, { l: 'Feature', v: 'Wet-activate' }] },
+            // Practice
+            'swing-trainer': { emoji: '🏌️', specs: [{ l: 'Type', v: 'Weighted / Alignment' }, { l: 'Material', v: 'Steel / Rubber' }, { l: 'Use', v: 'Indoor + Outdoor' }, { l: 'Adjustable', v: 'Yes' }] },
+            'putting-mat': { emoji: '🟩', specs: [{ l: 'Size', v: '300x50cm' }, { l: 'Surface', v: 'Stimp 10-12' }, { l: 'Material', v: 'Velvet nylon' }, { l: 'Holes', v: '2-3' }] },
+            'net': { emoji: '🥅', specs: [{ l: 'Size', v: '300x210cm' }, { l: 'Material', v: 'PE / Nylon' }, { l: 'Foldable', v: 'Yes' }, { l: 'Use', v: 'Outdoor' }] },
+            // Screen
+            'screen-cloth': { emoji: '🖥️', specs: [{ l: 'Size', v: '300x300cm' }, { l: 'Material', v: 'Impact cloth' }, { l: 'Resolution', v: 'HD compatible' }, { l: 'Install', v: 'Hook system' }] },
+            'club-rack': { emoji: '🗄️', specs: [{ l: 'Capacity', v: '14 clubs' }, { l: 'Material', v: 'Steel' }, { l: 'Finish', v: 'Matte black' }, { l: 'Assembly', v: 'Tool-free' }] },
+            'hitting-mat': { emoji: '🟫', specs: [{ l: 'Size', v: '150x150cm' }, { l: 'Surface', v: 'Synthetic turf' }, { l: 'Tee Holes', v: '4' }, { l: 'Thickness', v: '30mm' }] },
+            // Park
+            'park-clubs': { emoji: '🏑', specs: [{ l: 'Length', v: '86cm' }, { l: 'Weight', v: '~600g' }, { l: 'Material', v: 'Alloy' }, { l: 'Grip', v: 'Rubber' }] },
+            'park-balls': { emoji: '🟠', specs: [{ l: 'Diameter', v: '6cm' }, { l: 'Weight', v: '~95g' }, { l: 'Material', v: 'Plastic' }, { l: 'Colors', v: '6 options' }] },
+            'park-bags': { emoji: '🎒', specs: [{ l: 'Capacity', v: '1-2 clubs' }, { l: 'Weight', v: '~300g' }, { l: 'Strap', v: 'Shoulder' }, { l: 'Material', v: 'Nylon' }] }
+        };
+
+        // Reuse gear data from category.html
+        const gearCategoryData = {
+            'gear-bags': { title: { zh: '高尔夫球包', en: 'Golf Bags', ko: '골프 가방' } },
+            'gear-accessories': { title: { zh: '高尔夫配件', en: 'Accessories', ko: '액세서리' } },
+            'gear-balls': { title: { zh: '高尔夫球', en: 'Golf Balls', ko: '골프볼' } },
+            'gear-clubs': { title: { zh: '高尔夫球杆', en: 'Golf Clubs', ko: '골프 클럽' } },
+            'gear-apparel': { title: { zh: '高尔夫服装', en: 'Golf Apparel', ko: '골프 의류' } },
+            'gear-shoes': { title: { zh: '高尔夫球鞋', en: 'Golf Shoes', ko: '골프화' } },
+            'gear-fitting': { title: { zh: '定制配件', en: 'Fitting Parts', ko: '피팅 파츠' } },
+            'gear-beauty': { title: { zh: '高尔夫美容', en: 'Golf Beauty', ko: '골프 뷰티' } },
+            'gear-practice': { title: { zh: '练习用品', en: 'Practice Goods', ko: '연습 용품' } },
+            'gear-screen': { title: { zh: '屏幕制作', en: 'Screen Making', ko: '스크린 제작' } },
+            'gear-park': { title: { zh: '公园高尔夫', en: 'Park Golf', ko: '파크 골프' } }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const catId = urlParams.get('cat');
+            const productId = urlParams.get('id');
+            const lang = localStorage.getItem('tm-lang') || 'zh';
+
+            const specData = gearSpecs[productId];
+            const catInfo = gearCategoryData[catId];
+
+            if (!specData || !catInfo) {
+                document.getElementById('product-title').textContent = '产品未找到';
+                return;
+            }
+
+            // Find product name from category page data (we rebuild a minimal lookup)
+            // Using URL-based approach for simplicity
+            const catTitle = catInfo.title[lang] || catInfo.title.zh;
+
+            // Format product name from ID
+            const productNames = {
+                zh: {}, en: {}, ko: {}
+            };
+
+            // Build breadcrumb
+            document.getElementById('breadcrumb').innerHTML =
+                `<a href="index.html">首页</a> / <a href="golf-gear.html">高尔夫用品</a> / <a href="category.html?cat=${catId}">${catTitle}</a> / <span class="current" id="bc-product">-</span>`;
+
+            // Set visual
+            document.getElementById('product-visual').textContent = specData.emoji;
+            document.getElementById('product-badge').textContent = catId.replace('gear-', '').toUpperCase();
+
+            // Find matching product info from URL params and set title
+            // We use a fetch-like approach by rebuilding from the gear detail spec keys
+            const prettyName = productId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            document.getElementById('product-title').textContent = prettyName;
+            document.getElementById('product-en-name').textContent = productId.toUpperCase().replace(/-/g, ' ');
+            document.getElementById('bc-product').textContent = prettyName;
+
+            // Build specs
+            const specsGrid = document.getElementById('specs-grid');
+            specData.specs.forEach(spec => {
+                specsGrid.innerHTML += `
+                    <dl class="tm-spec-item">
+                        <dt>${spec.l}</dt>
+                        <dd>${spec.v}</dd>
+                    </dl>
+                `;
+            });
+
+            // Build related products (other items in same category)
+            const relatedGrid = document.getElementById('related-grid');
+            Object.keys(gearSpecs).forEach(key => {
+                if (key !== productId) {
+                    // Only show items that might be in the same category (rough filter)
+                    const s = gearSpecs[key];
+                    relatedGrid.innerHTML += `
+                        <a href="gear-detail.html?cat=${catId}&id=${key}" class="tm-related-card">
+                            <div class="emoji">${s.emoji}</div>
+                            <h4>${key.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</h4>
+                        </a>
+                    `;
+                }
+            });
+
+            // Trigger animations
+            setTimeout(() => {
+                document.querySelectorAll('.tm-reveal').forEach(el => el.classList.add('active'));
+            }, 100);
+
+            updateLanguage(lang);
+        });
+    </script>
+</body>
+
+</html>

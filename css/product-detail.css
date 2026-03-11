@@ -8,6 +8,32 @@ body {
     min-height: 100vh;
 }
 
+/* 面包屑导航 */
+.tm-pdp-breadcrumb {
+    max-width: var(--tm-max-width);
+    margin: 0 auto;
+    padding: 16px var(--tm-spacing-lg) 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--tm-color-text-muted);
+    flex-wrap: wrap;
+}
+
+.tm-pdp-breadcrumb a {
+    color: var(--tm-color-text-muted);
+    transition: color 0.2s;
+}
+
+.tm-pdp-breadcrumb a:hover {
+    color: var(--tm-color-text);
+}
+
+.tm-pdp-breadcrumb .current {
+    color: var(--tm-color-accent);
+}
+
 /* 顶部返回按钮 */
 .tm-back-btn-mobile {
     display: none;
