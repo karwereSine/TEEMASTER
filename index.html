@@ -30,6 +30,45 @@
 
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
+  <style>
+    .tm-global-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .tm-global-cards {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .tm-global-cards>div {
+        padding: 20px !important;
+      }
+
+      .tm-global-cards h4 {
+        font-size: 1rem !important;
+      }
+
+      .tm-global-cards p {
+        font-size: 0.8rem !important;
+      }
+
+      .tm-contact-cta h2 {
+        font-size: 1.5rem;
+      }
+
+      .tm-contact-cta p {
+        font-size: 0.9rem !important;
+      }
+
+      .tm-contact-cta a {
+        padding: 12px 32px !important;
+        font-size: 0.9rem !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -224,7 +263,7 @@
           <h3 data-i18n="sec-global-title">🌍 全球业务布局</h3>
           <p data-i18n="sec-global-desc" style="color: var(--tm-color-text-muted); margin-top: 8px;">中韩双核驱动的跨国业务格局展示</p>
         </div>
-        <div class="tm-global-cards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div class="tm-global-cards">
           <div
             style="background: var(--tm-color-bg-secondary); border: 1px solid var(--tm-color-border); border-radius: 12px; padding: 28px; position: relative; overflow: hidden;">
             <div
