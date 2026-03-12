@@ -267,6 +267,20 @@
 
 /* Mobile: keep 2 columns for category grids */
 @media (max-width: 768px) {
+    .tm-section-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .tm-section-title::after {
+        width: 40px;
+        margin-top: 12px;
+    }
+
+    .tm-section-subtitle {
+        font-size: 0.8rem;
+    }
+
     .tm-grid {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
