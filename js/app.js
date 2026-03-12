@@ -385,3 +385,70 @@ function updateLanguage(lang) {
     }
   });
 }
+
+// Hamburger menu toggle + mobile language selector
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('tm-hamburger');
+  const nav = document.querySelector('.tm-nav');
+  if (!hamburger || !nav) return;
+
+  // Inject mobile language selector into nav
+  const langNames = { zh: '中文', en: 'English', ko: '한국어' };
+  const currentLang = document.getElementById('lang-select')?.value || 'zh';
+
+  const mobileLang = document.createElement('div');
+  mobileLang.className = 'tm-mobile-lang';
+  mobileLang.innerHTML = `
+    <div class="tm-mobile-lang-toggle">
+      🌐 ${langNames[currentLang]} <span class="arrow">▼</span>
+    </div>
+    <div class="tm-mobile-lang-options">
+      <button data-lang="zh" class="${currentLang === 'zh' ? 'active' : ''}">中文</button>
+      <button data-lang="en" class="${currentLang === 'en' ? 'active' : ''}">English</button>
+      <button data-lang="ko" class="${currentLang === 'ko' ? 'active' : ''}">한국어</button>
+    </div>
+  `;
+  nav.appendChild(mobileLang);
+
+  const toggle = mobileLang.querySelector('.tm-mobile-lang-toggle');
+  const options = mobileLang.querySelector('.tm-mobile-lang-options');
+
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('expanded');
+    options.classList.toggle('show');
+  });
+
+  options.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      // Update desktop select
+      const select = document.getElementById('lang-select');
+      if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+      }
+      // Update mobile UI
+      options.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      toggle.innerHTML = `🌐 ${langNames[lang]} <span class="arrow">▼</span>`;
+      toggle.classList.remove('expanded');
+      options.classList.remove('show');
+    });
+  });
+
+  // Toggle menu
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('open');
+    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close menu when a nav link is clicked
+  nav.querySelectorAll('.tm-nav-list a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      nav.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+});
