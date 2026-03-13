@@ -2,23 +2,23 @@
 <html class="no-js" lang="zh">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>自动配球机 | TEEMASTER</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/product-detail.css">
-    <meta name="theme-color" content="#0a0a0a">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自动配球机 | TEEMASTER</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/product-detail.css">
+  <meta name="theme-color" content="#0a0a0a">
 </head>
 
 <body>
 
-    <header class="tm-header scrolled" id="tm-header">
+  <header class="tm-header scrolled" id="tm-header">
     <div class="tm-header-container">
       <a href="index.html" class="tm-logo">TEEMASTER</a>
       <nav class="tm-nav">
@@ -106,112 +106,117 @@
     </div>
   </header>
 
-    <main class="tm-pdp-main">
-        <div class="tm-pdp-breadcrumb">
-            <a href="index.html">首页</a> /
-            <a href="products.html">产品中心</a> /
-            <a href="category.html?cat=distributor">自动配球机系列</a> /
-            <span class="current">智能自动供配球机</span>
+  <main class="tm-pdp-main">
+    <div class="tm-pdp-breadcrumb">
+      <a href="index.html">首页</a> /
+      <a href="products.html">产品中心</a> /
+      <a href="category.html?cat=distributor">自动配球机系列</a> /
+      <span class="current">智能自动供配球机</span>
+    </div>
+    <section class="tm-pdp-hero">
+      <div class="tm-pdp-gallery">
+        <img id="pdp-main-img" src="img/products/各种供球机/125供球机.png" alt="Ball Distributor">
+      </div>
+      <div class="tm-pdp-info">
+        <h1 class="tm-pdp-title">智能自动供配球机</h1>
+        <p class="tm-pdp-subtitle" id="distributor-subtitle">SMART BALL DISTRIBUTOR</p>
+        <p class="tm-pdp-desc">
+          专为高端室内及室外大规模练习场设计的球体自动化清洗、分配系统。极速运作配合静音结构，是维系场馆高质量运营的中枢基石。
+        </p>
+
+        <div class="tm-pdp-thumbs" id="thumb-container">
+          <img src="img/products/各种供球机/125供球机.png" onclick="changeMainImg(this.src)" class="active">
+          <img src="img/products/各种供球机/160供球机.png" onclick="changeMainImg(this.src)">
+          <img src="img/products/各种供球机/185供球机_new.png" onclick="changeMainImg(this.src)">
         </div>
-        <section class="tm-pdp-hero">
-            <div class="tm-pdp-gallery">
-                <img id="pdp-main-img" src="img/products/各种供球机/125供球机.png" alt="Ball Distributor">
-            </div>
-            <div class="tm-pdp-info">
-                <h1 class="tm-pdp-title">智能自动供配球机</h1>
-                <p class="tm-pdp-subtitle" id="distributor-subtitle">SMART BALL DISTRIBUTOR</p>
-                <p class="tm-pdp-desc">
-                    专为高端室内及室外大规模练习场设计的球体自动化清洗、分配系统。极速运作配合静音结构，是维系场馆高质量运营的中枢基石。
-                </p>
 
-                <div class="tm-pdp-thumbs" id="thumb-container">
-                    <img src="img/products/各种供球机/125供球机.png" onclick="changeMainImg(this.src)" class="active">
-                    <img src="img/products/各种供球机/160供球机.png" onclick="changeMainImg(this.src)">
-                    <img src="img/products/各种供球机/185供球机_new.png" onclick="changeMainImg(this.src)">
-                </div>
+        <a href="#details" class="tm-pdp-scroll-btn">详看该型号业务资料 ↓</a>
+      </div>
+    </section>
 
-                <a href="#details" class="tm-pdp-scroll-btn">详看该型号业务资料 ↓</a>
-            </div>
-        </section>
+    <!-- 高清合并长图展示区域 -->
+    <section id="details" class="tm-pdp-details-section">
+      <div class="tm-pdp-long-image-container" id="pdf-image-container">
+        <!-- JS 动态载入对应型号的 PNG -->
+      </div>
+    </section>
+  </main>
 
-        <!-- 高清合并长图展示区域 -->
-        <section id="details" class="tm-pdp-details-section">
-            <div class="tm-pdp-long-image-container" id="pdf-image-container">
-                <!-- JS 动态载入对应型号的 PNG -->
-            </div>
-        </section>
-    </main>
+  <footer class="tm-footer">
+    <div class="tm-footer-logo">TEEMASTER</div>
+    <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 TEEMASTER Ltd. 保留所有权利.</div>
+  </footer>
 
-    <footer class="tm-footer">
-        <div class="tm-footer-logo">TEEMASTER</div>
-        <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 TEEMASTER Ltd. 保留所有权利.</div>
-    </footer>
+  <script src="js/app.js"></script>
 
-    <script src="js/app.js"></script>
+  <script>
+    function changeMainImg(src) {
+      document.getElementById('pdp-main-img').src = src;
+      document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
+        img.classList.remove('active');
+        if (img.src === src) img.classList.add('active');
+      });
+    }
 
-    <script>
-        function changeMainImg(src) {
-            document.getElementById('pdp-main-img').src = src;
-            document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
-                img.classList.remove('active');
-                if (img.src === src) img.classList.add('active');
-            });
+    document.addEventListener('DOMContentLoaded', () => {
+      // 提取查询参数 type (125, 160, 185)
+      const urlParams = new URLSearchParams(window.location.search);
+      const distType = urlParams.get('type') || '125';
+
+      // 更新页面标题
+      document.querySelector('.tm-pdp-title').textContent = `${distType}型 智能配球机`;
+
+      // 根据型号切换主图和高亮缩略图
+      const heroImgMap = {
+        '125': 'img/products/各种供球机/125供球机.png',
+        '160': 'img/products/各种供球机/160供球机.png',
+        '185': 'img/products/各种供球机/185供球机_new.png'
+      };
+      const mainImg = document.getElementById('pdp-main-img');
+      if (heroImgMap[distType]) {
+        mainImg.src = heroImgMap[distType];
+      }
+      // 高亮对应缩略图
+      document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
+        img.classList.remove('active');
+        if (img.src.includes(heroImgMap[distType])) img.classList.add('active');
+      });
+
+      const container = document.getElementById('pdf-image-container');
+      const totalPages = 6;
+
+      let basePath = '';
+      let filePrefix = '';
+
+      if (distType === '125') {
+        basePath = 'img/products/各种供球机/125供球机-业务资料1/';
+        filePrefix = '125供球机-业务资料1_';
+      } else if (distType === '160') {
+        basePath = 'img/products/各种供球机/160供球机-业务资料1/';
+        filePrefix = '160供球机-业务资料1_';
+      } else if (distType === '185') {
+        basePath = 'img/products/各种供球机/185供球机-业务资料 1/';
+        filePrefix = '185供球机-业务资料 1_';
+      }
+
+      const infoImgMap = {
+        '125': '125-info-new.png',
+        '160': '160-info-new.png',
+        '185': '185-info-new.png'
+      };
+
+      let htmlContent = '';
+      if (infoImgMap[distType]) {
+        htmlContent = `<img src="img/products/各种供球机/${infoImgMap[distType]}" alt="Model ${distType} Info" loading="lazy">`;
+      } else {
+        // Fallback or future types
+        for (let i = 1; i <= totalPages; i++) {
+          htmlContent += `<img src="${basePath}${distType}供球机-业务资料${i}.jpg" alt="Page ${i}" loading="lazy" onerror="this.style.display='none'">`;
         }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // 提取查询参数 type (125, 160, 185)
-            const urlParams = new URLSearchParams(window.location.search);
-            const distType = urlParams.get('type') || '125';
-
-            // 更新页面标题
-            document.querySelector('.tm-pdp-title').textContent = `${distType}型 智能配球机`;
-
-            // 根据型号切换主图和高亮缩略图
-            const heroImgMap = {
-                '125': 'img/products/各种供球机/125供球机.png',
-                '160': 'img/products/各种供球机/160供球机.png',
-                '185': 'img/products/各种供球机/185供球机_new.png'
-            };
-            const mainImg = document.getElementById('pdp-main-img');
-            if (heroImgMap[distType]) {
-                mainImg.src = heroImgMap[distType];
-            }
-            // 高亮对应缩略图
-            document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
-                img.classList.remove('active');
-                if (img.src.includes(heroImgMap[distType])) img.classList.add('active');
-            });
-
-            const container = document.getElementById('pdf-image-container');
-            const totalPages = 6;
-
-            let basePath = '';
-            let filePrefix = '';
-
-            if (distType === '125') {
-                basePath = 'img/products/各种供球机/125供球机-业务资料1/';
-                filePrefix = '125供球机-业务资料1_';
-            } else if (distType === '160') {
-                basePath = 'img/products/各种供球机/160供球机-业务资料1/';
-                filePrefix = '160供球机-业务资料1_';
-            } else if (distType === '185') {
-                basePath = 'img/products/各种供球机/185供球机-业务资料 1/';
-                filePrefix = '185供球机-业务资料 1_';
-            }
-
-            let htmlContent = '';
-            for (let i = 1; i <= totalPages; i++) {
-                let currentFile = "";
-                if (distType === '125' || distType === '160') {
-                    currentFile = `${distType}供球机-业务资料${i}.jpg`;
-                } else if (distType === '185') {
-                    currentFile = `185供球机-业务资料 ${i}.jpg`;
-                }
-                htmlContent += `<img src="${basePath}${currentFile}" alt="Page ${i}" loading="lazy" onerror="this.style.display='none'">`;
-            }
-            container.innerHTML = htmlContent;
-        });
-    </script>
+      }
+      container.innerHTML = htmlContent;
+    });
+  </script>
 </body>
 
 </html>
