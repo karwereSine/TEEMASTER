@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>高尔夫模拟器 | T-Master</title>
+    <title>高尔夫模拟器 | TEEMASTER</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -19,42 +19,106 @@
 <body>
 
     <header class="tm-header scrolled" id="tm-header">
-        <div class="tm-header-container">
-            <a href="index.html" class="tm-logo">T-Master</a>
-            <nav class="tm-nav">
-                <ul class="tm-nav-list">
-                    <li><a href="index.html" data-i18n="nav-home">首页</a></li>
-                    <li><a href="products.html" data-i18n="nav-products">产品中心</a></li>
-                    <li><a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a></li>
-                    <li><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a></li>
-                    <li><a href="contact.html" data-i18n="nav-contact">联系我们</a></li>
-                </ul>
-            </nav>
+    <div class="tm-header-container">
+      <a href="index.html" class="tm-logo">TEEMASTER</a>
+      <nav class="tm-nav">
+        <ul class="tm-nav-list">
+          <li data-mega-col="0"><a href="index.html#hero" data-i18n="nav-home">首页</a></li>
+          <li data-mega-col="1"><a href="products.html" data-i18n="nav-products">产品中心</a></li>
+          <li data-mega-col="2"><a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a></li>
+          <li data-mega-col="3"><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a></li>
+          <li data-mega-col="4"><a href="contact.html" data-i18n="nav-contact">联系我们</a></li>
+          <li data-mega-col="5"><a href="#" class="tm-lang-nav-btn">LANGUAGE <span class="tm-lang-arrow">▾</span></a>
+          </li>
+        </ul>
+      </nav>
       <div class="tm-hamburger" id="tm-hamburger">
         <span></span><span></span><span></span>
-      </div>            <div class="tm-lang-switcher">
-                <select id="lang-select">
-                    <option value="zh">中文</option>
-                    <option value="en">English</option>
-                    <option value="ko">한국어</option>
-                </select>
-            </div>
+      </div>
+    </div>
+
+    <!-- Shared full-width Mega Menu -->
+    <div class="tm-mega-menu" id="tm-mega-menu">
+      <div class="tm-mega-inner">
+
+        <!-- Col 0: 首页 -->
+        <div class="tm-mega-col" data-col="0">
+          <h4 data-i18n="nav-home">首页</h4>
+          <a href="index.html#hero" data-i18n="mega-home-top">返回顶部</a>
+          <a href="index.html#products" data-i18n="sec-hardware-title">智能硬件</a>
+          <a href="index.html#platform" data-i18n="nav-platform">数字化平台</a>
+          <a href="index.html#contact" data-i18n="nav-contact">联系我们</a>
         </div>
-    </header>
+
+        <!-- Col 1: 产品中心 -->
+        <div class="tm-mega-col" data-col="1">
+          <h4 data-i18n="nav-products">产品中心</h4>
+          <a href="category.html?cat=tee-up" data-i18n="hw-autotee">自动发球机</a>
+          <a href="category.html?cat=simulator" data-i18n="hw-sim">智能模拟器</a>
+          <a href="category.html?cat=distributor" data-i18n="hw-distributor">自动配球机</a>
+          <a href="product-putter.html" data-i18n="hw-putter">推杆练习器</a>
+        </div>
+
+        <!-- Col 2: 高尔夫用品 -->
+        <div class="tm-mega-col" data-col="2">
+          <h4 data-i18n="nav-golf-gear">高尔夫用品</h4>
+          <div style="column-count: 2; column-gap: 20px;">
+            <a href="category.html?cat=gear-bags" data-i18n="gear-cat-bags">高尔夫球包</a>
+            <a href="category.html?cat=gear-accessories" data-i18n="gear-cat-accessories">高尔夫配件</a>
+            <a href="category.html?cat=gear-balls" data-i18n="gear-cat-balls">高尔夫球</a>
+            <a href="category.html?cat=gear-clubs" data-i18n="gear-cat-clubs">高尔夫球杆</a>
+            <a href="category.html?cat=gear-apparel" data-i18n="gear-cat-apparel">高尔夫服装</a>
+            <a href="category.html?cat=gear-shoes" data-i18n="gear-cat-shoes">高尔夫球鞋</a>
+            <a href="category.html?cat=gear-fitting" data-i18n="gear-cat-fitting">定制配件</a>
+            <a href="category.html?cat=gear-beauty" data-i18n="gear-cat-beauty">高尔夫美容</a>
+            <a href="category.html?cat=gear-practice" data-i18n="gear-cat-practice">练习用品</a>
+            <a href="category.html?cat=gear-screen" data-i18n="gear-cat-screen">屏幕制作</a>
+            <a href="category.html?cat=gear-park" data-i18n="gear-cat-park">公园高尔夫</a>
+          </div>
+        </div>
+
+        <!-- Col 3: 数字化平台 -->
+        <div class="tm-mega-col" data-col="3">
+          <h4 data-i18n="nav-platform">数字化平台</h4>
+          <a href="index.html#platform" data-i18n="mega-plat-app">TEEMASTER App</a>
+          <a href="index.html#platform" data-i18n="mega-plat-social">社交竞技</a>
+          <a href="index.html#platform" data-i18n="mega-plat-ai">AI 挥杆分析</a>
+          <a href="index.html#platform" data-i18n="mega-plat-iot">智能连接</a>
+        </div>
+
+        <!-- Col 4: 联系我们 -->
+        <div class="tm-mega-col" data-col="4">
+          <h4 data-i18n="nav-contact">联系我们</h4>
+          <a href="contact.html" data-i18n="mega-contact-b2b">B2B 合作咨询</a>
+          <a href="contact.html" data-i18n="mega-contact-odm">ODM / OEM 定制</a>
+          <a href="contact.html" data-i18n="mega-contact-dist">区域代理</a>
+        </div>
+
+        <!-- Col 5: Language -->
+        <div class="tm-mega-col" data-col="5">
+          <h4>语言 / Language / 언어</h4>
+          <button class="tm-lang-option" data-lang="zh">中文</button>
+          <button class="tm-lang-option" data-lang="en">English</button>
+          <button class="tm-lang-option" data-lang="ko">한국어</button>
+        </div>
+
+      </div>
+    </div>
+  </header>
 
     <main class="tm-pdp-main">
         <div class="tm-pdp-breadcrumb">
             <a href="index.html">首页</a> /
             <a href="products.html">产品中心</a> /
             <a href="category.html?cat=simulator">室内模拟器系列</a> /
-            <span class="current">T-Master 高尔夫模拟器</span>
+            <span class="current">TEEMASTER 高尔夫模拟器</span>
         </div>
         <section class="tm-pdp-hero">
             <div class="tm-pdp-gallery">
                 <img id="pdp-main-img" src="img/products/TEEMASTER高尔夫模拟器/golf_simulator.png" alt="Golf Simulator">
             </div>
             <div class="tm-pdp-info">
-                <h1 class="tm-pdp-title">T-Master 高尔夫模拟器</h1>
+                <h1 class="tm-pdp-title">TEEMASTER 高尔夫模拟器</h1>
                 <p class="tm-pdp-subtitle">PROFESSIONAL GOLF SIMULATOR</p>
                 <p class="tm-pdp-desc">
                     采用前沿视觉传感与计算技术，为您精准还原下场实感的室内高尔夫体验架构。无论是球道分析仪的毫秒级反应，还是真实重力感应的逼真画面，这一整套综合引擎为您开启全新的练球视角。
@@ -79,8 +143,8 @@
     </main>
 
     <footer class="tm-footer">
-        <div class="tm-footer-logo">T-MASTER</div>
-        <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 T-Master Ltd. 保留所有权利.</div>
+        <div class="tm-footer-logo">TEEMASTER</div>
+        <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 TEEMASTER Ltd. 保留所有权利.</div>
     </footer>
 
     <script src="js/app.js"></script>

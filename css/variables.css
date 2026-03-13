@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
 :root {
   /* Colors - Dark Theme (PXG style) */
   --tm-color-bg: #0a0a0a;
   --tm-color-bg-secondary: #1a1a1a;
   --tm-color-text: #ffffff;
   --tm-color-text-muted: #a0a0a0;
-  --tm-color-primary: #e6e6e6; /* Metallic/Light gray */
-  --tm-color-accent: #d32f2f; /* Deep red accent */
+  --tm-color-primary: #e6e6e6;
+  /* Metallic/Light gray */
+  --tm-color-accent: #d32f2f;
+  /* Deep red accent */
   --tm-color-border: #333333;
-  
+
   /* Typography */
-  --tm-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  
+  --tm-font-family: "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+
   /* Transitions */
   --tm-transition-fast: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   --tm-transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -21,7 +25,7 @@
   --tm-spacing-md: 1.5rem;
   --tm-spacing-lg: 3rem;
   --tm-spacing-xl: 6rem;
-  
+
   /* Layout */
   --tm-max-width: 1400px;
   --tm-header-height: 80px;

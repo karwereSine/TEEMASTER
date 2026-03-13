@@ -5,7 +5,7 @@ const i18n = {
     "nav-golf-gear": "高尔夫用品",
     "nav-platform": "数字化平台",
     "nav-contact": "联系我们",
-    "hero-slogan": "T-Master: 全方位高尔夫解决方案",
+    "hero-slogan": "TEEMASTER: 全方位高尔夫解决方案",
     "hero-sub": "(硬件 · 装备 · 平台)",
     "hero-btn": "探索更多",
     "sec-hardware-title": "智能硬件",
@@ -24,12 +24,12 @@ const i18n = {
     "hw-sim-desc": "包含果岭推杆系统与全套室内沉浸分析系统。",
     "sec-gear-title": "专业装备",
     "sec-gear-sub": "PREMIUM GEAR",
-    "gear-text": "从果岭智能推杆模拟器到专业级高尔夫球杆及周边配件，T-Master 专业装备产品线专为追求极致性能与精准工艺的高尔夫爱好者打造，以科技赋能训练，延续品牌硬核设计语言。",
+    "gear-text": "从果岭智能推杆模拟器到专业级高尔夫球杆及周边配件，TEEMASTER 专业装备产品线专为追求极致性能与精准工艺的高尔夫爱好者打造，以科技赋能训练，延续品牌硬核设计语言。",
     "sec-mfg-title": "生产实力",
     "sec-mfg-sub": "GLOBAL MANUFACTURING",
     "mfg-text": "依托中国本土强大的生产基地，提供 ODM/OEM 定制化硬件研发与敏捷生产服务，辐射全球市场。",
     "sec-plat-title": "数字化平台",
-    "sec-plat-sub": "T-MASTER APP",
+    "sec-plat-sub": "TEEMASTER APP",
     "plat-feat1-title": "智能连接",
     "plat-feat1-desc": "实现手机与所有智能硬件设备的无缝连接，实时同步击球数据与设备状态，打造万物互联的智能高尔夫生态体验。",
     "plat-feat2-title": "社交竞技",
@@ -50,7 +50,7 @@ const i18n = {
     "form-submit": "✈ 提交申请",
     "sec-legal-title": "法律指引 (Footer)",
     "legal-copyright": "版权声明",
-    "legal-copyright-desc": "Copyright © 2025 T-MASTER. All Rights Reserved.",
+    "legal-copyright-desc": "Copyright © 2025 TEEMASTER. All Rights Reserved.",
     "legal-privacy": "隐私政策",
     "legal-privacy-desc": "明确用户数据收集、使用与保护规范，符合 GDPR 及当地法规。",
     "legal-terms": "服务条款",
@@ -74,7 +74,7 @@ const i18n = {
     "footer-legal-title": "法律信息",
     "footer-privacy": "隐私政策",
     "footer-terms": "服务条款",
-    "footer-copy": "© 2025 T-MASTER. All Rights Reserved.",
+    "footer-copy": "© 2025 TEEMASTER. All Rights Reserved.",
     "nav-return-home": "首页",
     "nav-return-cat": "返回产品分类",
     "nav-return-prod": "返回产品大厅",
@@ -83,7 +83,7 @@ const i18n = {
     // Golf Gear page
     "gear-page-title": "高尔夫用品",
     "gear-page-sub": "GOLF GEAR",
-    "gear-page-desc": "从球包到球鞋，从球杆到配件，T-Master 为您提供全品类高尔夫用品，满足您在球场上的一切需求。",
+    "gear-page-desc": "从球包到球鞋，从球杆到配件，TEEMASTER 为您提供全品类高尔夫用品，满足您在球场上的一切需求。",
     "cs-title": "客服中心",
     "cs-desc": "如有任何问题，请通过以下方式联系我们的客服团队。",
     "cs-hours": "工作时间: 周一至周五 9:00-18:00",
@@ -99,7 +99,15 @@ const i18n = {
     "gear-cat-beauty": "高尔夫美容",
     "gear-cat-practice": "练习用品",
     "gear-cat-screen": "屏幕制作",
-    "gear-cat-park": "公园高尔夫"
+    "gear-cat-park": "公园高尔夫",
+    "mega-home-top": "返回顶部",
+    "mega-plat-app": "TEEMASTER App",
+    "mega-plat-social": "社交竞技",
+    "mega-plat-ai": "AI 挥杆分析",
+    "mega-plat-iot": "智能连接",
+    "mega-contact-b2b": "B2B 合作咨询",
+    "mega-contact-odm": "ODM / OEM 定制",
+    "mega-contact-dist": "区域代理"
   },
   en: {
     "nav-home": "Home",
@@ -107,7 +115,7 @@ const i18n = {
     "nav-golf-gear": "Golf Gear",
     "nav-platform": "Platform",
     "nav-contact": "Contact",
-    "hero-slogan": "T-Master: Comprehensive Golf Solutions",
+    "hero-slogan": "TEEMASTER: Comprehensive Golf Solutions",
     "hero-sub": "(Hardware · Gear · Platform)",
     "hero-btn": "Explore More",
     "sec-hardware-title": "Smart Hardware",
@@ -126,12 +134,12 @@ const i18n = {
     "hw-sim-desc": "Indoor putting system with immersive full-suite analysis engine.",
     "sec-gear-title": "Professional Gear",
     "sec-gear-sub": "PREMIUM GEAR",
-    "gear-text": "From the Green Smart Putter Simulator to professional-grade golf clubs and accessories, the T-Master premium gear lineup is crafted for enthusiasts pursuing peak performance and precision, empowering training through technology.",
+    "gear-text": "From the Green Smart Putter Simulator to professional-grade golf clubs and accessories, the TEEMASTER premium gear lineup is crafted for enthusiasts pursuing peak performance and precision, empowering training through technology.",
     "sec-mfg-title": "Global Manufacturing",
     "sec-mfg-sub": "GLOBAL MANUFACTURING",
     "mfg-text": "Backed by robust Chinese production bases, providing ODM/OEM customized hardware R&D and agile manufacturing services globally.",
     "sec-plat-title": "Digital Platform",
-    "sec-plat-sub": "T-MASTER APP",
+    "sec-plat-sub": "TEEMASTER APP",
     "plat-feat1-title": "Smart Connection",
     "plat-feat1-desc": "Seamlessly connect your phone with all smart hardware devices, syncing shot data and device status in real-time for an IoT-powered golf ecosystem.",
     "plat-feat2-title": "Social & Competition",
@@ -152,7 +160,7 @@ const i18n = {
     "form-submit": "✈ Submit Application",
     "sec-legal-title": "Legal Information (Footer)",
     "legal-copyright": "Copyright",
-    "legal-copyright-desc": "Copyright © 2025 T-MASTER. All Rights Reserved.",
+    "legal-copyright-desc": "Copyright © 2025 TEEMASTER. All Rights Reserved.",
     "legal-privacy": "Privacy Policy",
     "legal-privacy-desc": "User data collection, usage and protection guidelines, GDPR compliant.",
     "legal-terms": "Terms of Service",
@@ -176,7 +184,7 @@ const i18n = {
     "footer-legal-title": "Legal",
     "footer-privacy": "Privacy Policy",
     "footer-terms": "Terms of Service",
-    "footer-copy": "© 2025 T-MASTER. All Rights Reserved.",
+    "footer-copy": "© 2025 TEEMASTER. All Rights Reserved.",
     "nav-return-home": "Home",
     "nav-return-cat": "Back to Category",
     "nav-return-prod": "Back to Products",
@@ -189,7 +197,7 @@ const i18n = {
     "loc-china-full": "Manufacturing — China",
     "gear-page-title": "Golf Gear",
     "gear-page-sub": "GOLF GEAR",
-    "gear-page-desc": "From bags to shoes, clubs to accessories — T-Master offers a full range of golf gear to meet every need on the course.",
+    "gear-page-desc": "From bags to shoes, clubs to accessories — TEEMASTER offers a full range of golf gear to meet every need on the course.",
     "gear-cat-bags": "Golf Bags",
     "gear-cat-accessories": "Accessories",
     "gear-cat-balls": "Golf Balls",
@@ -200,7 +208,15 @@ const i18n = {
     "gear-cat-beauty": "Golf Beauty",
     "gear-cat-practice": "Practice Goods",
     "gear-cat-screen": "Screen Making",
-    "gear-cat-park": "Park Golf"
+    "gear-cat-park": "Park Golf",
+    "mega-home-top": "Back to Top",
+    "mega-plat-app": "TEEMASTER App",
+    "mega-plat-social": "Social & Competition",
+    "mega-plat-ai": "AI Swing Analysis",
+    "mega-plat-iot": "Smart Connection",
+    "mega-contact-b2b": "B2B Partnership",
+    "mega-contact-odm": "ODM / OEM Custom",
+    "mega-contact-dist": "Regional Distribution"
   },
   ko: {
     "nav-home": "홈",
@@ -208,7 +224,7 @@ const i18n = {
     "nav-golf-gear": "골프용품",
     "nav-platform": "디지털 플랫폼",
     "nav-contact": "문의하기",
-    "hero-slogan": "T-Master: 포괄적인 골프 솔루션",
+    "hero-slogan": "TEEMASTER: 포괄적인 골프 솔루션",
     "hero-sub": "(하드웨어 · 장비 · 플랫폼)",
     "hero-btn": "자세히 보기",
     "sec-hardware-title": "스마트 하드웨어",
@@ -227,12 +243,12 @@ const i18n = {
     "hw-sim-desc": "실내 퍼팅 시스템과 몰입감 있는 분석 엔진을 갖춘 시뮬레이터.",
     "sec-gear-title": "전문 장비",
     "sec-gear-sub": "PREMIUM GEAR",
-    "gear-text": "그린 스마트 퍼팅 시뮬레이터부터 프로급 골프 클럽 및 액세서리까지, T-Master 프리미엄 장비 라인업은 최고의 퍼포먼스와 정밀함을 추구하는 골프 애호가를 위해 제작되었습니다.",
+    "gear-text": "그린 스마트 퍼팅 시뮬레이터부터 프로급 골프 클럽 및 액세서리까지, TEEMASTER 프리미엄 장비 라인업은 최고의 퍼포먼스와 정밀함을 추구하는 골프 애호가를 위해 제작되었습니다.",
     "sec-mfg-title": "생산 능력",
     "sec-mfg-sub": "GLOBAL MANUFACTURING",
     "mfg-text": "막강한 중국 내 생산 기지를 바탕으로 ODM/OEM 맞춤형 하드웨어 R&D 및 글로벌 애자일 생산 서비스를 제공합니다.",
     "sec-plat-title": "디지털 플랫폼",
-    "sec-plat-sub": "T-MASTER APP",
+    "sec-plat-sub": "TEEMASTER APP",
     "plat-feat1-title": "스마트 연결",
     "plat-feat1-desc": "스마트폰과 모든 스마트 하드웨어 기기를 원활하게 연결하여, 샷 데이터와 기기 상태를 실시간으로 동기화하는 IoT 골프 생태계를 경험하세요.",
     "plat-feat2-title": "소셜 & 경쟁",
@@ -253,7 +269,7 @@ const i18n = {
     "form-submit": "✈ 신청서 제출",
     "sec-legal-title": "법률 안내 (Footer)",
     "legal-copyright": "저작권",
-    "legal-copyright-desc": "Copyright © 2025 T-MASTER. All Rights Reserved.",
+    "legal-copyright-desc": "Copyright © 2025 TEEMASTER. All Rights Reserved.",
     "legal-privacy": "개인정보처리방침",
     "legal-privacy-desc": "사용자 데이터 수집, 사용 및 보호 규정, GDPR 준수.",
     "legal-terms": "이용약관",
@@ -277,7 +293,7 @@ const i18n = {
     "footer-legal-title": "법률 정보",
     "footer-privacy": "개인정보처리방침",
     "footer-terms": "이용약관",
-    "footer-copy": "© 2025 T-MASTER. 모든 권리 보유.",
+    "footer-copy": "© 2025 TEEMASTER. 모든 권리 보유.",
     "nav-return-home": "홈",
     "nav-return-cat": "카테고리로",
     "nav-return-prod": "제품 목록으로",
@@ -290,7 +306,7 @@ const i18n = {
     "loc-china-full": "Manufacturing — 중국 (China)",
     "gear-page-title": "골프용품",
     "gear-page-sub": "GOLF GEAR",
-    "gear-page-desc": "가방부터 신발, 클럽부터 액세서리까지 — T-Master는 코스에서 필요한 모든 골프 용품을 제공합니다.",
+    "gear-page-desc": "가방부터 신발, 클럽부터 액세서리까지 — TEEMASTER는 코스에서 필요한 모든 골프 용품을 제공합니다.",
     "gear-cat-bags": "골프 가방",
     "gear-cat-accessories": "액세서리",
     "gear-cat-balls": "골프볼",
@@ -301,7 +317,15 @@ const i18n = {
     "gear-cat-beauty": "골프 뷰티",
     "gear-cat-practice": "연습 용품",
     "gear-cat-screen": "스크린 제작",
-    "gear-cat-park": "파크 골프"
+    "gear-cat-park": "파크 골프",
+    "mega-home-top": "맨 위로",
+    "mega-plat-app": "TEEMASTER App",
+    "mega-plat-social": "소셜 및 경쟁",
+    "mega-plat-ai": "AI 스윙 분석",
+    "mega-plat-iot": "스마트 연결",
+    "mega-contact-b2b": "B2B 제휴 문의",
+    "mega-contact-odm": "ODM / OEM 맞춤 제작",
+    "mega-contact-dist": "지역 대리점"
   }
 };
 
@@ -318,9 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Language Switcher Logic
-  const langSelect = document.getElementById('lang-select');
-
+  // Language Switcher Logic (new nav-integrated version)
   // Prefer stored language, then browser language, fallback to zh
   let currentLang = localStorage.getItem('tm-lang');
   if (!currentLang) {
@@ -330,16 +352,22 @@ document.addEventListener('DOMContentLoaded', () => {
     else currentLang = 'zh';
   }
 
-  if (langSelect) {
-    langSelect.value = currentLang;
-    langSelect.addEventListener('change', (e) => {
-      localStorage.setItem('tm-lang', e.target.value);
-      updateLanguage(e.target.value);
-    });
-  }
-
   // Apply language immediately
   updateLanguage(currentLang);
+
+  // Initialize LANGUAGE nav button active states
+  updateLangNavActive(currentLang);
+
+  // Bind language option buttons in the nav dropdown
+  document.querySelectorAll('.tm-lang-option').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = btn.dataset.lang;
+      localStorage.setItem('tm-lang', lang);
+      updateLanguage(lang);
+      updateLangNavActive(lang);
+    });
+  });
 
   // Intersection Observer for scroll reveal functionality
   const reveals = document.querySelectorAll('.tm-reveal');
@@ -384,28 +412,149 @@ function updateLanguage(lang) {
       el.placeholder = i18n[lang][key];
     }
   });
+
+  updateLangNavActive(lang);
 }
 
-// Hamburger menu toggle + mobile language selector
+function updateLangNavActive(lang) {
+  document.querySelectorAll('.tm-lang-option').forEach(btn => {
+    if (btn.dataset.lang === lang) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+// ============================================================
+// Mega Menu + Hamburger + Mobile Language
+// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
+  const header = document.getElementById('tm-header');
+  const megaMenu = document.getElementById('tm-mega-menu');
+  const navItems = document.querySelectorAll('.tm-nav-list li[data-mega-col]');
+  const megaCols = document.querySelectorAll('.tm-mega-col');
   const hamburger = document.getElementById('tm-hamburger');
   const nav = document.querySelector('.tm-nav');
+
+  let hideTimeout = null;
+
+  // 根据当前 URL 自动高亮主导航项
+  function initActiveNav() {
+    const p = window.location.pathname;
+    const isLocal = p.endsWith('/') || p.endsWith('index.html');
+
+    let activeCol = -1;
+    if (p.includes('products.html') || p.includes('product-')) activeCol = 1;
+    else if (p.includes('golf-gear.html') || p.includes('gear-') || p.includes('category.html')) activeCol = 2;
+    // 首页的平台对应 href="#platform"，这里简易处理：如果带 #platform 锚点则高亮
+    else if (window.location.hash === '#platform') activeCol = 3;
+    else if (p.includes('contact.html')) activeCol = 4;
+    else if (isLocal) activeCol = 0; // index/home
+
+    navItems.forEach(item => {
+      if (parseInt(item.dataset.megaCol) === activeCol) {
+        item.querySelector('a').style.color = 'var(--tm-color-accent)';
+      }
+    });
+  }
+
+  initActiveNav();
+
+  function setActiveCol(colIndex) {
+    megaCols.forEach(col => {
+      if (parseInt(col.dataset.col) === colIndex) {
+        col.classList.add('active');
+      } else {
+        col.classList.remove('active');
+      }
+    });
+    navItems.forEach(item => {
+      if (parseInt(item.dataset.megaCol) === colIndex) {
+        item.classList.add('mega-active');
+      } else {
+        item.classList.remove('mega-active');
+      }
+    });
+  }
+
+  function showMegaMenu(colIndex) {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+      hideTimeout = null;
+    }
+    if (!megaMenu) return;
+    megaMenu.classList.add('open');
+    setActiveCol(colIndex);
+  }
+
+  function hideMegaMenu() {
+    hideTimeout = setTimeout(() => {
+      if (!megaMenu) return;
+      megaMenu.classList.remove('open');
+      megaCols.forEach(col => col.classList.remove('active'));
+      navItems.forEach(item => item.classList.remove('mega-active'));
+    }, 120);
+  }
+
+  function closeMegaMenuNow() {
+    if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
+    if (!megaMenu) return;
+    megaMenu.classList.remove('open');
+    megaCols.forEach(col => col.classList.remove('active'));
+    navItems.forEach(item => item.classList.remove('mega-active'));
+  }
+
+  // Nav items: hover shows menu + highlights col
+  navItems.forEach(item => {
+    const colIndex = parseInt(item.dataset.megaCol);
+    item.addEventListener('mouseenter', () => showMegaMenu(colIndex));
+    item.addEventListener('mouseleave', hideMegaMenu);
+  });
+
+  // Inside mega menu: hover a col → highlight that col
+  if (megaMenu) {
+    megaCols.forEach(col => {
+      col.addEventListener('mouseenter', () => {
+        if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
+        setActiveCol(parseInt(col.dataset.col));
+      });
+    });
+
+    megaMenu.addEventListener('mouseenter', () => {
+      if (hideTimeout) { clearTimeout(hideTimeout); hideTimeout = null; }
+    });
+    megaMenu.addEventListener('mouseleave', hideMegaMenu);
+
+    // Click a non-language link → close menu immediately
+    megaMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => closeMegaMenuNow());
+    });
+  }
+
+  // Click outside → close
+  document.addEventListener('click', (e) => {
+    if (header && !header.contains(e.target)) {
+      closeMegaMenuNow();
+    }
+  });
+
+  // ---- Mobile: Hamburger + language selector ----
   if (!hamburger || !nav) return;
 
-  // Inject mobile language selector into nav
   const langNames = { zh: '中文', en: 'English', ko: '한국어' };
-  const currentLang = document.getElementById('lang-select')?.value || 'zh';
+  const storedLang = localStorage.getItem('tm-lang') || 'zh';
 
   const mobileLang = document.createElement('div');
   mobileLang.className = 'tm-mobile-lang';
   mobileLang.innerHTML = `
     <div class="tm-mobile-lang-toggle">
-      🌐 ${langNames[currentLang]} <span class="arrow">▼</span>
+      🌐 ${langNames[storedLang]} <span class="arrow">▼</span>
     </div>
     <div class="tm-mobile-lang-options">
-      <button data-lang="zh" class="${currentLang === 'zh' ? 'active' : ''}">中文</button>
-      <button data-lang="en" class="${currentLang === 'en' ? 'active' : ''}">English</button>
-      <button data-lang="ko" class="${currentLang === 'ko' ? 'active' : ''}">한국어</button>
+      <button data-lang="zh" class="${storedLang === 'zh' ? 'active' : ''}">中文</button>
+      <button data-lang="en" class="${storedLang === 'en' ? 'active' : ''}">English</button>
+      <button data-lang="ko" class="${storedLang === 'ko' ? 'active' : ''}">한국어</button>
     </div>
   `;
   nav.appendChild(mobileLang);
@@ -421,13 +570,9 @@ document.addEventListener('DOMContentLoaded', () => {
   options.querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', () => {
       const lang = btn.dataset.lang;
-      // Update desktop select
-      const select = document.getElementById('lang-select');
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-      }
-      // Update mobile UI
+      localStorage.setItem('tm-lang', lang);
+      updateLanguage(lang);
+      updateLangNavActive(lang);
       options.querySelectorAll('button').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       toggle.innerHTML = `🌐 ${langNames[lang]} <span class="arrow">▼</span>`;
@@ -436,14 +581,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Toggle menu
+  // Toggle hamburger menu
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     nav.classList.toggle('open');
     document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
   });
 
-  // Close menu when a nav link is clicked
+  // Close mobile menu when a nav link is clicked
   nav.querySelectorAll('.tm-nav-list a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
@@ -452,3 +597,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
