@@ -41,16 +41,6 @@ body {
     font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-    .tm-nav-list {
-        display: none !important;
-    }
-
-    .tm-back-btn-mobile {
-        display: block;
-    }
-}
-
 /* 首屏概览排版 */
 .tm-pdp-hero {
     max-width: var(--tm-max-width);
