@@ -37,11 +37,8 @@
       </div>
     </div>
 
-    <!-- Shared full-width Mega Menu -->
     <div class="tm-mega-menu" id="tm-mega-menu">
       <div class="tm-mega-inner">
-
-        <!-- Col 0: 首页 -->
         <div class="tm-mega-col" data-col="0">
           <h4 data-i18n="nav-home">首页</h4>
           <a href="index.html#hero" data-i18n="mega-home-top">返回顶部</a>
@@ -49,8 +46,6 @@
           <a href="index.html#platform" data-i18n="nav-platform">数字化平台</a>
           <a href="index.html#contact" data-i18n="nav-contact">联系我们</a>
         </div>
-
-        <!-- Col 1: 产品中心 -->
         <div class="tm-mega-col" data-col="1">
           <h4 data-i18n="nav-products">产品中心</h4>
           <a href="category.html?cat=tee-up" data-i18n="hw-autotee">自动发球机</a>
@@ -58,8 +53,6 @@
           <a href="category.html?cat=distributor" data-i18n="hw-distributor">自动配球机</a>
           <a href="product-putter.html" data-i18n="hw-putter">推杆练习器</a>
         </div>
-
-        <!-- Col 2: 高尔夫用品 -->
         <div class="tm-mega-col" data-col="2">
           <h4 data-i18n="nav-golf-gear">高尔夫用品</h4>
           <div style="column-count: 2; column-gap: 20px;">
@@ -76,8 +69,6 @@
             <a href="category.html?cat=gear-park" data-i18n="gear-cat-park">公园高尔夫</a>
           </div>
         </div>
-
-        <!-- Col 3: 数字化平台 -->
         <div class="tm-mega-col" data-col="3">
           <h4 data-i18n="nav-platform">数字化平台</h4>
           <a href="index.html#platform" data-i18n="mega-plat-app">TEEMASTER App</a>
@@ -85,44 +76,39 @@
           <a href="index.html#platform" data-i18n="mega-plat-ai">AI 挥杆分析</a>
           <a href="index.html#platform" data-i18n="mega-plat-iot">智能连接</a>
         </div>
-
-        <!-- Col 4: 联系我们 -->
         <div class="tm-mega-col" data-col="4">
           <h4 data-i18n="nav-contact">联系我们</h4>
           <a href="contact.html" data-i18n="mega-contact-b2b">B2B 合作咨询</a>
           <a href="contact.html" data-i18n="mega-contact-odm">ODM / OEM 定制</a>
           <a href="contact.html" data-i18n="mega-contact-dist">区域代理</a>
         </div>
-
-        <!-- Col 5: Language -->
         <div class="tm-mega-col" data-col="5">
           <h4>语言 / Language / 언어</h4>
           <button class="tm-lang-option" data-lang="zh">中文</button>
           <button class="tm-lang-option" data-lang="en">English</button>
           <button class="tm-lang-option" data-lang="ko">한국어</button>
         </div>
-
       </div>
     </div>
   </header>
 
   <main class="tm-pdp-main">
     <div class="tm-pdp-breadcrumb">
-      <a href="index.html">首页</a> /
-      <a href="products.html">产品中心</a> /
-      <a href="category.html?cat=distributor">自动配球机系列</a> /
-      <span class="current">智能自动供配球机</span>
+      <a href="index.html" data-i18n="nav-home">首页</a> /
+      <a href="products.html" data-i18n="nav-products">产品中心</a> /
+      <a href="category.html?cat=distributor" data-i18n="hw-distributor">自动配球机</a> /
+      <span class="current" id="breadcrumb-current">125型 智能配球机</span>
     </div>
+
+    <!-- Hero Section -->
     <section class="tm-pdp-hero">
       <div class="tm-pdp-gallery">
         <img id="pdp-main-img" src="img/products/各种供球机/125供球机.png" alt="Ball Distributor">
       </div>
       <div class="tm-pdp-info">
-        <h1 class="tm-pdp-title">智能自动供配球机</h1>
-        <p class="tm-pdp-subtitle" id="distributor-subtitle">SMART BALL DISTRIBUTOR</p>
-        <p class="tm-pdp-desc">
-          专为高端室内及室外大规模练习场设计的球体自动化清洗、分配系统。极速运作配合静音结构，是维系场馆高质量运营的中枢基石。
-        </p>
+        <h1 class="tm-pdp-title" id="pdp-title">125型 智能配球机</h1>
+        <p class="tm-pdp-subtitle" id="pdp-subtitle">MODEL 125 · SMART BALL DISTRIBUTOR</p>
+        <p class="tm-pdp-desc" id="pdp-desc"></p>
 
         <div class="tm-pdp-thumbs" id="thumb-container">
           <img src="img/products/各种供球机/125供球机.png" onclick="changeMainImg(this.src)" class="active">
@@ -130,16 +116,77 @@
           <img src="img/products/各种供球机/185供球机_new.png" onclick="changeMainImg(this.src)">
         </div>
 
-        <a href="#details" class="tm-pdp-scroll-btn">详看该型号业务资料 ↓</a>
+        <a href="#details" class="tm-pdp-scroll-btn" id="scroll-btn">查看详细参数 ↓</a>
       </div>
     </section>
 
-    <!-- 高清合并长图展示区域 -->
-    <section id="details" class="tm-pdp-details-section">
-      <div class="tm-pdp-long-image-container" id="pdf-image-container">
-        <!-- JS 动态载入对应型号的 PNG -->
+    <!-- Detail Sections -->
+    <div id="details">
+
+      <!-- Model Selector -->
+      <div class="tm-detail-section" style="text-align: center; padding-bottom: 0;">
+        <div class="tm-model-strip" id="model-strip">
+          <a href="?type=125" class="tm-model-btn" data-type="125">125</a>
+          <a href="?type=160" class="tm-model-btn" data-type="160">160</a>
+          <a href="?type=185" class="tm-model-btn" data-type="185">185</a>
+        </div>
       </div>
-    </section>
+
+      <!-- Section 1: Core Features -->
+      <div class="tm-detail-section" id="sec-features">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">CORE CAPABILITIES</p>
+          <h2 id="lbl-features"></h2>
+        </div>
+        <div class="tm-features-grid" id="features-grid"></div>
+      </div>
+
+      <!-- Section 2: Product Highlights -->
+      <div class="tm-detail-section" id="sec-highlights">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">PRODUCT HIGHLIGHTS</p>
+          <h2 id="lbl-highlights"></h2>
+        </div>
+        <div class="tm-highlights-row" id="highlights-row"></div>
+      </div>
+
+      <!-- Section 3: Quality Details -->
+      <div class="tm-detail-section" id="sec-quality">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">PREMIUM BUILD QUALITY</p>
+          <h2 id="lbl-quality"></h2>
+        </div>
+        <div class="tm-highlights-row reverse" id="quality-row"></div>
+      </div>
+
+      <!-- Section 4: Specifications -->
+      <div class="tm-detail-section" id="sec-specs">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">SPECIFICATIONS</p>
+          <h2 id="lbl-specs"></h2>
+        </div>
+        <div class="tm-specs-table-wrap">
+          <table class="tm-specs-table" id="specs-table"></table>
+        </div>
+      </div>
+
+      <!-- Section 5: Scene Gallery -->
+      <div class="tm-detail-section" id="sec-scene">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">IN ACTION</p>
+          <h2 id="lbl-scene"></h2>
+        </div>
+        <div class="tm-scene-grid" id="scene-grid"></div>
+      </div>
+
+      <!-- CTA -->
+      <div class="tm-cta-row">
+        <h2 id="lbl-cta-title"></h2>
+        <p id="lbl-cta-desc"></p>
+        <a href="contact.html" class="tm-cta-btn" id="lbl-cta-btn">立即咨询 →</a>
+      </div>
+
+    </div>
   </main>
 
   <footer class="tm-footer">
@@ -150,6 +197,241 @@
   <script src="js/app.js"></script>
 
   <script>
+    /* ============================================
+       i18n labels for this page
+       ============================================ */
+    const pageI18n = {
+      zh: {
+        features: '核心功能',
+        highlights: '产品亮点',
+        quality: '细节品质',
+        specs: '产品规格参数',
+        scene: '实景展示',
+        scrollBtn: '查看详细参数 ↓',
+        ctaTitle: '对该产品感兴趣？',
+        ctaDesc: '欢迎联系我们获取更多技术方案与报价信息',
+        ctaBtn: '立即咨询 →',
+        hlTitle: '专业级配球解决方案',
+        hlSub: 'PROFESSIONAL FEATURES',
+        qualTitle: '细节之处，见品质',
+        qualSub: 'PREMIUM BUILD QUALITY',
+        sceneLabel1: '室内模拟器练习场实景',
+        sceneLabel2: '设备内部结构展示'
+      },
+      en: {
+        features: 'Core Features',
+        highlights: 'Product Highlights',
+        quality: 'Build Quality',
+        specs: 'Specifications',
+        scene: 'In Action',
+        scrollBtn: 'View Specs ↓',
+        ctaTitle: 'Interested in this product?',
+        ctaDesc: 'Contact us for technical solutions and pricing',
+        ctaBtn: 'Contact Us →',
+        hlTitle: 'Professional Ball Distribution',
+        hlSub: 'PROFESSIONAL FEATURES',
+        qualTitle: 'Quality in Every Detail',
+        qualSub: 'PREMIUM BUILD QUALITY',
+        sceneLabel1: 'Indoor simulator driving range',
+        sceneLabel2: 'Internal mechanism view'
+      },
+      ko: {
+        features: '핵심 기능',
+        highlights: '제품 하이라이트',
+        quality: '품질 디테일',
+        specs: '제품 사양',
+        scene: '실제 설치 사례',
+        scrollBtn: '상세 사양 보기 ↓',
+        ctaTitle: '이 제품에 관심이 있으신가요?',
+        ctaDesc: '기술 솔루션 및 견적 정보를 위해 문의해 주세요',
+        ctaBtn: '문의하기 →',
+        hlTitle: '프로급 볼 배분 솔루션',
+        hlSub: 'PROFESSIONAL FEATURES',
+        qualTitle: '디테일에서 보이는 품질',
+        qualSub: 'PREMIUM BUILD QUALITY',
+        sceneLabel1: '실내 시뮬레이터 연습장 실경',
+        sceneLabel2: '장비 내부 구조'
+      }
+    };
+
+    /* ============================================
+       Product Data – from PDF catalogs (i18n)
+       ============================================ */
+    const productData = {
+      '125': {
+        title: { zh: '125型 智能配球机', en: 'Model 125 Smart Ball Distributor', ko: '125형 스마트 볼 배분기' },
+        subtitle: 'MODEL 125 · SMART BALL DISTRIBUTOR',
+        heroImg: 'img/products/各种供球机/125供球机.png',
+        desc: {
+          zh: '专为高端室内及室外大规模练习场设计的球体自动化清洗、分配系统。可与球场软件相结合，智能设置Tee高度，按场景变化自动出球，并记录练球时间、球数及TEE高度。',
+          en: 'Automated ball washing and distribution system designed for premium indoor and outdoor large-scale driving ranges. Integrates with course software for intelligent Tee height setting, automatic ball dispensing based on scenario changes, and practice time/ball count/TEE height recording.',
+          ko: '프리미엄 실내외 대규모 연습장을 위한 자동화 볼 세척 및 배분 시스템. 코스 소프트웨어와 연동하여 티 높이를 지능적으로 설정하고, 시나리오에 따라 자동 출구하며, 연습 시간·볼 수·TEE 높이를 기록합니다.'
+        },
+        extraTag: { zh: '', en: '', ko: '' },
+        features: {
+          zh: [
+            { icon: '⚙️', title: '智能联动', desc: '可与球场软件相结合，智能设置Tee高度，按场景变化自动出球' },
+            { icon: '📊', title: '数据记录', desc: '实时记录练球时间、球数及TEE高度显示，数据清晰可追溯' },
+            { icon: '🎛️', title: '多模式控制', desc: '可调节为自动、半自动及联动功能定制，6键位控制台' },
+            { icon: '📐', title: 'Tee高度可调', desc: '球Tee可调范围 0–70mm，精准适配不同球杆与击球习惯' },
+            { icon: '🔧', title: '便捷安装', desc: '模块化结构设计，安装简便快速，显著降低部署成本' },
+            { icon: '🛡️', title: '耐久品质', desc: '抗腐蚀表面处理，核心部件均为最高等级产品' }
+          ],
+          en: [
+            { icon: '⚙️', title: 'Smart Integration', desc: 'Integrates with course software for intelligent Tee height setting and automatic ball dispensing' },
+            { icon: '📊', title: 'Data Recording', desc: 'Real-time tracking of practice time, ball count and TEE height with full traceability' },
+            { icon: '🎛️', title: 'Multi-Mode Control', desc: 'Auto, semi-auto and linked modes with customizable 6-key control panel' },
+            { icon: '📐', title: 'Adjustable Tee', desc: 'Tee height range 0–70mm, precisely adaptable to different clubs and swing habits' },
+            { icon: '🔧', title: 'Easy Install', desc: 'Modular design for quick and easy installation, significantly reducing deployment costs' },
+            { icon: '🛡️', title: 'Durable Build', desc: 'Anti-corrosion surface treatment, all core components are top-grade' }
+          ],
+          ko: [
+            { icon: '⚙️', title: '스마트 연동', desc: '코스 소프트웨어와 연동하여 Tee 높이를 지능적으로 설정하고 자동 출구' },
+            { icon: '📊', title: '데이터 기록', desc: '연습 시간, 볼 수, TEE 높이를 실시간 기록하여 데이터 추적 가능' },
+            { icon: '🎛️', title: '멀티모드 제어', desc: '자동, 반자동, 연동 모드 지원. 6키 커스텀 컨트롤 패널' },
+            { icon: '📐', title: 'Tee 높이 조절', desc: '0–70mm 범위 조절 가능, 다양한 클럽과 스윙 습관에 정밀 대응' },
+            { icon: '🔧', title: '간편 설치', desc: '모듈형 구조로 빠르고 간편한 설치, 배치 비용 절감' },
+            { icon: '🛡️', title: '내구성 품질', desc: '부식 방지 표면 처리, 핵심 부품 모두 최고 등급 적용' }
+          ]
+        },
+        highlights: {
+          zh: ['安装便捷，模块化快速部署', '球Tee可调范围 0–70mm', '可调节为自动、半自动及联动功能定制', '6键位控制台，支持按键定制', '抗腐蚀表面处理，经久耐用', '传感器、驱动电机、轴承等主要部件均适用最高等级产品'],
+          en: ['Quick modular installation', 'Tee height range 0–70mm', 'Auto, semi-auto and linked operation modes', 'Customizable 6-key control panel', 'Anti-corrosion surface treatment', 'Top-grade sensors, motors, bearings and drive components'],
+          ko: ['모듈형 빠른 설치', 'Tee 높이 0–70mm 조절 가능', '자동, 반자동, 연동 모드 지원', '6키 커스텀 컨트롤 패널', '부식 방지 표면 처리', '센서, 모터, 베어링 등 핵심 부품 최고 등급 적용']
+        },
+        quality: {
+          zh: ['橡胶材质按键，呵护您的球杆', '发光按键设计，美观时尚', '严把质量关，产品性能稳定', '完善售后服务体系，用户无忧'],
+          en: ['Rubber keys protect your clubs', 'Illuminated key design, elegant and modern', 'Strict quality control, stable performance', 'Comprehensive after-sales service'],
+          ko: ['고무 재질 버튼으로 클럽 보호', '발광 버튼 디자인, 세련된 외관', '엄격한 품질관리, 안정적 성능', '완벽한 A/S 체계']
+        },
+        qualityImg: 'img/products/各种供球机/125供球机-业务资料1/125供球机-业务资料3.jpg',
+        specs: {
+          zh: { '规格 (L×W×H)': '850 × 260 × 128 mm', '设备高度': '128 mm', 'TEE高度': '100 mm', '电源': '交流电 220V 50Hz', '功率': '待机 20W / 运行 35W', '控制方式': 'MC 控制系统', '动力方式': 'DCG-Motor / S-Motor', '传感器': '红外线物体感应装置', '重量': '约 27KG（含包装）' },
+          en: { 'Dimensions (L×W×H)': '850 × 260 × 128 mm', 'Device Height': '128 mm', 'TEE Height': '100 mm', 'Power': 'AC 220V 50Hz', 'Wattage': 'Standby 20W / Running 35W', 'Control': 'MC Control System', 'Drive': 'DCG-Motor / S-Motor', 'Sensor': 'Infrared Object Detection', 'Weight': 'Approx. 27KG (incl. packaging)' },
+          ko: { '규격 (L×W×H)': '850 × 260 × 128 mm', '장비 높이': '128 mm', 'TEE 높이': '100 mm', '전원': 'AC 220V 50Hz', '소비전력': '대기 20W / 작동 35W', '제어 방식': 'MC 제어 시스템', '구동 방식': 'DCG-Motor / S-Motor', '센서': '적외선 물체 감지', '중량': '약 27KG (포장 포함)' }
+        },
+        sceneImg1: 'img/products/各种供球机/125供球机-业务资料1/125供球机-业务资料1.jpg',
+        sceneImg2: 'img/products/各种供球机/125供球机-业务资料1/125供球机-业务资料4.jpg'
+      },
+      '160': {
+        title: { zh: '160型 智能配球机', en: 'Model 160 Smart Ball Distributor', ko: '160형 스마트 볼 배분기' },
+        subtitle: 'MODEL 160 · SMART BALL DISTRIBUTOR',
+        heroImg: 'img/products/各种供球机/160供球机.png',
+        desc: {
+          zh: '专为高端室内及室外大规模练习场设计的球体自动化清洗、分配系统。可与球场软件相结合，智能设置Tee高度，按场景变化自动出球，并记录练球时间、球数及TEE高度。',
+          en: 'Automated ball washing and distribution system designed for premium indoor and outdoor large-scale driving ranges. Integrates with course software for intelligent Tee height setting and automatic ball dispensing.',
+          ko: '프리미엄 실내외 대규모 연습장을 위한 자동화 볼 세척 및 배분 시스템. 코스 소프트웨어와 연동하여 티 높이를 지능적으로 설정하고 자동 출구합니다.'
+        },
+        extraTag: { zh: '', en: '', ko: '' },
+        features: {
+          zh: [
+            { icon: '⚙️', title: '智能联动', desc: '可与球场软件相结合，智能设置Tee高度，按场景变化自动出球' },
+            { icon: '📊', title: '数据记录', desc: '实时记录练球时间、球数及TEE高度显示，数据清晰可追溯' },
+            { icon: '🎛️', title: '多模式控制', desc: '可调节为自动、半自动及联动功能定制，6键位控制台' },
+            { icon: '📐', title: 'Tee高度可调', desc: '球Tee可调范围 0–70mm，精准适配不同球杆与击球习惯' },
+            { icon: '🔧', title: '便捷安装', desc: '模块化结构设计，安装简便快速，显著降低部署成本' },
+            { icon: '🛡️', title: '耐久品质', desc: '抗腐蚀表面处理，核心部件均为最高等级产品' }
+          ],
+          en: [
+            { icon: '⚙️', title: 'Smart Integration', desc: 'Integrates with course software for intelligent Tee height setting and automatic ball dispensing' },
+            { icon: '📊', title: 'Data Recording', desc: 'Real-time tracking of practice time, ball count and TEE height with full traceability' },
+            { icon: '🎛️', title: 'Multi-Mode Control', desc: 'Auto, semi-auto and linked modes with customizable 6-key control panel' },
+            { icon: '📐', title: 'Adjustable Tee', desc: 'Tee height range 0–70mm, precisely adaptable to different clubs and swing habits' },
+            { icon: '🔧', title: 'Easy Install', desc: 'Modular design for quick and easy installation, significantly reducing deployment costs' },
+            { icon: '🛡️', title: 'Durable Build', desc: 'Anti-corrosion surface treatment, all core components are top-grade' }
+          ],
+          ko: [
+            { icon: '⚙️', title: '스마트 연동', desc: '코스 소프트웨어와 연동하여 Tee 높이를 지능적으로 설정하고 자동 출구' },
+            { icon: '📊', title: '데이터 기록', desc: '연습 시간, 볼 수, TEE 높이를 실시간 기록하여 데이터 추적 가능' },
+            { icon: '🎛️', title: '멀티모드 제어', desc: '자동, 반자동, 연동 모드 지원. 6키 커스텀 컨트롤 패널' },
+            { icon: '📐', title: 'Tee 높이 조절', desc: '0–70mm 범위 조절 가능, 다양한 클럽과 스윙 습관에 정밀 대응' },
+            { icon: '🔧', title: '간편 설치', desc: '모듈형 구조로 빠르고 간편한 설치, 배치 비용 절감' },
+            { icon: '🛡️', title: '내구성 품질', desc: '부식 방지 표면 처리, 핵심 부품 모두 최고 등급 적용' }
+          ]
+        },
+        highlights: {
+          zh: ['安装便捷，模块化快速部署', '球Tee可调范围 0–70mm', '可调节为自动、半自动及联动功能定制', '6键位控制台，支持按键定制', '抗腐蚀表面处理，经久耐用', '传感器、驱动电机、轴承等主要部件均适用最高等级产品'],
+          en: ['Quick modular installation', 'Tee height range 0–70mm', 'Auto, semi-auto and linked operation modes', 'Customizable 6-key control panel', 'Anti-corrosion surface treatment', 'Top-grade sensors, motors, bearings and drive components'],
+          ko: ['모듈형 빠른 설치', 'Tee 높이 0–70mm 조절 가능', '자동, 반자동, 연동 모드 지원', '6키 커스텀 컨트롤 패널', '부식 방지 표면 처리', '센서, 모터, 베어링 등 핵심 부품 최고 등급 적용']
+        },
+        quality: {
+          zh: ['橡胶材质按键，呵护您的球杆', '发光按键设计，美观时尚', '严把质量关，产品性能稳定', '完善售后服务体系，用户无忧'],
+          en: ['Rubber keys protect your clubs', 'Illuminated key design, elegant and modern', 'Strict quality control, stable performance', 'Comprehensive after-sales service'],
+          ko: ['고무 재질 버튼으로 클럽 보호', '발광 버튼 디자인, 세련된 외관', '엄격한 품질관리, 안정적 성능', '완벽한 A/S 체계']
+        },
+        qualityImg: 'img/products/各种供球机/160供球机-业务资料1/160供球机-业务资料3.jpg',
+        specs: {
+          zh: { '规格 (L×W×H)': '900 × 300 × 160 mm', '设备高度': '160 mm', 'TEE高度': '100 mm', '电源': '交流电 220V 50Hz', '功率': '待机 20W / 运行 35W', '控制方式': 'MC 控制系统', '动力方式': 'DCG-Motor / S-Motor', '传感器': '红外线物体感应装置', '重量': '约 29KG（含包装）' },
+          en: { 'Dimensions (L×W×H)': '900 × 300 × 160 mm', 'Device Height': '160 mm', 'TEE Height': '100 mm', 'Power': 'AC 220V 50Hz', 'Wattage': 'Standby 20W / Running 35W', 'Control': 'MC Control System', 'Drive': 'DCG-Motor / S-Motor', 'Sensor': 'Infrared Object Detection', 'Weight': 'Approx. 29KG (incl. packaging)' },
+          ko: { '규격 (L×W×H)': '900 × 300 × 160 mm', '장비 높이': '160 mm', 'TEE 높이': '100 mm', '전원': 'AC 220V 50Hz', '소비전력': '대기 20W / 작동 35W', '제어 방식': 'MC 제어 시스템', '구동 방식': 'DCG-Motor / S-Motor', '센서': '적외선 물체 감지', '중량': '약 29KG (포장 포함)' }
+        },
+        sceneImg1: 'img/products/各种供球机/160供球机-业务资料1/160供球机-业务资料1.jpg',
+        sceneImg2: 'img/products/各种供球机/160供球机-业务资料1/160供球机-业务资料4.jpg'
+      },
+      '185': {
+        title: { zh: '185型 智能配球机', en: 'Model 185 Smart Ball Distributor', ko: '185형 스마트 볼 배분기' },
+        subtitle: 'MODEL 185 · SMART BALL DISTRIBUTOR',
+        heroImg: 'img/products/各种供球机/185供球机_new.png',
+        desc: {
+          zh: '经典的直上直下供球装置，性能稳定，故障率低。可与球场软件相结合，智能设置Tee高度，按场景变化自动出球，并记录练球时间、球数及TEE高度。',
+          en: 'Classic straight up-and-down ball supply mechanism with stable performance and ultra-low failure rate. Integrates with course software for intelligent Tee height setting and automatic ball dispensing.',
+          ko: '클래식 직상직하 볼 공급 장치로 안정적인 성능과 극히 낮은 고장률. 코스 소프트웨어와 연동하여 티 높이를 지능적으로 설정하고 자동 출구합니다.'
+        },
+        extraTag: {
+          zh: '经典直上直下结构 · 故障率极低',
+          en: 'Classic Vertical Mechanism · Ultra-low Failure Rate',
+          ko: '클래식 직상직하 구조 · 극저 고장률'
+        },
+        features: {
+          zh: [
+            { icon: '⚙️', title: '智能联动', desc: '可与球场软件相结合，智能设置Tee高度，按场景变化自动出球' },
+            { icon: '📊', title: '数据记录', desc: '实时记录练球时间、球数及TEE高度显示，数据清晰可追溯' },
+            { icon: '🎛️', title: '多模式控制', desc: '可调节为自动、半自动及联动功能定制，6键位控制台' },
+            { icon: '📐', title: 'Tee高度可调', desc: '球Tee可调范围 0–70mm，精准适配不同球杆与击球习惯' },
+            { icon: '🔧', title: '便捷安装', desc: '模块化结构设计，安装简便快速，显著降低部署成本' },
+            { icon: '🔄', title: '直上直下结构', desc: '经典的直上直下供球装置，性能稳定，故障率极低' }
+          ],
+          en: [
+            { icon: '⚙️', title: 'Smart Integration', desc: 'Integrates with course software for intelligent Tee height setting and automatic ball dispensing' },
+            { icon: '📊', title: 'Data Recording', desc: 'Real-time tracking of practice time, ball count and TEE height with full traceability' },
+            { icon: '🎛️', title: 'Multi-Mode Control', desc: 'Auto, semi-auto and linked modes with customizable 6-key control panel' },
+            { icon: '📐', title: 'Adjustable Tee', desc: 'Tee height range 0–70mm, precisely adaptable to different clubs and swing habits' },
+            { icon: '🔧', title: 'Easy Install', desc: 'Modular design for quick and easy installation, significantly reducing deployment costs' },
+            { icon: '🔄', title: 'Vertical Mechanism', desc: 'Classic straight up-and-down ball supply with stable performance and ultra-low failure rate' }
+          ],
+          ko: [
+            { icon: '⚙️', title: '스마트 연동', desc: '코스 소프트웨어와 연동하여 Tee 높이를 지능적으로 설정하고 자동 출구' },
+            { icon: '📊', title: '데이터 기록', desc: '연습 시간, 볼 수, TEE 높이를 실시간 기록하여 데이터 추적 가능' },
+            { icon: '🎛️', title: '멀티모드 제어', desc: '자동, 반자동, 연동 모드 지원. 6키 커스텀 컨트롤 패널' },
+            { icon: '📐', title: 'Tee 높이 조절', desc: '0–70mm 범위 조절 가능, 다양한 클럽과 스윙 습관에 정밀 대응' },
+            { icon: '🔧', title: '간편 설치', desc: '모듈형 구조로 빠르고 간편한 설치, 배치 비용 절감' },
+            { icon: '🔄', title: '직상직하 구조', desc: '클래식 직상직하 볼 공급 장치, 안정적 성능과 극히 낮은 고장률' }
+          ]
+        },
+        highlights: {
+          zh: ['安装便捷，模块化快速部署', '球Tee可调范围 0–70mm', '可调节为自动、半自动及联动功能定制', '6键位控制台，支持按键定制', '抗腐蚀表面处理，经久耐用', '经典直上直下供球结构，性能稳定，故障率极低'],
+          en: ['Quick modular installation', 'Tee height range 0–70mm', 'Auto, semi-auto and linked operation modes', 'Customizable 6-key control panel', 'Anti-corrosion surface treatment', 'Classic vertical ball supply: stable, ultra-low failure rate'],
+          ko: ['모듈형 빠른 설치', 'Tee 높이 0–70mm 조절 가능', '자동, 반자동, 연동 모드 지원', '6키 커스텀 컨트롤 패널', '부식 방지 표면 처리', '클래식 직상직하 볼 공급, 안정적이고 고장률 극저']
+        },
+        quality: {
+          zh: ['橡胶材质按键，呵护您的球杆', '发光按键设计，美观时尚', '按键灵敏度高，操控更精准', '严把质量关，产品性能稳定，售后有保障'],
+          en: ['Rubber keys protect your clubs', 'Illuminated key design, elegant and modern', 'High key sensitivity for precise control', 'Strict quality control with reliable after-sales support'],
+          ko: ['고무 재질 버튼으로 클럽 보호', '발광 버튼 디자인, 세련된 외관', '높은 버튼 감도로 정밀 조작', '엄격한 품질관리, 안정적 A/S']
+        },
+        qualityImg: 'img/products/各种供球机/185供球机-业务资料 1/185供球机-业务资料 3.jpg',
+        specs: {
+          zh: { '规格 (L×W×H)': '905 × 265 × 185 mm', '设备高度': '185 mm', 'TEE高度': '100 mm', '电源': '交流电 220V 50Hz', '功率': '待机 20W / 运行 35W', '控制方式': 'MC 控制系统', '动力方式': 'DCG-Motor / S-Motor', '传感器': '红外线物体感应装置', '重量': '约 28KG（含包装）' },
+          en: { 'Dimensions (L×W×H)': '905 × 265 × 185 mm', 'Device Height': '185 mm', 'TEE Height': '100 mm', 'Power': 'AC 220V 50Hz', 'Wattage': 'Standby 20W / Running 35W', 'Control': 'MC Control System', 'Drive': 'DCG-Motor / S-Motor', 'Sensor': 'Infrared Object Detection', 'Weight': 'Approx. 28KG (incl. packaging)' },
+          ko: { '규격 (L×W×H)': '905 × 265 × 185 mm', '장비 높이': '185 mm', 'TEE 높이': '100 mm', '전원': 'AC 220V 50Hz', '소비전력': '대기 20W / 작동 35W', '제어 방식': 'MC 제어 시스템', '구동 방식': 'DCG-Motor / S-Motor', '센서': '적외선 물체 감지', '중량': '약 28KG (포장 포함)' }
+        },
+        sceneImg1: 'img/products/各种供球机/185供球机-业务资料 1/185供球机-业务资料 1.jpg',
+        sceneImg2: 'img/products/各种供球机/185供球机-业务资料 1/185供球机-业务资料 4.jpg'
+      }
+    };
+
+    /* ============================================
+       Render
+       ============================================ */
     function changeMainImg(src) {
       document.getElementById('pdp-main-img').src = src;
       document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
@@ -158,64 +440,133 @@
       });
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      // 提取查询参数 type (125, 160, 185)
+    function renderPage() {
       const urlParams = new URLSearchParams(window.location.search);
       const distType = urlParams.get('type') || '125';
+      const lang = localStorage.getItem('tm-lang') || 'zh';
+      const data = productData[distType] || productData['125'];
+      const lbl = pageI18n[lang] || pageI18n.zh;
 
-      // 更新页面标题
-      document.querySelector('.tm-pdp-title').textContent = `${distType}型 智能配球机`;
+      // Hero
+      document.getElementById('pdp-title').textContent = data.title[lang] || data.title.zh;
+      document.getElementById('pdp-subtitle').textContent = data.subtitle;
+      document.getElementById('breadcrumb-current').textContent = data.title[lang] || data.title.zh;
+      document.getElementById('scroll-btn').textContent = lbl.scrollBtn;
 
-      // 根据型号切换主图和高亮缩略图
-      const heroImgMap = {
-        '125': 'img/products/各种供球机/125供球机.png',
-        '160': 'img/products/各种供球机/160供球机.png',
-        '185': 'img/products/各种供球机/185供球机_new.png'
-      };
-      const mainImg = document.getElementById('pdp-main-img');
-      if (heroImgMap[distType]) {
-        mainImg.src = heroImgMap[distType];
-      }
-      // 高亮对应缩略图
+      const tag = data.extraTag[lang] || data.extraTag.zh;
+      const desc = data.desc[lang] || data.desc.zh;
+      document.getElementById('pdp-desc').innerHTML = tag
+        ? `<span style="display:inline-block;background:var(--tm-color-accent);color:#fff;padding:4px 12px;border-radius:4px;font-size:0.8rem;font-weight:600;margin-bottom:8px;">${tag}</span><br>${desc}`
+        : desc;
+
+      document.getElementById('pdp-main-img').src = data.heroImg;
       document.querySelectorAll('.tm-pdp-thumbs img').forEach(img => {
         img.classList.remove('active');
-        if (img.src.includes(heroImgMap[distType])) img.classList.add('active');
+        if (img.src.includes(data.heroImg)) img.classList.add('active');
       });
 
-      const container = document.getElementById('pdf-image-container');
-      const totalPages = 6;
+      // Model buttons
+      document.querySelectorAll('.tm-model-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.type === distType);
+      });
 
-      let basePath = '';
-      let filePrefix = '';
+      // Section labels
+      document.getElementById('lbl-features').textContent = lbl.features;
+      document.getElementById('lbl-highlights').textContent = lbl.highlights;
+      document.getElementById('lbl-quality').textContent = lbl.quality;
+      document.getElementById('lbl-specs').textContent = lbl.specs;
+      document.getElementById('lbl-scene').textContent = lbl.scene;
+      document.getElementById('lbl-cta-title').textContent = lbl.ctaTitle;
+      document.getElementById('lbl-cta-desc').textContent = lbl.ctaDesc;
+      document.getElementById('lbl-cta-btn').textContent = lbl.ctaBtn;
 
-      if (distType === '125') {
-        basePath = 'img/products/各种供球机/125供球机-业务资料1/';
-        filePrefix = '125供球机-业务资料1_';
-      } else if (distType === '160') {
-        basePath = 'img/products/各种供球机/160供球机-业务资料1/';
-        filePrefix = '160供球机-业务资料1_';
-      } else if (distType === '185') {
-        basePath = 'img/products/各种供球机/185供球机-业务资料 1/';
-        filePrefix = '185供球机-业务资料 1_';
-      }
+      // Features Grid
+      const features = data.features[lang] || data.features.zh;
+      document.getElementById('features-grid').innerHTML = features.map(f => `
+        <div class="tm-feature-card">
+          <div class="tm-feature-icon">${f.icon}</div>
+          <h3>${f.title}</h3>
+          <p>${f.desc}</p>
+        </div>
+      `).join('');
 
-      const infoImgMap = {
-        '125': '125-info-new.png',
-        '160': '160-info-new.png',
-        '185': '185-info-new.png'
+      // Highlights
+      const hl = data.highlights[lang] || data.highlights.zh;
+      document.getElementById('highlights-row').innerHTML = `
+        <div class="tm-highlights-content">
+          <h3>${lbl.hlTitle}</h3>
+          <p class="tm-hl-sub">${lbl.hlSub}</p>
+          <ul class="tm-highlights-list">
+            ${hl.map(h => `<li><span class="tm-hl-marker">—</span>${h}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="tm-highlights-visual">
+          <img src="${data.heroImg}" alt="${data.title[lang] || data.title.zh}" loading="lazy">
+        </div>
+      `;
+
+      // Quality
+      const qual = data.quality[lang] || data.quality.zh;
+      document.getElementById('quality-row').innerHTML = `
+        <div class="tm-highlights-visual">
+          <img src="${data.qualityImg}" alt="Quality" loading="lazy" onerror="this.src='${data.heroImg}'">
+        </div>
+        <div class="tm-highlights-content">
+          <h3>${lbl.qualTitle}</h3>
+          <p class="tm-hl-sub">${lbl.qualSub}</p>
+          <ul class="tm-highlights-list">
+            ${qual.map(q => `<li><span class="tm-hl-marker">—</span>${q}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+
+      // Specs
+      const specs = data.specs[lang] || data.specs.zh;
+      document.getElementById('specs-table').innerHTML = Object.entries(specs).map(([k, v]) => `
+        <tr><th>${k}</th><td>${v}</td></tr>
+      `).join('');
+
+      // Scene Gallery
+      document.getElementById('scene-grid').innerHTML = `
+        <div class="tm-scene-item">
+          <img src="${data.sceneImg1}" alt="Scene" loading="lazy" onerror="this.src='${data.heroImg}'">
+          <div class="tm-scene-badge">${lbl.sceneLabel1}</div>
+        </div>
+        <div class="tm-scene-item">
+          <img src="${data.sceneImg2}" alt="Detail" loading="lazy" onerror="this.src='${data.heroImg}'">
+          <div class="tm-scene-badge">${lbl.sceneLabel2}</div>
+        </div>
+      `;
+
+      // Scroll reveal
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.tm-detail-section').forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', renderPage);
+
+    // Re-render on language change
+    const origUpdateLang = window.updateLanguage;
+    if (typeof origUpdateLang === 'function') {
+      window.updateLanguage = function (lang) {
+        origUpdateLang(lang);
+        renderPage();
       };
-
-      let htmlContent = '';
-      if (infoImgMap[distType]) {
-        htmlContent = `<img src="img/products/各种供球机/${infoImgMap[distType]}" alt="Model ${distType} Info" loading="lazy">`;
-      } else {
-        // Fallback or future types
-        for (let i = 1; i <= totalPages; i++) {
-          htmlContent += `<img src="${basePath}${distType}供球机-业务资料${i}.jpg" alt="Page ${i}" loading="lazy" onerror="this.style.display='none'">`;
+    } else {
+      // Fallback: listen for language button clicks
+      document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('tm-lang-option')) {
+          setTimeout(renderPage, 50);
         }
-      }
-      container.innerHTML = htmlContent;
-    });
+      });
+    }
   </script>
 </body>
 
