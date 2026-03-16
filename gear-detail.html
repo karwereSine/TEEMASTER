@@ -439,6 +439,7 @@
           <button class="tm-lang-option" data-lang="zh">中文</button>
           <button class="tm-lang-option" data-lang="en">English</button>
           <button class="tm-lang-option" data-lang="ko">한국어</button>
+          <button class="tm-lang-option" data-lang="ja">日本語</button>
         </div>
 
       </div>
@@ -579,17 +580,17 @@
 
         // Reuse gear data from category.html
         const gearCategoryData = {
-            'gear-bags': { title: { zh: '高尔夫球包', en: 'Golf Bags', ko: '골프 가방' } },
-            'gear-accessories': { title: { zh: '高尔夫配件', en: 'Accessories', ko: '액세서리' } },
-            'gear-balls': { title: { zh: '高尔夫球', en: 'Golf Balls', ko: '골프볼' } },
-            'gear-clubs': { title: { zh: '高尔夫球杆', en: 'Golf Clubs', ko: '골프 클럽' } },
-            'gear-apparel': { title: { zh: '高尔夫服装', en: 'Golf Apparel', ko: '골프 의류' } },
-            'gear-shoes': { title: { zh: '高尔夫球鞋', en: 'Golf Shoes', ko: '골프화' } },
-            'gear-fitting': { title: { zh: '定制配件', en: 'Fitting Parts', ko: '피팅 파츠' } },
-            'gear-beauty': { title: { zh: '高尔夫美容', en: 'Golf Beauty', ko: '골프 뷰티' } },
-            'gear-practice': { title: { zh: '练习用品', en: 'Practice Goods', ko: '연습 용품' } },
-            'gear-screen': { title: { zh: '屏幕制作', en: 'Screen Making', ko: '스크린 제작' } },
-            'gear-park': { title: { zh: '公园高尔夫', en: 'Park Golf', ko: '파크 골프' } }
+            'gear-bags': { title: { zh: '高尔夫球包', en: 'Golf Bags', ko: '골프 가방', ja: 'ゴルフバッグ' } },
+            'gear-accessories': { title: { zh: '高尔夫配件', en: 'Accessories', ko: '액세서리', ja: 'ゴルフアクセサリー' } },
+            'gear-balls': { title: { zh: '高尔夫球', en: 'Golf Balls', ko: '골프볼', ja: 'ゴルフボール' } },
+            'gear-clubs': { title: { zh: '高尔夫球杆', en: 'Golf Clubs', ko: '골프 클럽', ja: 'ゴルフクラブ' } },
+            'gear-apparel': { title: { zh: '高尔夫服装', en: 'Golf Apparel', ko: '골프 의류', ja: 'ゴルフアパレル' } },
+            'gear-shoes': { title: { zh: '高尔夫球鞋', en: 'Golf Shoes', ko: '골프화', ja: 'ゴルフシューズ' } },
+            'gear-fitting': { title: { zh: '定制配件', en: 'Fitting Parts', ko: '피팅 파츠', ja: 'カスタムパーツ' } },
+            'gear-beauty': { title: { zh: '高尔夫美容', en: 'Golf Beauty', ko: '골프 뷰티', ja: 'ゴルフビューティー' } },
+            'gear-practice': { title: { zh: '练习用品', en: 'Practice Goods', ko: '연습 용품', ja: '練習用品' } },
+            'gear-screen': { title: { zh: '屏幕制作', en: 'Screen Making', ko: '스크린 제작', ja: 'スクリーン製作' } },
+            'gear-park': { title: { zh: '公园高尔夫', en: 'Park Golf', ko: '파크 골프', ja: 'パークゴルフ' } }
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -608,27 +609,50 @@
 
             // Find product name from category page data (we rebuild a minimal lookup)
             // Using URL-based approach for simplicity
-            const catTitle = catInfo.title[lang] || catInfo.title.zh;
 
-            // Format product name from ID
-            const productNames = {
-                zh: {}, en: {}, ko: {}
-            };
+            // Find specific product item inside gearData
+            let productItem = null;
+            if (catInfo && catInfo.items) {
+                productItem = catInfo.items.find(item => item.id === productId);
+            }
 
-            // Build breadcrumb
-            document.getElementById('breadcrumb').innerHTML =
-                `<a href="index.html">首页</a> / <a href="golf-gear.html">高尔夫用品</a> / <a href="category.html?cat=${catId}">${catTitle}</a> / <span class="current" id="bc-product">-</span>`;
+            function renderGearDetail(currentLang) {
+                const catTitle = catInfo.title[currentLang] || catInfo.title.zh;
+                
+                // Build breadcrumb dynamically
+                const homeStr = (typeof i18n !== 'undefined' && i18n[currentLang] && i18n[currentLang]['nav-home']) ? i18n[currentLang]['nav-home'] : (currentLang==='en'?'Home':currentLang==='ja'?'ホーム':currentLang==='ko'?'홈':'首页');
+                const gearStr = (typeof i18n !== 'undefined' && i18n[currentLang] && i18n[currentLang]['nav-golf-gear']) ? i18n[currentLang]['nav-golf-gear'] : (currentLang==='en'?'Golf Gear':currentLang==='ja'?'ゴルフ用品':currentLang==='ko'?'골프 용품':'高尔夫用品');
+                
+                document.getElementById('breadcrumb').innerHTML =
+                    `<a href="index.html">${homeStr}</a> / <a href="golf-gear.html">${gearStr}</a> / <a href="category.html?cat=${catId}">${catTitle}</a> / <span class="current" id="bc-product">-</span>`;
+
+                if (productItem) {
+                    const itemName = productItem.name[currentLang] || productItem.name.zh;
+                    const itemDesc = productItem.desc[currentLang] || productItem.desc.zh;
+                    
+                    document.getElementById('product-title').textContent = itemName;
+                    document.getElementById('product-desc').textContent = itemDesc;
+                    document.getElementById('bc-product').textContent = itemName;
+                    document.getElementById('product-en-name').textContent = productItem.name.en || productId.toUpperCase().replace(/-/g, ' ');
+                } else {
+                    // Fallback
+                    const prettyName = productId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                    document.getElementById('product-title').textContent = prettyName;
+                    document.getElementById('bc-product').textContent = prettyName;
+                }
+                
+                // Translate static headers
+                document.getElementById('specs-title').textContent = currentLang === 'en' ? '📋 Specifications' : currentLang === 'ko' ? '📋 제품 규격' : currentLang === 'ja' ? '📋 製品仕様' : '📋 产品规格参数';
+                document.getElementById('related-title').textContent = currentLang === 'en' ? '🔗 Related Products' : currentLang === 'ko' ? '🔗 관련 상품' : currentLang === 'ja' ? '🔗 関連商品' : '🔗 同系列产品';
+            }
 
             // Set visual
             document.getElementById('product-visual').textContent = specData.emoji;
             document.getElementById('product-badge').textContent = catId.replace('gear-', '').toUpperCase();
 
-            // Find matching product info from URL params and set title
-            // We use a fetch-like approach by rebuilding from the gear detail spec keys
-            const prettyName = productId.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-            document.getElementById('product-title').textContent = prettyName;
-            document.getElementById('product-en-name').textContent = productId.toUpperCase().replace(/-/g, ' ');
-            document.getElementById('bc-product').textContent = prettyName;
+            // Initial render
+            renderGearDetail(lang);
+
 
             // Build specs
             const specsGrid = document.getElementById('specs-grid');
@@ -662,6 +686,10 @@
             }, 100);
 
             updateLanguage(lang);
+
+            window.addEventListener('languageChanged', (e) => {
+                renderGearDetail(e.detail.lang);
+            });
         });
     </script>
 </body>

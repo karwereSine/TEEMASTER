@@ -33,7 +33,7 @@
   <style>
     .tm-global-cards {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
     }
 
@@ -155,6 +155,7 @@
           <button class="tm-lang-option" data-lang="zh">中文</button>
           <button class="tm-lang-option" data-lang="en">English</button>
           <button class="tm-lang-option" data-lang="ko">한국어</button>
+          <button class="tm-lang-option" data-lang="ja">日本語</button>
         </div>
 
       </div>
@@ -324,7 +325,7 @@
         style="transition-delay: 0.3s; max-width: var(--tm-max-width); margin: 60px auto 0; padding: 0 var(--tm-spacing-lg);">
         <div class="tm-global-content" style="text-align: center; margin-bottom: 24px;">
           <h3 data-i18n="sec-global-title">🌍 全球业务布局</h3>
-          <p data-i18n="sec-global-desc" style="color: var(--tm-color-text-muted); margin-top: 8px;">中韩双核驱动的跨国业务格局展示</p>
+          <p data-i18n="sec-global-desc" style="color: var(--tm-color-text-muted); margin-top: 8px;">多核驱动的跨国业务格局展示</p>
         </div>
         <div class="tm-global-cards">
           <div
@@ -348,6 +349,17 @@
               data-i18n="loc-china">中国 (China)</h4>
             <p style="font-size: 0.85rem; color: var(--tm-color-text-muted); line-height: 1.6;"
               data-i18n="loc-china-desc">智能硬件生产基地，承担 ODM/OEM 定制化制造、品控管理与全球供应链交付。</p>
+          </div>
+          <div
+            style="background: var(--tm-color-bg-secondary); border: 1px solid var(--tm-color-border); border-radius: 12px; padding: 28px; position: relative; overflow: hidden;">
+            <div
+              style="position: absolute; top: 12px; right: 16px; font-size: 0.7rem; letter-spacing: 2px; color: var(--tm-color-accent); text-transform: uppercase;">
+              BUSINESS & CHAIN</div>
+            <div style="font-size: 2rem; margin-bottom: 12px;">🇯🇵</div>
+            <h4 style="font-size: 1.2rem; font-weight: 700; color: var(--tm-color-text); margin-bottom: 6px;"
+              data-i18n="loc-japan">日本 (Japan)</h4>
+            <p style="font-size: 0.85rem; color: var(--tm-color-text-muted); line-height: 1.6;"
+              data-i18n="loc-japan-desc">基于 TEEMASTER 品牌丰富高尔夫产品线，全盘负责 TEEMASTER GOLF & CAFE 及 TEEMASTER GOLF 无人高尔夫连锁店业务。</p>
           </div>
         </div>
       </div>
