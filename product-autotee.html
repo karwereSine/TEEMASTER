@@ -100,6 +100,7 @@
           <button class="tm-lang-option" data-lang="zh">中文</button>
           <button class="tm-lang-option" data-lang="en">English</button>
           <button class="tm-lang-option" data-lang="ko">한국어</button>
+          <button class="tm-lang-option" data-lang="ja">日本語</button>
         </div>
 
       </div>
@@ -108,19 +109,19 @@
 
     <main class="tm-pdp-main">
         <div class="tm-pdp-breadcrumb">
-            <a href="index.html">首页</a> /
-            <a href="products.html">产品中心</a> /
-            <a href="category.html?cat=tee-up">智能发球机系列</a> /
-            <span class="current">立式智能发球机</span>
+            <a href="index.html" data-i18n="nav-home">首页</a> /
+            <a href="products.html" data-i18n="nav-products">产品中心</a> /
+            <a href="category.html?cat=tee-up" data-i18n="hw-autotee">智能发球机系列</a> /
+            <span class="current" data-i18n="pdp-autotee-title"></span>
         </div>
         <section class="tm-pdp-hero">
             <div class="tm-pdp-gallery">
                 <img id="pdp-main-img" src="img/products/立式发球机/autotee_new.png" alt="Auto Tee-Up">
             </div>
             <div class="tm-pdp-info">
-                <h1 class="tm-pdp-title">立式智能发球机</h1>
-                <p class="tm-pdp-subtitle">SMART AUTO TEE-UP SYSTEM</p>
-                <p class="tm-pdp-desc">
+                <h1 class="tm-pdp-title" data-i18n="pdp-autotee-title">立式智能发球机</h1>
+                <p class="tm-pdp-subtitle" data-i18n="pdp-autotee-subtitle">SMART AUTO TEE-UP SYSTEM</p>
+                <p class="tm-pdp-desc" data-i18n="pdp-autotee-desc">
                     专为现代化高尔夫练习场量身打造。高效稳定的全自动升降供球反馈系统，极大地优化了发球时间与运营效率。耐用的防震设计与智能控制面板相得益彰，提供科技与实用并存的服务。
                 </p>
 
@@ -130,7 +131,7 @@
                     <img src="img/products/立式发球机/微信图片_202409091020072.jpg" onclick="changeMainImg(this.src)">
                 </div>
 
-                <a href="#details" class="tm-pdp-scroll-btn">详看业务资料参数 ↓</a>
+                <a href="#details" class="tm-pdp-scroll-btn" data-i18n="pdp-scroll-btn">详看业务资料参数 ↓</a>
             </div>
         </section>
 
@@ -159,6 +160,13 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            const lang = localStorage.getItem('tm-lang') || 'zh';
+            updateLanguage(lang);
+
+            window.addEventListener('languageChanged', (e) => {
+                updateLanguage(e.detail.lang);
+            });
+
             const container = document.getElementById('pdf-image-container');
             const totalPages = 5;
             const basePath = 'img/products/立式发球机/TEEMASTER 立式智能发球机-业务资料1/';

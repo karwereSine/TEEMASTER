@@ -100,6 +100,7 @@
           <button class="tm-lang-option" data-lang="zh">中文</button>
           <button class="tm-lang-option" data-lang="en">English</button>
           <button class="tm-lang-option" data-lang="ko">한국어</button>
+          <button class="tm-lang-option" data-lang="ja">日本語</button>
         </div>
 
       </div>
@@ -108,19 +109,19 @@
 
   <main class="tm-pdp-main">
     <div class="tm-pdp-breadcrumb">
-      <a href="index.html">首页</a> /
-      <a href="products.html">产品中心</a> /
-      <a href="category.html?cat=distributor">自动配球机系列</a> /
-      <span class="current">智能自动供配球机</span>
+      <a href="index.html" data-i18n="nav-home">首页</a> /
+      <a href="products.html" data-i18n="nav-products">产品中心</a> /
+      <a href="category.html?cat=distributor" data-i18n="hw-distributor">自动配球机系列</a> /
+      <span class="current" data-i18n="pdp-distributor-title"></span>
     </div>
     <section class="tm-pdp-hero">
       <div class="tm-pdp-gallery">
         <img id="pdp-main-img" src="img/products/各种供球机/125供球机.png" alt="Ball Distributor">
       </div>
       <div class="tm-pdp-info">
-        <h1 class="tm-pdp-title">智能自动供配球机</h1>
-        <p class="tm-pdp-subtitle" id="distributor-subtitle">SMART BALL DISTRIBUTOR</p>
-        <p class="tm-pdp-desc">
+        <h1 class="tm-pdp-title" data-i18n="pdp-distributor-title">智能自动供配球机</h1>
+        <p class="tm-pdp-subtitle" data-i18n="pdp-distributor-subtitle" id="distributor-subtitle">SMART BALL DISTRIBUTOR</p>
+        <p class="tm-pdp-desc" data-i18n="pdp-distributor-desc">
           专为高端室内及室外大规模练习场设计的球体自动化清洗、分配系统。极速运作配合静音结构，是维系场馆高质量运营的中枢基石。
         </p>
 
@@ -158,13 +159,26 @@
       });
     }
 
+    function updateDynamicContent(distType, lang) {
+      // Update Model Type in Title
+      const titleEl = document.querySelector('.tm-pdp-title');
+      if (titleEl) {
+          const baseTitle = i18n[lang] && i18n[lang]['pdp-distributor-title'] ? i18n[lang]['pdp-distributor-title'] : '智能配球机';
+          titleEl.textContent = `${distType}型 ${baseTitle}`;
+      }
+      updateLanguage(lang);
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-      // 提取查询参数 type (125, 160, 185)
       const urlParams = new URLSearchParams(window.location.search);
       const distType = urlParams.get('type') || '125';
+      const initialLang = localStorage.getItem('tm-lang') || 'zh';
 
-      // 更新页面标题
-      document.querySelector('.tm-pdp-title').textContent = `${distType}型 智能配球机`;
+      updateDynamicContent(distType, initialLang);
+
+      window.addEventListener('languageChanged', (e) => {
+        updateDynamicContent(distType, e.detail.lang);
+      });
 
       // 根据型号切换主图和高亮缩略图
       const heroImgMap = {

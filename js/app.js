@@ -63,6 +63,8 @@ const i18n = {
     "loc-korea-desc": "产品研发与设计中心，负责核心技术创新、软件平台开发与全球市场策略制定。",
     "loc-china": "中国 (China)",
     "loc-china-desc": "智能硬件生产基地，承担 ODM/OEM 定制化制造、品控管理与全球供应链交付。",
+    "loc-japan": "日本 (Japan)",
+    "loc-japan-desc": "基于 TEEMASTER 品牌丰富高尔夫产品线，全盘负责 TEEMASTER GOLF & CAFE 及 TEEMASTER GOLF 无人高尔夫连锁店业务。",
     "app-download-on": "Download on the",
     "app-get-on": "GET IT ON",
     "sec-contact-cta-title": "携手共创高尔夫未来",
@@ -107,7 +109,25 @@ const i18n = {
     "mega-plat-iot": "智能连接",
     "mega-contact-b2b": "B2B 合作咨询",
     "mega-contact-odm": "ODM / OEM 定制",
-    "mega-contact-dist": "区域代理"
+    "mega-contact-dist": "区域代理",
+    // PDP Translations
+    'pdp-scroll-btn': '详看业务资料参数 ↓',
+    'pdp-sim-title': 'TEEMASTER 高尔夫模拟器',
+    'pdp-sim-subtitle': 'PROFESSIONAL GOLF SIMULATOR',
+    'pdp-sim-desc': '采用前沿视觉传感与计算技术，为您精准还原下场实感的室内高尔夫体验架构。无论是球道分析仪的毫秒级反应，还是真实重力感应的逼真画面，这一整套综合引擎为您开启全新的练球视角。',
+    'pdp-putter-title': '果岭贝贝智能推杆模拟器',
+    'pdp-putter-subtitle': 'SMART PUTTING SIMULATOR',
+    'pdp-putter-desc': '专为推杆训练研发的桌面及地铺双重智能设备，内置微米级高精度激光读取模块。能分析推杆线路、力度与角度，并搭配趣味交互游戏，实现寓教于乐的高效推杆训练。',
+    'pdp-autotee-title': '立式智能发球机',
+    'pdp-autotee-subtitle': 'UPRIGHT AUTO TEE-UP MACHINE',
+    'pdp-autotee-desc': '适用于室内高尔夫球馆、高级会所以及个人私家球房的自动化立式发球系统。静音运行，高度与球速可自定义调节，外观设计简约典雅，彻底解放取球弯腰动作，让您专注挥杆。',
+    'pdp-dr-tee-title': '练习场智能发球机',
+    'pdp-dr-tee-subtitle': 'DRIVING RANGE AUTO TEE-UP',
+    'pdp-dr-tee-desc': '专为室外和半露天大型练习场设计的高负荷耐候自动发球设备。具备防震、防水、防尘特性，内置长生命周期传送带系统，大幅降低场地人力维护成本，提升客流运转率。',
+    'pdp-distributor-title': '智能配球机',
+    'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
+    'pdp-distributor-desc': '智能微电脑控制的系列配球设备，集成球体清洗、分发与回收统计管理。模块化设计支持从小型室内馆到百打位大型场地的弹性部署，实现高尔夫球流转的全自动化闭环。',
+
   },
   en: {
     "nav-home": "Home",
@@ -216,7 +236,25 @@ const i18n = {
     "mega-plat-iot": "Smart Connection",
     "mega-contact-b2b": "B2B Partnership",
     "mega-contact-odm": "ODM / OEM Custom",
-    "mega-contact-dist": "Regional Distribution"
+    "mega-contact-dist": "Regional Distribution",
+    // PDP Translations
+    'pdp-scroll-btn': 'View Specifications ↓',
+    'pdp-sim-title': 'TEEMASTER Golf Simulator',
+    'pdp-sim-subtitle': 'PROFESSIONAL GOLF SIMULATOR',
+    'pdp-sim-desc': 'Using cutting-edge visual sensing and computing technology, we accurately recreate the realistic experience of an indoor golf course. From millisecond reactions of the fairway analyzer to the highly realistic gravity-sensing graphics, this comprehensive engine opens up a new perspective for your practice.',
+    'pdp-putter-title': 'Green Baby Smart Putting Simulator',
+    'pdp-putter-subtitle': 'SMART PUTTING SIMULATOR',
+    'pdp-putter-desc': 'A dual smart putting device developed specifically for putting training, featuring a built-in high-precision micron-level laser reading module. It analyzes putting path, strength, and angle, combined with interactive games for fun and efficient training.',
+    'pdp-autotee-title': 'Upright Smart Auto Tee-Up',
+    'pdp-autotee-subtitle': 'UPRIGHT AUTO TEE-UP MACHINE',
+    'pdp-autotee-desc': 'An automated upright ball supply system suitable for indoor golf venues, premium clubs, and private home studios. It operates silently with customizable tee height, its elegant design eliminating the need to bend down so you can focus on your swing.',
+    'pdp-dr-tee-title': 'Driving Range Auto Tee-Up',
+    'pdp-dr-tee-subtitle': 'DRIVING RANGE AUTO TEE-UP',
+    'pdp-dr-tee-desc': 'A heavy-duty automatic tee-up device designed specifically for outdoor and semi-outdoor large driving ranges. Waterproof and dustproof, it features a long-life conveyor belt system to significantly reduce manual labor and boost customer turnover.',
+    'pdp-distributor-title': 'Smart Ball Distributor',
+    'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
+    'pdp-distributor-desc': 'A series of smart microcomputer-controlled ball distribution equipment integrating washing, distribution, and recycling management. Its modular design supports flexible deployment from small indoor studios to large driving ranges.',
+
   },
   ko: {
     "nav-home": "홈",
@@ -282,6 +320,8 @@ const i18n = {
     "loc-korea-desc": "제품 R&D 및 디자인 센터로, 핵심 기술 혁신, 소프트웨어 플랫폼 개발 및 글로벌 시장 전략을 담당합니다.",
     "loc-china": "중국 (China)",
     "loc-china-desc": "스마트 하드웨어 생산 기지로, ODM/OEM 맞춤형 제조, 품질 관리 및 글로벌 공급망 납품을 담당합니다.",
+    "loc-japan": "일본(Japan)",
+    "loc-japan-desc": "TEEMASTER 브랜드의 다양한 골프 제품군을 기반으로한 TEEMASTER GOLF&CAFE 골프카페 및 TEEMASTER GOLF 무인 골프체인점 사업의 전체적인 업무를 담당합니다.",
     "app-download-on": "Download on the",
     "app-get-on": "GET IT ON",
     "sec-contact-cta-title": "골프의 미래를 함께 만들어갑니다",
@@ -325,7 +365,154 @@ const i18n = {
     "mega-plat-iot": "스마트 연결",
     "mega-contact-b2b": "B2B 제휴 문의",
     "mega-contact-odm": "ODM / OEM 맞춤 제작",
-    "mega-contact-dist": "지역 대리점"
+    "mega-contact-dist": "지역 대리점",
+    // PDP Translations
+    'pdp-scroll-btn': '제품 사양 보기 ↓',
+    'pdp-sim-title': 'TEEMASTER 골프 시뮬레이터',
+    'pdp-sim-subtitle': 'PROFESSIONAL GOLF SIMULATOR',
+    'pdp-sim-desc': '최첨단 비전 센싱 및 컴퓨팅 기술을 사용하여 실제 코스 느낌을 정확하게 재현하는 실내 골프 경험 아키텍처입니다. 페어웨이 분석기의 밀리초 반응부터 실제 중력 기반의 사실적인 그래픽까지 완전히 새로운 연습 시각을 엽니다.',
+    'pdp-putter-title': '그린베이비 스마트 퍼팅 시뮬레이터',
+    'pdp-putter-subtitle': 'SMART PUTTING SIMULATOR',
+    'pdp-putter-desc': '퍼팅 훈련 전용으로 개발된 듀얼 스마트 기기로, 초정밀 마이크론 레이저 판독 모듈이 내장되어 있습니다. 퍼팅 경로, 힘, 및 각도를 분석하며 인터랙티브 게임과 결합하여 즐겁고 효율적인 퍼팅 훈련을 제공합니다.',
+    'pdp-autotee-title': '스탠드형 스마트 오토 티업',
+    'pdp-autotee-subtitle': 'UPRIGHT AUTO TEE-UP MACHINE',
+    'pdp-autotee-desc': '실내 골프장, 고급 클럽 및 개인 연습실에 적합한 자동화 스탠드형 볼 공급 시스템입니다. 저소음 작동, 맞춤형 높이 조절 기능을 갖추고 있으며 우아한 디자인으로 공을 줍기 위해 허리를 굽힐 필요가 없습니다.',
+    'pdp-dr-tee-title': '연습장 오토 티업',
+    'pdp-dr-tee-subtitle': 'DRIVING RANGE AUTO TEE-UP',
+    'pdp-dr-tee-desc': '야외 및 반야외 대형 연습장용으로 특별히 설계된 고부하 내후성 자동 티업 장치입니다. 방진 방수 기능을 갖추고 수명이 긴 컨베이어 벨트 시스템을 내장하여 인력 유지보수 비용을 줄이고 회전율을 높입니다.',
+    'pdp-distributor-title': '스마트 자동 볼 배분기',
+    'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
+    'pdp-distributor-desc': '세척, 배분 및 수거 관리를 통합한 스마트 마이크로컴퓨터 제어 볼 배분기 시리즈입니다. 모듈식 설계로 소규모 실내 스튜디오부터 대형 연습장까지 탄력적 배치 구조를 지원하여 골프공 흐름을 자동화합니다.',
+
+  },
+  ja: {
+    "nav-home": "ホーム",
+    "nav-products": "製品センター",
+    "nav-golf-gear": "ゴルフ用品",
+    "nav-platform": "デジタルプラットフォーム",
+    "nav-contact": "お問い合わせ",
+    "hero-slogan": "TEEMASTER: 総合ゴルフソリューション",
+    "hero-sub": "(ハードウェア · 装备 · プラットフォーム)",
+    "hero-btn": "詳細を見る",
+    "sec-hardware-title": "スマートハードウェア",
+    "sec-hardware-sub": "SMART SYSTEMS",
+    "products-page-sub": "PRODUCT CENTER",
+    "products-page-desc": "スマートハードウェア、プロフェッショナル装備、ODM/OEM生産能力を網羅する総合ゴルフソリューション。",
+    "products-hw-desc": "ティーアップ、パッティング、配球、シミュレーションの4つのコアスマートデバイス。",
+    "products-more-title": "プロフェッショナル装備 & 生産能力",
+    "hw-autotee": "自動ティーアップ機",
+    "hw-autotee-desc": "スタンド型および練習場用のスマートな給球ソリューション。",
+    "hw-putter": "パター練習機",
+    "hw-putter-desc": "高精度センサーとエンターテインメント性を兼ね備えたプロ仕様の練習機器。",
+    "hw-distributor": "自動配球機",
+    "hw-distributor-desc": "屋内外の练习場運営効率を最適化する自動洗浄・搬送管理システム。",
+    "hw-sim": "スマートシミュレーター",
+    "hw-sim-desc": "グリーンパッティングシステムと没入型屋内分析システムを搭載。",
+    "sec-gear-title": "プロフェッショナル装備",
+    "sec-gear-sub": "PREMIUM GEAR",
+    "gear-text": "グリーンスマートパターシミュレーターからプロ級のゴルフクラブ、周辺アクセサリーまで、TEEMASTERのプロフェッショナル装備ラインは、究極のパフォーマンスと精密な技術を求めるゴルフ愛好家のために設計されています。",
+    "sec-mfg-title": "生産能力",
+    "sec-mfg-sub": "GLOBAL MANUFACTURING",
+    "mfg-text": "中国国内の強力な生産拠点を活用し、ODM/OEMカスタマイズされたハードウェアの研究開発とアジャイル生産サービスをグローバル市場に提供しています。",
+    "sec-plat-title": "デジタルプラットフォーム",
+    "sec-plat-sub": "TEEMASTER APP",
+    "plat-feat1-title": "スマート接続",
+    "plat-feat1-desc": "スマートフォンとすべてのスマートハードウェアデバイスをシームレスに接続し、打球データとデバイスの状態をリアルタイムで同期。",
+    "plat-feat2-title": "ソーシャル競技",
+    "plat-feat2-desc": "地域制限のないオンライン対戦プラットフォーム。グローバルなリアルタイムランキング、実績システムなどを提供します。",
+    "plat-feat3-title": "プロフェッショナル支援",
+    "plat-feat3-desc": "AIビジョン認識技術に基づいたスイング動作分析。正確なデータ診断レポートとパーソナライズされたトレーニングプランを提供します。",
+    "sec-b2b-title": "📋 B2B パートナーシップフォーム",
+    "sec-b2b-desc": "潜在的なパートナーの情報とビジネス意向を収集します",
+    "form-name": "お名前",
+    "form-name-ph": "お名前を入力してください",
+    "form-company": "会社名",
+    "form-company-ph": "会社名/機関名を入力してください",
+    "form-email": "メールアドレス",
+    "form-phone": "電話番号",
+    "form-phone-ph": "+81 XX XXXX XXXX",
+    "form-intent": "お問い合わせ内容",
+    "form-intent-ph": "提携ニーズやビジネスタイプについて簡潔にご記入ください...",
+    "form-submit": "✈ 申し込む",
+    "sec-legal-title": "法的案内 (Footer)",
+    "legal-copyright": "著作権表示",
+    "legal-copyright-desc": "Copyright © 2025 TEEMASTER. All Rights Reserved.",
+    "legal-privacy": "プライバシーポリシー",
+    "legal-privacy-desc": "ユーザーデータの収集、使用、保護に関する規範を明確にし、GDPRおよび現地の規制に準拠します。",
+    "legal-terms": "利用規約",
+    "legal-terms-desc": "プラットフォームの利用ルール、免責事項、ユーザーの権利と義務を定義します。",
+    "legal-sitemap": "サイトマップ",
+    "legal-sitemap-desc": "サイト全体のクイックナビゲーションインデックスを提供し、SEOの使いやすさを向上させます。",
+    "sec-global-title": "🌍 グローバルビジネス展開",
+    "sec-global-desc": "多核駆動の跨国業務格局展示",
+    "loc-korea": "韓国 (Korea)",
+    "loc-korea-desc": "製品の研究開発およびデザインセンター。コア技術の革新、ソフトウェアプラットフォームの開発、グローバル市場戦略の策定を担当します。",
+    "loc-china": "中国 (China)",
+    "loc-china-desc": "スマートハードウェアの生産拠点。ODM/OEMカスタマイズ制造、品質管理、グローバルサプライチェーンの納品を担当します。",
+    "loc-japan": "日本 (Japan)",
+    "loc-japan-desc": "TEEMASTERブランドの様々なゴルフ製品群をベースにしたTEEMASTER GOLF&CAFEゴルフカフェおよびTEEMASTER GOLF無人ゴルフチェーン店事業の全体的な業務を担当します。",
+    "app-download-on": "Download on the",
+    "app-get-on": "GET IT ON",
+    "sec-contact-cta-title": "ゴルフの未来を共に創る",
+    "sec-contact-cta-sub": "BUSINESS PARTNERSHIP",
+    "sec-contact-cta-desc": "スマートハードウェアの提携、ODM/OEMカスタマイズ生産、または地域代理店や販売機会をお探しの方。私たちは皆様との対話を楽しみにしています。",
+    "sec-contact-cta-btn": "📋 今すぐお問い合わせ",
+    "footer-tagline": "Smart Golf Platform",
+    "footer-nav-title": "クイックナビゲーション",
+    "footer-legal-title": "法的情報",
+    "footer-privacy": "プライバシーポリシー",
+    "footer-terms": "利用規約",
+    "footer-copy": "© 2025 TEEMASTER. All Rights Reserved.",
+    "nav-return-home": "ホーム",
+    "nav-return-cat": "製品カテゴリーに戻る",
+    "nav-return-prod": "製品一覧に戻る",
+    "nav-back": "戻る",
+    "cta-view-series": "シリーズを見る →",
+    "gear-page-title": "ゴルフ用品",
+    "gear-page-sub": "GOLF GEAR",
+    "gear-page-desc": "バッグからシューズ、クラブからアクセサリーまで、TEEMASTERはコースで必要なあらゆるゴルフ用品を提供します。",
+    "cs-title": "カスタマーセンター",
+    "cs-desc": "ご不明な点がございましたら、以下の方法でサポートチームまでお問い合わせください。",
+    "cs-hours": "営業時間: 月-金 9:00-18:00",
+    "loc-korea-full": "R&D Center — 韓国 (Korea)",
+    "loc-china-full": "Manufacturing — 中国 (China)",
+    "gear-cat-bags": "ゴルフバッグ",
+    "gear-cat-accessories": "ゴルフアクセサリー",
+    "gear-cat-balls": "ゴルフボール",
+    "gear-cat-clubs": "ゴルフクラブ",
+    "gear-cat-apparel": "ゴルフアパレル",
+    "gear-cat-shoes": "ゴルフシューズ",
+    "gear-cat-fitting": "カスタムパーツ",
+    "gear-cat-beauty": "ゴルフビューティー",
+    "gear-cat-practice": "練習用品",
+    "gear-cat-screen": "スクリーン制作",
+    "gear-cat-park": "パークゴルフ",
+    "mega-home-top": "トップに戻る",
+    "mega-plat-app": "TEEMASTER App",
+    "mega-plat-social": "ソーシャル競技",
+    "mega-plat-ai": "AIスイング分析",
+    "mega-plat-iot": "スマート接続",
+    "mega-contact-b2b": "B2B パートナーシップ",
+    "mega-contact-odm": "ODM / OEM カスタマイズ",
+    "mega-contact-dist": "地域代理店",
+    // PDP Translations
+    'pdp-scroll-btn': '仕様詳細を見る ↓',
+    'pdp-sim-title': 'TEEMASTER ゴルフシミュレーター',
+    'pdp-sim-subtitle': 'PROFESSIONAL GOLF SIMULATOR',
+    'pdp-sim-desc': '最先端の視覚的センシングとコンピューティング技術を使用し、コース上のリアルな感覚を正確に再現する室内ゴルフ体験を提供します。ミリ秒単位の反応から重力ベースのリアルなグラフィックまで、総合エンジンが新たな練習視点を開きます。',
+    'pdp-putter-title': 'グリーンベイビー パターシミュレーター',
+    'pdp-putter-subtitle': 'SMART PUTTING SIMULATOR',
+    'pdp-putter-desc': 'パッティング練習専用に開発されたデュアルスマートデバイス。高精度のミクロンレーザーモジュールを内蔵し、軌道、力、角度を分析。ゲームと組み合わせることで、楽しく効率的なパッティング練習を実現します。',
+    'pdp-autotee-title': 'スタンド型スマート自動ティーアップ',
+    'pdp-autotee-subtitle': 'UPRIGHT AUTO TEE-UP MACHINE',
+    'pdp-autotee-desc': 'インドアゴルフ場、高級クラブ、個人の練習室に適した自動スタンド型給球システムです。静音設計で高さのカスタマイズが可能。エレガントな設計でボールを拾うためにかがむ必要がなく、スイングに集中できます。',
+    'pdp-dr-tee-title': '練習場用自動ティーアップ',
+    'pdp-dr-tee-subtitle': 'DRIVING RANGE AUTO TEE-UP',
+    'pdp-dr-tee-desc': '屋外および半屋外の大規模な練習場専用に設計された、高負荷かつ耐候性の自動ティーアップ機です。防水・防塵設計で長寿命のコンベアベルトシステムを内蔵し、人件費を削減しながら回転率を向上させます。',
+    'pdp-distributor-title': 'スマート配球機',
+    'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
+    'pdp-distributor-desc': 'ボールの洗浄、配球、回収管理を統合した、スマートマイコン制御の配球機器シリーズです。モジュール設計により、小規模な室内スタジオから大規模な練習場まで柔軟な配置をサポートし、完全自動化を実現します。',
+
   }
 };
 
@@ -414,6 +601,9 @@ function updateLanguage(lang) {
   });
 
   updateLangNavActive(lang);
+
+  // Dispatch a global custom event for dynamic content to react (must be on window)
+  window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
 }
 
 function updateLangNavActive(lang) {
@@ -442,15 +632,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // 根据当前 URL 自动高亮主导航项
   function initActiveNav() {
     const p = window.location.pathname;
+    const s = window.location.search;
     const isLocal = p.endsWith('/') || p.endsWith('index.html');
 
     let activeCol = -1;
-    if (p.includes('products.html') || p.includes('product-')) activeCol = 1;
-    else if (p.includes('golf-gear.html') || p.includes('gear-') || p.includes('category.html')) activeCol = 2;
-    // 首页的平台对应 href="#platform"，这里简易处理：如果带 #platform 锚点则高亮
-    else if (window.location.hash === '#platform') activeCol = 3;
-    else if (p.includes('contact.html')) activeCol = 4;
-    else if (isLocal) activeCol = 0; // index/home
+    
+    if (p.includes('contact.html')) {
+      activeCol = 4;
+    } else if (p.includes('golf-gear.html') || p.includes('gear-') || (p.includes('category.html') && s.includes('cat=gear-'))) {
+      activeCol = 2;
+    } else if (p.includes('products.html') || p.includes('product-') || (p.includes('category.html') && !s.includes('cat=gear-'))) {
+      activeCol = 1;
+    } else if (window.location.hash === '#platform') {
+      activeCol = 3;
+    } else if (isLocal) {
+      activeCol = 0; // index/home
+    }
 
     navItems.forEach(item => {
       if (parseInt(item.dataset.megaCol) === activeCol) {
@@ -542,7 +739,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Mobile: Hamburger + language selector ----
   if (!hamburger || !nav) return;
 
-  const langNames = { zh: '中文', en: 'English', ko: '한국어' };
+  const langNames = { zh: '中文', en: 'English', ko: '한국어', ja: '日本語' };
   const storedLang = localStorage.getItem('tm-lang') || 'zh';
 
   const mobileLang = document.createElement('div');
@@ -555,6 +752,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <button data-lang="zh" class="${storedLang === 'zh' ? 'active' : ''}">中文</button>
       <button data-lang="en" class="${storedLang === 'en' ? 'active' : ''}">English</button>
       <button data-lang="ko" class="${storedLang === 'ko' ? 'active' : ''}">한국어</button>
+      <button data-lang="ja" class="${storedLang === 'ja' ? 'active' : ''}">日本語</button>
     </div>
   `;
   nav.appendChild(mobileLang);

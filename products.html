@@ -328,6 +328,7 @@
           <button class="tm-lang-option" data-lang="zh">中文</button>
           <button class="tm-lang-option" data-lang="en">English</button>
           <button class="tm-lang-option" data-lang="ko">한국어</button>
+          <button class="tm-lang-option" data-lang="ja">日本語</button>
         </div>
 
       </div>
@@ -415,42 +416,43 @@
     <script>
         const hwProducts = [
             {
-                name: { zh: '自动发球机', en: 'Auto Tee-Up', ko: '오토 티업' },
-                desc: { zh: '涵盖立式与练习场式的智能供球解决方案。', en: 'Smart ball supply solutions for upright and driving range.', ko: '스탠드형 및 연습장용 스마트 볼 공급 솔루션.' },
+                name: { zh: '自动发球机', en: 'Auto Tee-Up', ko: '오토 티업', ja: '自動ティーアップ機' },
+                desc: { zh: '涵盖立式与练习场式的智能供球解决方案。', en: 'Smart ball supply solutions for upright and driving range.', ko: '스탠드형 및 연습장용 스마트 볼 공급 솔루션.', ja: 'スタンド型および練習場用のスマートな給球ソリューション。' },
                 img: 'img/products/立式发球机/autotee_new.png',
                 link: 'category.html?cat=tee-up',
                 label: 'SERIES 01'
             },
             {
-                name: { zh: '智能模拟器', en: 'Golf Simulator', ko: '시뮬레이터' },
-                desc: { zh: '包含果岭推杆系统与全套室内沉浸分析系统。', en: 'Indoor putting system with immersive analysis engine.', ko: '실내 퍼팅 시스템과 몰입감 있는 분석 엔진.' },
+                name: { zh: '智能模拟器', en: 'Golf Simulator', ko: '시뮬레이터', ja: 'スマートシミュレーター' },
+                desc: { zh: '包含果岭推杆系统与全套室内沉浸分析系统。', en: 'Indoor putting system with immersive analysis engine.', ko: '실내 퍼팅 시스템과 몰입감 있는 분석 엔진.', ja: 'グリーンパッティングシステムと没入型屋内分析システムを搭載。' },
                 img: 'img/products/TEEMASTER高尔夫模拟器/golf_simulator.png',
                 link: 'category.html?cat=simulator',
                 label: 'SERIES 02'
             },
             {
-                name: { zh: '自动配球机', en: 'Ball Distributor', ko: '자동 볼 배분기' },
-                desc: { zh: '优化室内外练习场运营效率的自动化洗传管理系统。', en: 'Automated management system for driving range efficiency.', ko: '실내외 연습장 운영 효율 최적화 자동화 관리 시스템.' },
+                name: { zh: '自动配球机', en: 'Ball Distributor', ko: '자동 볼 배분기', ja: '自動配球機' },
+                desc: { zh: '优化室内外练习场运营效率的自动化洗传管理系统。', en: 'Automated management system for driving range efficiency.', ko: '실내외 연습장 운영 효율 최적화 자동化 관리 시스템.', ja: '屋内外の練習場運営効率を最適化する自動洗浄・搬送管理システム。' },
                 img: 'img/products/各种供球机/185供球机_new.png',
                 link: 'category.html?cat=distributor',
                 label: 'SERIES 03'
             },
             {
-                name: { zh: '推杆练习器', en: 'Putter Trainer', ko: '퍼터 트레이너' },
-                desc: { zh: '结合高精度传感器与娱乐性的专业推杆练习设备。', en: 'Professional putting practice with precision sensors.', ko: '고정밀 센서와 엔터테인먼트를 결합한 전문 연습 장비.' },
+                name: { zh: '推杆练习器', en: 'Putter Trainer', ko: '퍼터 트레이너', ja: 'パター練習機' },
+                desc: { zh: '结合高精度传感器与娱乐性的专业推杆练习设备。', en: 'Professional putting practice with precision sensors.', ko: '고정밀 센서와 엔터테인먼트를 결합한 전문 연습 장비.', ja: '高精度センサーとエンターテインメント性を兼ね備えたプロ仕様の練習機器。' },
                 img: 'img/products/果岭贝贝智能高尔夫推杆模拟器/gl3.jpg',
                 link: 'product-putter.html',
                 label: 'SERIES 04'
             }
         ];
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const lang = localStorage.getItem('tm-lang') || 'zh';
+        function renderProducts(lang) {
             const grid = document.getElementById('hw-grid');
-
+            grid.innerHTML = '';
+            
             hwProducts.forEach((p, i) => {
                 const name = p.name[lang] || p.name.zh;
                 const desc = p.desc[lang] || p.desc.zh;
+                // Add a small delay for animation re-triggering based on language switch
                 grid.innerHTML += `
           <a href="${p.link}" class="tm-hw-card tm-reveal active" style="transition-delay: ${i * 0.08}s">
             <img src="${p.img}" alt="${name}" class="tm-hw-card-img">
@@ -458,16 +460,24 @@
               <div class="tm-hw-card-label">${p.label}</div>
               <h3 class="tm-hw-card-title">${name}</h3>
               <p class="tm-hw-card-desc">${desc}</p>
-              <span class="tm-hw-card-cta">查看系列 →</span>
+              <span class="tm-hw-card-cta" data-i18n="cta-view-series">${i18n[lang] && i18n[lang]['cta-view-series'] ? i18n[lang]['cta-view-series'] : '查看系列 →'}</span>
             </div>
           </a>
         `;
             });
-
-            // Trigger reveal
+            
             setTimeout(() => {
                 document.querySelectorAll('.tm-reveal').forEach(el => el.classList.add('active'));
             }, 100);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialLang = localStorage.getItem('tm-lang') || 'zh';
+            renderProducts(initialLang);
+
+            window.addEventListener('languageChanged', (e) => {
+                renderProducts(e.detail.lang);
+            });
         });
     </script>
 </body>

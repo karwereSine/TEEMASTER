@@ -100,6 +100,7 @@
           <button class="tm-lang-option" data-lang="zh">中文</button>
           <button class="tm-lang-option" data-lang="en">English</button>
           <button class="tm-lang-option" data-lang="ko">한국어</button>
+          <button class="tm-lang-option" data-lang="ja">日本語</button>
         </div>
 
       </div>
@@ -108,19 +109,19 @@
 
     <main class="tm-pdp-main">
         <div class="tm-pdp-breadcrumb">
-            <a href="index.html">首页</a> /
-            <a href="products.html">产品中心</a> /
-            <a href="category.html?cat=simulator">室内模拟器系列</a> /
-            <span class="current">TEEMASTER 高尔夫模拟器</span>
+            <a href="index.html" data-i18n="nav-home">首页</a> /
+            <a href="products.html" data-i18n="nav-products">产品中心</a> /
+            <a href="category.html?cat=simulator" data-i18n="hw-sim">室内模拟器系列</a> /
+            <span class="current" data-i18n="pdp-sim-title"></span>
         </div>
         <section class="tm-pdp-hero">
             <div class="tm-pdp-gallery">
                 <img id="pdp-main-img" src="img/products/TEEMASTER高尔夫模拟器/golf_simulator.png" alt="Golf Simulator">
             </div>
             <div class="tm-pdp-info">
-                <h1 class="tm-pdp-title">TEEMASTER 高尔夫模拟器</h1>
-                <p class="tm-pdp-subtitle">PROFESSIONAL GOLF SIMULATOR</p>
-                <p class="tm-pdp-desc">
+                <h1 class="tm-pdp-title" data-i18n="pdp-sim-title">TEEMASTER 高尔夫模拟器</h1>
+                <p class="tm-pdp-subtitle" data-i18n="pdp-sim-subtitle">PROFESSIONAL GOLF SIMULATOR</p>
+                <p class="tm-pdp-desc" data-i18n="pdp-sim-desc">
                     采用前沿视觉传感与计算技术，为您精准还原下场实感的室内高尔夫体验架构。无论是球道分析仪的毫秒级反应，还是真实重力感应的逼真画面，这一整套综合引擎为您开启全新的练球视角。
                 </p>
 
@@ -130,7 +131,7 @@
                     <img src="img/products/TEEMASTER高尔夫模拟器/打位图2.png" onclick="changeMainImg(this.src)">
                 </div>
 
-                <a href="#details" class="tm-pdp-scroll-btn">详看业务资料参数 ↓</a>
+                <a href="#details" class="tm-pdp-scroll-btn" data-i18n="pdp-scroll-btn">详看业务资料参数 ↓</a>
             </div>
         </section>
 
@@ -159,6 +160,13 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
+            const lang = localStorage.getItem('tm-lang') || 'zh';
+            updateLanguage(lang);
+
+            window.addEventListener('languageChanged', (e) => {
+                updateLanguage(e.detail.lang);
+            });
+
             const container = document.getElementById('pdf-image-container');
             const totalPages = 17; // 对应文件夹页数
             const basePath = 'img/products/TEEMASTER高尔夫模拟器/TEEMASTER高尔夫模拟器/';
