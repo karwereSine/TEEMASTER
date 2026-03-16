@@ -199,6 +199,15 @@ body {
     margin: 0 auto;
     padding: var(--tm-spacing-xl) var(--tm-spacing-lg);
     border-top: 1px solid var(--tm-color-border);
+    /* scroll reveal */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tm-detail-section.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Section header */
@@ -849,17 +858,7 @@ body {
     line-height: 1.7;
 }
 
-/* Scroll reveal for detail sections */
-.tm-detail-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.tm-detail-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Scroll reveal moved to .tm-detail-section above */
 
 /* ========================================
    Responsive - Detail Sections
