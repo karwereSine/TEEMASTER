@@ -13,10 +13,10 @@
 .tm-section-title {
     font-size: 2.5rem;
     font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0;
     color: var(--tm-color-text);
     margin-bottom: var(--tm-spacing-sm);
+    word-break: keep-all;
 }
 
 .tm-section-title::after {
@@ -195,19 +195,20 @@
 .tm-product-banner-title {
     font-size: 3rem;
     font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 0;
     color: var(--tm-color-text);
     margin-bottom: 20px;
-    line-height: 1.1;
+    line-height: 1.15;
+    word-break: keep-all;
 }
 
 .tm-product-banner-desc {
     font-size: 1.05rem;
     color: var(--tm-color-text-muted);
-    line-height: 1.8;
+    line-height: 1.9;
     max-width: 500px;
     margin-bottom: 32px;
+    word-break: keep-all;
 }
 
 .tm-product-banner-btn {

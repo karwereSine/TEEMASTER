@@ -44,8 +44,7 @@
     font-size: 1.05rem;
     font-weight: 600;
     color: var(--tm-color-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     position: relative;
     padding-bottom: 4px;
 }

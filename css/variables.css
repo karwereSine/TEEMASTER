@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
-
 :root {
   /* Colors - Dark Theme (PXG style) */
   --tm-color-bg: #0a0a0a;
@@ -12,8 +10,8 @@
   /* Deep red accent */
   --tm-color-border: #333333;
 
-  /* Typography */
-  --tm-font-family: "Segoe UI", "Noto Sans KR", Arial, sans-serif;
+  /* Typography — Noto Sans KR first for Korean priority (matches daewoolife.co.kr) */
+  --tm-font-family: "Noto Sans KR", "Segoe UI", Arial, sans-serif;
 
   /* Transitions */
   --tm-transition-fast: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);

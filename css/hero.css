@@ -48,17 +48,18 @@
     font-weight: 800;
     color: var(--tm-color-text);
     margin-bottom: var(--tm-spacing-sm);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 1.2;
+    letter-spacing: 0;
+    line-height: 1.25;
+    word-break: keep-all;
 }
 
 .tm-hero-subtitle {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 300;
     color: var(--tm-color-primary);
     margin-bottom: var(--tm-spacing-xl);
-    letter-spacing: 4px;
+    letter-spacing: 2px;
+    word-break: keep-all;
 }
 
 .tm-hero-btn {
@@ -69,8 +70,7 @@
     padding: 16px 48px;
     font-size: 1.1rem;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     transition: var(--tm-transition-smooth);
 }
 
@@ -108,11 +108,12 @@
 
 @media (max-width: 768px) {
     .tm-hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        line-height: 1.3;
     }
 
     .tm-hero-subtitle {
-        font-size: 1.2rem;
-        letter-spacing: 2px;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
     }
 }

@@ -17,6 +17,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* 한글 줄바꿈 최적화: 단어 중간 분리 방지, 문장 자연스러운 행 처리 */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    line-break: strict;
 }
 
 a {
