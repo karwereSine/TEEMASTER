@@ -115,7 +115,7 @@
         <ul class="tm-nav-list">
           <li data-mega-col="0"><a href="index.html#hero" data-i18n="nav-home">首页</a></li>
           <li data-mega-col="1"><a href="products.html" data-i18n="nav-products">产品中心</a></li>
-          <li data-mega-col="2"><a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a></li>
+          <li data-mega-col="2"><a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫制造</a></li>
           <li data-mega-col="3"><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a></li>
           <li data-mega-col="4"><a href="contact.html" data-i18n="nav-contact">联系我们</a></li>
           <li data-mega-col="5"><a href="#" class="tm-lang-nav-btn">LANGUAGE <span class="tm-lang-arrow">▾</span></a>
@@ -149,9 +149,9 @@
           <a href="product-putter.html" data-i18n="hw-putter">推杆练习器</a>
         </div>
 
-        <!-- Col 2: 高尔夫用品 -->
+        <!-- Col 2: 高尔夫制造 -->
         <div class="tm-mega-col" data-col="2">
-          <h4 data-i18n="nav-golf-gear">高尔夫用品</h4>
+          <h4 data-i18n="nav-golf-gear">高尔夫制造</h4>
           <div style="column-count: 2; column-gap: 20px;">
             <a href="category.html?cat=gear-bags" data-i18n="gear-cat-bags">高尔夫球包</a>
             <a href="category.html?cat=gear-accessories" data-i18n="gear-cat-accessories">高尔夫配件</a>
@@ -219,7 +219,7 @@
                 <h4 data-i18n="footer-nav-title">快速导航</h4>
                 <a href="index.html" data-i18n="nav-home">首页</a>
                 <a href="products.html" data-i18n="nav-products">产品中心</a>
-                <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a>
+                <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫制造</a>
             </div>
             <div class="tm-footer-legal">
                 <h4 data-i18n="footer-legal-title">法律信息</h4>
@@ -270,7 +270,7 @@
         };
 
         // ========================================
-        // 高尔夫用品分类数据 — loaded from js/gear-data.js
+        // 高尔夫制造分类数据 — loaded from js/gear-data.js
         // ========================================
         // gearData is provided by gear-data.js (imported above)
         const _gearDataPlaceholder = {
@@ -448,7 +448,7 @@
             const isGear = catId && catId.startsWith('gear-');
             
             if (isGear) {
-                breadcrumb.innerHTML = `<a href="index.html" data-i18n="nav-home">首页</a> / <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a> / <span id="bc-current"></span>`;
+                breadcrumb.innerHTML = `<a href="index.html" data-i18n="nav-home">首页</a> / <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫制造</a> / <span id="bc-current"></span>`;
             } else {
                 breadcrumb.innerHTML = `<a href="index.html" data-i18n="nav-home">首页</a> / <a href="products.html" data-i18n="nav-products">产品中心</a> / <span id="bc-current"></span>`;
             }

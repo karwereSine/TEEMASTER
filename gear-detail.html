@@ -1,533 +1,141 @@
 <!doctype html>
 <html class="no-js" lang="zh">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>产品详情 | TEEMASTER Golf Gear</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <meta name="theme-color" content="#0a0a0a">
-    <style>
-        body { background-color: #050505; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产品详情 | TEEMASTER Golf Making</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/product-detail.css?v=3">
+  <meta name="theme-color" content="#0a0a0a">
+  <style>
+    .tm-hero-cta { display:flex; gap:16px; align-items:center; margin-top:24px; flex-wrap:wrap; }
+    .tm-back-btn { display:inline-flex; align-items:center; gap:6px; font-size:0.85rem; color:var(--tm-color-text-muted); border:1px solid rgba(255,255,255,0.1); padding:8px 16px; border-radius:4px; transition:all 0.2s; }
+    .tm-back-btn:hover { color:var(--tm-color-text); border-color:rgba(255,255,255,0.3); }
+    .tm-pdp-features-list { margin:20px 0; }
+    .tm-pdp-features-list ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
+    .tm-pdp-features-list ul li { display:flex; align-items:flex-start; gap:8px; font-size:0.9rem; color:var(--tm-color-text-muted); line-height:1.5; }
+    .tm-mode-card-tag { display:inline-block; background:rgba(220,38,38,0.15); color:var(--tm-color-accent); font-size:0.75rem; font-weight:600; letter-spacing:0.05em; padding:3px 10px; border-radius:12px; margin-bottom:10px; }
+    .tm-mode-card-body ul { list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:6px; }
+    .tm-mode-card-body ul li { display:flex; align-items:flex-start; gap:6px; font-size:0.85rem; color:var(--tm-color-text-muted); line-height:1.5; }
+    .tm-story-tags { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+    .tm-story-tag { font-size:0.8rem; font-weight:600; letter-spacing:0.06em; padding:4px 14px; border-radius:16px; border:1px solid rgba(220,38,38,0.4); color:var(--tm-color-accent); }
+    .tm-related-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .tm-related-card { background:var(--tm-color-surface); border:1px solid rgba(255,255,255,0.06); border-radius:8px; overflow:hidden; transition:all 0.25s; text-decoration:none; color:inherit; display:flex; flex-direction:column; }
+    .tm-related-card:hover { border-color:rgba(220,38,38,0.4); transform:translateY(-4px); }
+    .tm-related-img { aspect-ratio:4/3; overflow:hidden; background:#111; }
+    .tm-related-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.4s; }
+    .tm-related-card:hover .tm-related-img img { transform:scale(1.05); }
+    .tm-related-body { padding:16px 20px 20px; flex:1; display:flex; flex-direction:column; gap:6px; }
+    .tm-related-body h4 { font-size:0.95rem; font-weight:600; color:var(--tm-color-text); line-height:1.4; }
+    .tm-related-body p { font-size:0.82rem; color:var(--tm-color-text-muted); line-height:1.5; flex:1; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+    .tm-related-arrow { font-size:0.8rem; color:var(--tm-color-accent); font-weight:600; margin-top:auto; }
+    .tm-not-found { text-align:center; padding:120px 24px; color:var(--tm-color-text-muted); }
+    .tm-not-found p { font-size:1.2rem; margin-bottom:24px; }
 
-        .tm-detail-main {
-            padding-top: calc(var(--tm-header-height) + 40px);
-            max-width: var(--tm-max-width);
-            margin: 0 auto;
-            padding-left: var(--tm-spacing-lg);
-            padding-right: var(--tm-spacing-lg);
-            padding-bottom: 120px;
-        }
+    /* ── Feature cards: 버튼 스타일 제거, 가로 레이아웃 ── */
+    .tm-features-grid { gap:16px; }
+    .tm-feature-card {
+      background: transparent;
+      border: none;
+      border-left: 2px solid rgba(211,47,47,0.3);
+      border-radius: 0;
+      padding: 16px 20px;
+      text-align: left;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transition: border-color 0.2s;
+    }
+    .tm-feature-card:hover {
+      border-color: var(--tm-color-accent);
+      transform: none;
+      box-shadow: none;
+    }
+    .tm-feature-icon {
+      font-size: 1.4rem;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      background: rgba(211,47,47,0.08);
+      border-radius: 8px;
+      margin: 0;
+    }
+    .tm-feature-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
 
-        /* ── Breadcrumb ── */
-        .tm-breadcrumb {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            font-size: 0.85rem;
-            color: var(--tm-color-text-muted);
-            margin-bottom: 36px;
-            flex-wrap: wrap;
-        }
-        .tm-breadcrumb a { color: var(--tm-color-text-muted); transition: color 0.2s; }
-        .tm-breadcrumb a:hover { color: var(--tm-color-text); }
-        .tm-breadcrumb .sep { opacity: 0.4; }
-        .tm-breadcrumb .current { color: var(--tm-color-accent); }
-
-        /* ── Hero ── */
-        .tm-product-hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 52px;
-            margin-bottom: 64px;
-            align-items: start;
-        }
-
-        /* ── Gallery ── */
-        .tm-product-gallery {
-            position: sticky;
-            top: calc(var(--tm-header-height) + 20px);
-        }
-
-        .tm-main-image {
-            width: 100%;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #111, #1a1a1a);
-            border: 1px solid var(--tm-color-border);
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .tm-main-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 20px;
-            transition: transform 0.5s ease;
-        }
-        .tm-main-image:hover img { transform: scale(1.05); }
-
-        .tm-img-badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: var(--tm-color-accent);
-            color: #fff;
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 4px;
-            z-index: 2;
-        }
-
-        .tm-gallery-thumbs {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-        }
-        .tm-gallery-thumb {
-            width: 80px;
-            height: 80px;
-            flex-shrink: 0;
-            border-radius: 10px;
-            border: 2px solid var(--tm-color-border);
-            background: #111;
-            overflow: hidden;
-            cursor: pointer;
-            transition: border-color 0.25s, transform 0.2s;
-        }
-        .tm-gallery-thumb.active { border-color: var(--tm-color-accent); }
-        .tm-gallery-thumb:hover { border-color: rgba(212,175,55,0.6); transform: translateY(-2px); }
-        .tm-gallery-thumb img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
-
-        /* ── Product Info ── */
-        .tm-product-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .tm-product-cat {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
-            color: var(--tm-color-accent);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .tm-product-cat::before {
-            content: '';
-            display: block;
-            width: 24px;
-            height: 2px;
-            background: var(--tm-color-accent);
-        }
-        .tm-product-title {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: var(--tm-color-text);
-            line-height: 1.15;
-            letter-spacing: -0.5px;
-        }
-        .tm-product-en-name {
-            font-size: 0.95rem;
-            color: var(--tm-color-text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-        .tm-divider { height: 1px; background: var(--tm-color-border); }
-        .tm-product-desc {
-            font-size: 1rem;
-            color: var(--tm-color-text-muted);
-            line-height: 1.85;
-        }
-        .tm-features {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .tm-features li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: var(--tm-color-text);
-            line-height: 1.5;
-        }
-        .tm-features li::before {
-            content: '✓';
-            color: var(--tm-color-accent);
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-        .tm-cta-group { display: flex; gap: 12px; flex-wrap: wrap; }
-        .tm-btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            background: var(--tm-color-accent);
-            color: #fff;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .tm-btn-primary:hover {
-            background: var(--tm-color-accent-dark, #b8860b);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(212,175,55,0.25);
-        }
-        .tm-btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border: 1px solid var(--tm-color-border);
-            color: var(--tm-color-text-muted);
-            font-weight: 600;
-            font-size: 0.85rem;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        .tm-btn-secondary:hover {
-            border-color: var(--tm-color-accent);
-            color: var(--tm-color-accent);
-        }
-
-        /* ── Quick Stats Bar ── */
-        .tm-stats-bar {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: var(--tm-color-border);
-            border: 1px solid var(--tm-color-border);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 64px;
-        }
-        .tm-stat-item {
-            background: var(--tm-color-bg-secondary);
-            padding: 28px 20px;
-            text-align: center;
-            transition: background 0.2s;
-        }
-        .tm-stat-item:hover { background: #151515; }
-        .tm-stat-value {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--tm-color-text);
-            line-height: 1.2;
-        }
-        .tm-stat-label {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--tm-color-accent);
-            margin-top: 6px;
-        }
-
-        /* ── Section wrapper ── */
-        .tm-section {
-            margin-bottom: 72px;
-            opacity: 0;
-            transform: translateY(24px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .tm-section.visible { opacity: 1; transform: translateY(0); }
-        .tm-section-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-        .tm-section-header h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--tm-color-text);
-            white-space: nowrap;
-        }
-        .tm-section-header::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--tm-color-border);
-        }
-
-        /* ── Feature Cards ── */
-        .tm-feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-        }
-        .tm-feature-card {
-            background: var(--tm-color-bg-secondary);
-            border: 1px solid var(--tm-color-border);
-            border-radius: 14px;
-            padding: 28px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-            position: relative;
-            overflow: hidden;
-        }
-        .tm-feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: var(--tm-color-accent);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-            transform-origin: bottom;
-        }
-        .tm-feature-card:hover {
-            border-color: var(--tm-color-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.4);
-        }
-        .tm-feature-card:hover::before { transform: scaleY(1); }
-        .tm-feature-icon { font-size: 2rem; line-height: 1; }
-        .tm-feature-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--tm-color-text);
-            line-height: 1.4;
-        }
-        .tm-feature-note {
-            font-size: 0.8rem;
-            color: var(--tm-color-text-muted);
-            line-height: 1.6;
-        }
-
-        /* ── Story Section ── */
-        .tm-story {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            border: 1px solid var(--tm-color-border);
-            border-radius: 16px;
-            overflow: hidden;
-            min-height: 380px;
-        }
-        .tm-story-visual {
-            background: linear-gradient(135deg, #0e0e0e, #1a1a1a);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        .tm-story-visual::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(212,175,55,0.06), transparent);
-            pointer-events: none;
-        }
-        .tm-story-visual img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 36px;
-            transition: transform 0.6s ease;
-        }
-        .tm-story-visual:hover img { transform: scale(1.06); }
-        .tm-story-text {
-            padding: 52px 44px;
-            background: #0c0c0c;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 18px;
-            border-left: 1px solid var(--tm-color-border);
-        }
-        .tm-story-label {
-            font-size: 0.68rem;
-            letter-spacing: 3px;
-            color: var(--tm-color-accent);
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-        .tm-story-title {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--tm-color-text);
-            line-height: 1.25;
-        }
-        .tm-story-body {
-            font-size: 0.92rem;
-            color: var(--tm-color-text-muted);
-            line-height: 2;
-        }
-        .tm-story-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 4px;
-        }
-        .tm-story-tag {
-            padding: 5px 16px;
-            border: 1px solid var(--tm-color-border);
-            border-radius: 20px;
-            font-size: 0.72rem;
-            color: var(--tm-color-text-muted);
-            letter-spacing: 0.5px;
-            transition: border-color 0.2s, color 0.2s;
-        }
-        .tm-story-tag:hover {
-            border-color: var(--tm-color-accent);
-            color: var(--tm-color-accent);
-        }
-
-        /* ── Specs Grid ── */
-        .tm-specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
-        }
-        .tm-spec-card {
-            background: var(--tm-color-bg-secondary);
-            border: 1px solid var(--tm-color-border);
-            border-radius: 10px;
-            padding: 20px;
-            transition: border-color 0.2s;
-        }
-        .tm-spec-card:hover { border-color: var(--tm-color-accent); }
-        .tm-spec-label {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--tm-color-text-muted);
-            margin-bottom: 8px;
-        }
-        .tm-spec-value {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--tm-color-text);
-        }
-
-        /* ── Related Products ── */
-        .tm-related-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 16px;
-        }
-        .tm-related-card {
-            background: var(--tm-color-bg-secondary);
-            border: 1px solid var(--tm-color-border);
-            border-radius: 12px;
-            overflow: hidden;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            display: block;
-        }
-        .tm-related-card:hover {
-            border-color: var(--tm-color-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-        }
-        .tm-related-img {
-            width: 100%;
-            aspect-ratio: 1;
-            background: linear-gradient(135deg, #111, #1a1a1a);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .tm-related-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 14px;
-            transition: transform 0.3s ease;
-        }
-        .tm-related-card:hover .tm-related-img img { transform: scale(1.08); }
-        .tm-related-body { padding: 16px; }
-        .tm-related-body h4 {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--tm-color-text);
-            line-height: 1.4;
-        }
-        .tm-related-body p {
-            font-size: 0.77rem;
-            color: var(--tm-color-text-muted);
-            margin-top: 5px;
-            line-height: 1.4;
-        }
-        .tm-related-arrow {
-            display: block;
-            font-size: 0.75rem;
-            color: var(--tm-color-accent);
-            margin-top: 8px;
-            font-weight: 600;
-        }
-
-        /* ── Not Found ── */
-        .tm-not-found {
-            text-align: center;
-            padding: 80px 20px;
-            color: var(--tm-color-text-muted);
-        }
-        .tm-not-found h2 { font-size: 1.5rem; margin-bottom: 12px; color: var(--tm-color-text); }
-
-        /* ── Responsive ── */
-        @media (max-width: 1024px) {
-            .tm-story { grid-template-columns: 1fr; }
-            .tm-story-visual { min-height: 240px; }
-            .tm-story-visual img { padding: 24px; }
-            .tm-story-text { padding: 36px 28px; border-left: none; border-top: 1px solid var(--tm-color-border); }
-        }
-        @media (max-width: 900px) {
-            .tm-product-hero { grid-template-columns: 1fr; gap: 28px; }
-            .tm-product-gallery { position: static; }
-            .tm-product-title { font-size: 1.85rem; }
-            .tm-stats-bar { grid-template-columns: repeat(3, 1fr); }
-        }
-        @media (max-width: 600px) {
-            .tm-detail-main { padding-top: calc(var(--tm-header-height) + 16px); padding-left: 16px; padding-right: 16px; padding-bottom: 64px; }
-            .tm-product-title { font-size: 1.5rem; }
-            .tm-stats-bar { grid-template-columns: 1fr; }
-            .tm-feature-grid { grid-template-columns: 1fr 1fr; }
-            .tm-specs-grid { grid-template-columns: 1fr 1fr; }
-            .tm-related-grid { grid-template-columns: 1fr 1fr; }
-            .tm-cta-group { flex-direction: column; }
-            .tm-btn-primary, .tm-btn-secondary { justify-content: center; }
-            .tm-story-title { font-size: 1.4rem; }
-        }
-    </style>
+    /* ── Lifestyle Scene Section ── */
+    .tm-scene-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 6px;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 480px;
+    }
+    .tm-scene-img {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+    .tm-scene-img.tall { grid-row: span 2; }
+    .tm-scene-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+    .tm-scene-img:hover img { transform: scale(1.06); }
+    .tm-scene-img .tm-scene-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 20px 16px 14px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.8);
+      text-transform: uppercase;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .tm-scene-img:hover .tm-scene-label { opacity: 1; }
+    @media (max-width: 900px) {
+      .tm-scene-strip {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+      }
+      .tm-scene-img { height: 200px; }
+      .tm-scene-img.tall { grid-row: auto; height: 200px; }
+    }
+    @media (max-width: 600px) {
+      .tm-scene-strip { grid-template-columns: 1fr; }
+      .tm-scene-img, .tm-scene-img.tall { height: 220px; }
+    }
+    @media (max-width:900px) {
+      .tm-related-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:600px) {
+      .tm-related-grid { grid-template-columns:1fr; }
+    }
+  </style>
 </head>
 
 <body>
-    <header class="tm-header scrolled" id="tm-header">
+
+  <header class="tm-header scrolled" id="tm-header">
     <div class="tm-header-container">
       <a href="index.html" class="tm-logo">TEEMASTER</a>
       <nav class="tm-nav">
         <ul class="tm-nav-list">
           <li data-mega-col="0"><a href="index.html#hero" data-i18n="nav-home">首页</a></li>
           <li data-mega-col="1"><a href="products.html" data-i18n="nav-products">产品中心</a></li>
-          <li data-mega-col="2"><a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a></li>
+          <li data-mega-col="2"><a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫制造</a></li>
           <li data-mega-col="3"><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a></li>
           <li data-mega-col="4"><a href="contact.html" data-i18n="nav-contact">联系我们</a></li>
           <li data-mega-col="5"><a href="#" class="tm-lang-nav-btn">LANGUAGE <span class="tm-lang-arrow">▾</span></a></li>
@@ -537,561 +145,388 @@
     </div>
     <div class="tm-mega-menu" id="tm-mega-menu">
       <div class="tm-mega-inner">
-        <div class="tm-mega-col" data-col="0">
-          <h4 data-i18n="nav-home">首页</h4>
-          <a href="index.html#hero" data-i18n="mega-home-top">返回顶部</a>
-          <a href="index.html#products" data-i18n="sec-hardware-title">智能硬件</a>
-          <a href="index.html#platform" data-i18n="nav-platform">数字化平台</a>
-          <a href="index.html#contact" data-i18n="nav-contact">联系我们</a>
-        </div>
-        <div class="tm-mega-col" data-col="1">
-          <h4 data-i18n="nav-products">产品中心</h4>
-          <a href="category.html?cat=tee-up" data-i18n="hw-autotee">自动发球机</a>
-          <a href="category.html?cat=simulator" data-i18n="hw-sim">智能模拟器</a>
-          <a href="category.html?cat=distributor" data-i18n="hw-distributor">自动配球机</a>
-          <a href="product-putter.html" data-i18n="hw-putter">推杆练习器</a>
-        </div>
-        <div class="tm-mega-col" data-col="2">
-          <h4 data-i18n="nav-golf-gear">高尔夫用品</h4>
-          <div style="column-count:2;column-gap:20px;">
-            <a href="category.html?cat=gear-bags" data-i18n="gear-cat-bags">高尔夫球包</a>
-            <a href="category.html?cat=gear-accessories" data-i18n="gear-cat-accessories">高尔夫配件</a>
-            <a href="category.html?cat=gear-balls" data-i18n="gear-cat-balls">高尔夫球</a>
-            <a href="category.html?cat=gear-clubs" data-i18n="gear-cat-clubs">高尔夫球杆</a>
-            <a href="category.html?cat=gear-apparel" data-i18n="gear-cat-apparel">高尔夫服装</a>
-            <a href="category.html?cat=gear-fitting" data-i18n="gear-cat-fitting">定制配件</a>
-            <a href="category.html?cat=gear-beauty" data-i18n="gear-cat-beauty">高尔夫美容</a>
-            <a href="category.html?cat=gear-practice" data-i18n="gear-cat-practice">练习用品</a>
-            <a href="category.html?cat=gear-screen" data-i18n="gear-cat-screen">屏幕制作</a>
-            <a href="category.html?cat=gear-park" data-i18n="gear-cat-park">公园高尔夫</a>
-          </div>
-        </div>
-        <div class="tm-mega-col" data-col="3">
-          <h4 data-i18n="nav-platform">数字化平台</h4>
-          <a href="index.html#platform" data-i18n="mega-plat-app">TEEMASTER App</a>
-          <a href="index.html#platform" data-i18n="mega-plat-social">社交竞技</a>
-          <a href="index.html#platform" data-i18n="mega-plat-ai">AI 挥杆分析</a>
-          <a href="index.html#platform" data-i18n="mega-plat-iot">智能连接</a>
-        </div>
-        <div class="tm-mega-col" data-col="4">
-          <h4 data-i18n="nav-contact">联系我们</h4>
-          <a href="contact.html" data-i18n="mega-contact-b2b">B2B 合作咨询</a>
-          <a href="contact.html" data-i18n="mega-contact-odm">ODM / OEM 定制</a>
-          <a href="contact.html" data-i18n="mega-contact-dist">区域代理</a>
-        </div>
-        <div class="tm-mega-col" data-col="5">
-          <h4>语言 / Language / 언어</h4>
-          <button class="tm-lang-option" data-lang="zh">中文</button>
-          <button class="tm-lang-option" data-lang="en">English</button>
-          <button class="tm-lang-option" data-lang="ko">한국어</button>
-          <button class="tm-lang-option" data-lang="ja">日本語</button>
-        </div>
+        <div class="tm-mega-col" data-col="0"><h4 data-i18n="nav-home">首页</h4><a href="index.html#hero" data-i18n="mega-home-top">返回顶部</a><a href="index.html#products" data-i18n="sec-hardware-title">智能硬件</a><a href="index.html#platform" data-i18n="nav-platform">数字化平台</a><a href="index.html#contact" data-i18n="nav-contact">联系我们</a></div>
+        <div class="tm-mega-col" data-col="1"><h4 data-i18n="nav-products">产品中心</h4><a href="category.html?cat=tee-up" data-i18n="hw-autotee">自动发球机</a><a href="category.html?cat=simulator" data-i18n="hw-sim">智能模拟器</a><a href="category.html?cat=distributor" data-i18n="hw-distributor">自动配球机</a><a href="product-putter.html" data-i18n="hw-putter">推杆练习器</a></div>
+        <div class="tm-mega-col" data-col="2"><h4 data-i18n="nav-golf-gear">高尔夫制造</h4><div style="column-count:2;column-gap:20px;"><a href="category.html?cat=gear-bags" data-i18n="gear-cat-bags">高尔夫球包</a><a href="category.html?cat=gear-accessories" data-i18n="gear-cat-accessories">高尔夫配件</a><a href="category.html?cat=gear-balls" data-i18n="gear-cat-balls">高尔夫球</a><a href="category.html?cat=gear-clubs" data-i18n="gear-cat-clubs">高尔夫球杆</a><a href="category.html?cat=gear-apparel" data-i18n="gear-cat-apparel">高尔夫服装</a><a href="category.html?cat=gear-shoes" data-i18n="gear-cat-shoes">高尔夫球鞋</a><a href="category.html?cat=gear-fitting" data-i18n="gear-cat-fitting">定制配件</a><a href="category.html?cat=gear-beauty" data-i18n="gear-cat-beauty">高尔夫美容</a><a href="category.html?cat=gear-practice" data-i18n="gear-cat-practice">练习用品</a><a href="category.html?cat=gear-screen" data-i18n="gear-cat-screen">屏幕制作</a><a href="category.html?cat=gear-park" data-i18n="gear-cat-park">公园高尔夫</a></div></div>
+        <div class="tm-mega-col" data-col="3"><h4 data-i18n="nav-platform">数字化平台</h4><a href="index.html#platform" data-i18n="mega-plat-app">TEEMASTER App</a><a href="index.html#platform" data-i18n="mega-plat-social">社交竞技</a><a href="index.html#platform" data-i18n="mega-plat-ai">AI 挥杆分析</a><a href="index.html#platform" data-i18n="mega-plat-iot">智能连接</a></div>
+        <div class="tm-mega-col" data-col="4"><h4 data-i18n="nav-contact">联系我们</h4><a href="contact.html" data-i18n="mega-contact-b2b">B2B 合作咨询</a><a href="contact.html" data-i18n="mega-contact-odm">ODM / OEM 定制</a><a href="contact.html" data-i18n="mega-contact-dist">区域代理</a></div>
+        <div class="tm-mega-col" data-col="5"><h4>语言 / Language / 언어</h4><button class="tm-lang-option" data-lang="zh">中文</button><button class="tm-lang-option" data-lang="en">English</button><button class="tm-lang-option" data-lang="ko">한국어</button><button class="tm-lang-option" data-lang="ja">日本語</button></div>
       </div>
     </div>
   </header>
 
-    <main class="tm-detail-main">
-        <div class="tm-breadcrumb" id="breadcrumb"></div>
-        <div id="product-root"></div>
-    </main>
+  <main class="tm-pdp-main">
+    <div class="tm-pdp-breadcrumb" id="breadcrumb">
+      <a href="index.html">首页</a> /
+      <a href="golf-gear.html">高尔夫制造</a> /
+      <span class="current" id="bread-name">产品详情</span>
+    </div>
 
-    <footer class="tm-footer">
-        <div class="tm-footer-inner">
-            <div class="tm-footer-brand">
-                <div class="tm-footer-logo">TEEMASTER</div>
-                <p class="tm-footer-tagline" data-i18n="footer-tagline">Smart Golf Platform</p>
-            </div>
-            <div class="tm-footer-nav">
-                <h4 data-i18n="footer-nav-title">快速导航</h4>
-                <a href="index.html" data-i18n="nav-home">首页</a>
-                <a href="golf-gear.html" data-i18n="nav-golf-gear">高尔夫用品</a>
-            </div>
-            <div class="tm-footer-legal">
-                <h4 data-i18n="footer-legal-title">法律信息</h4>
-                <a href="#" data-i18n="footer-privacy">隐私政策</a>
-                <a href="#" data-i18n="footer-terms">服务条款</a>
-            </div>
+    <section class="tm-pdp-hero">
+      <div class="tm-pdp-gallery">
+        <img id="pdp-main-img" src="" alt="" style="transition:opacity 0.2s;">
+      </div>
+      <div class="tm-pdp-info">
+        <h1 class="tm-pdp-title" id="pdp-title">—</h1>
+        <p class="tm-pdp-subtitle" id="pdp-subtitle"></p>
+        <p class="tm-pdp-desc" id="pdp-desc"></p>
+        <div class="tm-pdp-features-list" id="features-checklist"></div>
+        <div class="tm-pdp-thumbs" id="thumb-container"></div>
+        <div class="tm-hero-cta">
+          <a href="#details" class="tm-pdp-scroll-btn" id="scroll-btn">查看详细参数 ↓</a>
+          <a href="#" class="tm-back-btn" id="back-btn">← 返回列表</a>
         </div>
-        <div class="tm-footer-bottom">
-            <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2025 TEEMASTER. All Rights Reserved.</div>
-        </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="js/app.js"></script>
-    <script src="js/gear-data.js"></script>
-    <script>
-    // ─────────────────────────────────────────────
-    // 카테고리별 스토리 콘텐츠 (4개 언어)
-    // ─────────────────────────────────────────────
-    const catContent = {
-      'gear-bags': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '专业级球包，为球场而生',
-          en: 'Professional Bags, Built for the Course',
-          ko: '프로 수준의 가방, 코스를 위해 탄생',
-          ja: 'プロ仕様のバッグ、コースのために'
-        },
-        body: {
-          zh: '每一款球包都经过严格的品质把控，采用优质防水面料与精工缝制工艺。无论是日常练习场还是高规格正式球场，TEEMaster球包都能完美保护您的球具，让您无后顾之忧地专注于每一次挥杆。精心设计的收纳系统让装备整理井然有序，出行携带轻松便捷。',
-          en: 'Every bag undergoes rigorous quality control, crafted with premium waterproof fabrics and precision stitching. Whether at the driving range or championship course, TEEMASTER bags perfectly protect your clubs so you can focus on every swing. The thoughtfully designed storage system keeps your gear neatly organized for effortless transport.',
-          ko: '모든 가방은 엄격한 품질 관리를 거쳐 프리미엄 방수 원단과 정밀 재봉 기술로 제작됩니다. 일상 연습장이든 격식 있는 코스이든, TEEMASTER 가방은 클럽을 완벽하게 보호하여 모든 스윙에 집중할 수 있게 합니다. 정교하게 설계된 수납 시스템으로 장비를 깔끔하게 정리하고 편리하게 이동하세요.',
-          ja: 'すべてのバッグは厳格な品質管理を経て、プレミアム防水素材と精密な縫製技術で製造されます。練習場からチャンピオンシップコースまで、TEEMASTERのバッグはクラブを完璧に保護し、すべてのスイングに集中できます。細かく設計された収納システムで装備を整理し、快適に持ち運べます。'
-        },
-        tags: { zh: ['防水工艺', '精工品质', '多隔层设计', '耐用材质'], en: ['Waterproof', 'Precision Craft', 'Multi-compartment', 'Durable'], ko: ['방수 공법', '정밀 품질', '다중 수납', '내구성'], ja: ['防水技術', '精密品質', '多仕切り設計', '耐久性'] }
-      },
-      'gear-accessories': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '细节决定表现，配件成就卓越',
-          en: 'Details Define Performance, Accessories Enable Excellence',
-          ko: '세부 사항이 성과를 결정하고, 액세서리가 탁월함을 이룹니다',
-          ja: '細部がパフォーマンスを決め、アクセサリーが卓越を実現する'
-        },
-        body: {
-          zh: '优质的高尔夫配件不仅是工具，更是球手竞技实力的延伸。从精准的推车到实用的球袋，每一件TEEMaster配件都经过专业设计，让您在球场上的每个细节都得到最好的支持。精选材料与人体工学设计的完美结合，确保长时间使用的舒适与可靠。',
-          en: 'Quality golf accessories are not just tools — they extend your competitive edge. From precision trolleys to practical ball bags, every TEEMASTER accessory is professionally designed to support every detail of your game. The perfect combination of premium materials and ergonomic design ensures comfort and reliability over extended use.',
-          ko: '고품질 골프 액세서리는 단순한 도구가 아니라 경쟁력의 연장선입니다. 정밀 카트부터 실용적인 볼 가방까지, 모든 TEEMASTER 액세서리는 게임의 모든 세부 사항을 지원하도록 설계되었습니다. 프리미엄 소재와 인체공학적 설계의 완벽한 조합으로 장시간 사용 시에도 편안함과 신뢰성을 보장합니다.',
-          ja: '高品質のゴルフアクセサリーは単なるツールではなく、競争力の延長です。精密なトロリーから実用的なボールバッグまで、すべてのTEEMASTERアクセサリーはゲームのあらゆる細部をサポートします。プレミアム素材と人間工学的設計の完璧な組み合わせで、長時間使用での快適さと信頼性を確保します。'
-        },
-        tags: { zh: ['专业品质', '人体工学', '耐用可靠', '精准设计'], en: ['Pro Quality', 'Ergonomic', 'Reliable', 'Precision Design'], ko: ['전문 품질', '인체공학', '신뢰성', '정밀 설계'], ja: ['プロ品質', '人間工学', '信頼性', '精密設計'] }
-      },
-      'gear-apparel': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '防晒与时尚并存，球场形象新定义',
-          en: 'UV Protection Meets Style — Redefining Course Fashion',
-          ko: 'UV 차단과 스타일의 만남 — 코스 패션의 재정의',
-          ja: 'UVカットとスタイルが出会う — コースファッションの再定義'
-        },
-        body: {
-          zh: '专为高尔夫运动设计的防晒帽系列，将UPF50+防护技术与时尚设计完美融合。速干透气材质在长时间阳光暴露下保持舒适干爽，吸汗头带有效防止汗水影响视线。无论是练习场还是正式比赛，TEEMaster高尔夫帽让您始终保持最佳状态与形象。',
-          en: 'Our UV-protection cap series fuses UPF50+ protection technology with stylish design. Quick-dry breathable materials stay comfortable during extended sun exposure, while the sweat-wicking headband keeps perspiration from affecting your vision. From the driving range to official competition, TEEMASTER caps keep you at your best.',
-          ko: '저희 UV 차단 모자 시리즈는 UPF50+ 보호 기술과 세련된 디자인을 완벽하게 융합합니다. 속건 통기성 소재로 장시간 햇빛 노출 시에도 편안하고 쾌적하며, 흡한 헤드밴드로 땀이 시야를 방해하지 않습니다. 연습장부터 공식 경기까지, TEEMASTER 모자로 항상 최상의 상태와 외관을 유지하세요.',
-          ja: '私たちのUVカットキャップシリーズは、UPF50+保護技術とスタイリッシュなデザインを完璧に融合します。速乾通気性素材で長時間の日光暴露でも快適で、吸汗ヘッドバンドが汗で視界を妨げるのを防ぎます。練習場から公式試合まで、TEEMASTERのキャップで常に最高の状態を維持できます。'
-        },
-        tags: { zh: ['UPF50+', '速干透气', '时尚设计', '吸汗舒适'], en: ['UPF50+', 'Quick-dry', 'Stylish', 'Sweat-wicking'], ko: ['UPF50+', '속건 통기', '패션', '흡한'], ja: ['UPF50+', '速乾通気', 'スタイリッシュ', '吸汗'] }
-      },
-      'gear-balls': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '低压缩科技，每一击都超越距离极限',
-          en: 'Low-Compression Technology — Every Shot Beyond the Limit',
-          ko: '저압축 기술 — 모든 샷이 한계를 초월합니다',
-          ja: '低圧縮テクノロジー — すべてのショットが限界を超える'
-        },
-        body: {
-          zh: '低压缩内核技术为中低速挥杆专项设计，通过减少能量损失来最大化飞行距离。精密的两层结构在柔软触感的同时提供卓越的弹道性能。每一颗球严格按照USGA标准生产，确保比赛规格的一致性与稳定性，适合从初学者到专业球手的全方位使用需求。',
-          en: 'Low compression core technology is specifically designed for mid-to-slow swing speeds, maximizing flight distance by minimizing energy loss. The precision two-layer structure delivers exceptional ballistic performance while maintaining a soft feel. Each ball is manufactured to strict USGA standards, ensuring consistent competition-grade performance for players from beginners to professionals.',
-          ko: '저압축 코어 기술은 중저속 스윙을 위해 특별히 설계되어, 에너지 손실을 최소화하여 비거리를 극대화합니다. 정밀한 2층 구조는 부드러운 감촉을 유지하면서 탁월한 탄도 성능을 제공합니다. 모든 볼은 엄격한 USGA 기준으로 제조되어, 초보자부터 프로까지 일관된 경기 수준의 성능을 보장합니다.',
-          ja: '低圧縮コア技術は中低速スイング向けに特別設計され、エネルギー損失を最小化して飛距離を最大化します。精密な2層構造でソフトな感触を維持しながら卓越した弾道性能を発揮します。すべてのボールは厳格なUSGA基準で製造され、初心者からプロまで一貫した競技レベルのパフォーマンスを保証します。'
-        },
-        tags: { zh: ['低压缩内核', '最大飞距', 'USGA规格', '柔软触感'], en: ['Low-compression Core', 'Max Distance', 'USGA Spec', 'Soft Feel'], ko: ['저압축 코어', '최대 비거리', 'USGA 규격', '부드러운 감촉'], ja: ['低圧縮コア', '最大飛距離', 'USGA規格', 'ソフトタッチ'] }
-      },
-      'gear-clubs': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '精工球杆，成就每一次精准击球',
-          en: 'Precision-Crafted for Every Perfect Strike',
-          ko: '모든 완벽한 샷을 위해 정밀하게 제작',
-          ja: '精密製造ですべての完璧なストライクを実現'
-        },
-        body: {
-          zh: '我们的球杆系列融合先进材料科学与经典设计语言，为各水平球手提供最优秀的击球体验。从入门到高阶，每支球杆都经过精密的重心计算与平衡优化，确保在不同击球情境下都能发挥稳定可靠的表现。TEEMaster球杆是您在球场上最值得信赖的伙伴。',
-          en: 'Our club series combines advanced materials science with classic design language, delivering the finest hitting experience for players of all levels. From beginner to advanced, every club undergoes precision center-of-gravity calculation and balance optimization to ensure consistent, reliable performance across various shot scenarios. TEEMASTER clubs are your most trusted partner on the course.',
-          ko: '저희 클럽 시리즈는 고급 재료 과학과 클래식 디자인 언어를 융합하여 모든 수준의 플레이어에게 최고의 타격 경험을 제공합니다. 입문부터 고급까지, 모든 클럽은 정밀한 무게 중심 계산과 밸런스 최적화를 거쳐 다양한 타격 상황에서 일관되고 신뢰할 수 있는 성능을 발휘합니다. TEEMASTER 클럽은 코스에서 가장 믿을 수 있는 파트너입니다.',
-          ja: '私たちのクラブシリーズは、高度な材料科学とクラシックなデザイン言語を融合し、あらゆるレベルのプレーヤーに最高のヒット体験を提供します。初心者から上級者まで、すべてのクラブは精密な重心計算とバランス最適化を経て、様々な打撃シーンで安定した信頼性のあるパフォーマンスを発揮します。'
-        },
-        tags: { zh: ['精工制造', '重心优化', '精准打击', '全水平适用'], en: ['Precision Craft', 'CoG Optimized', 'Accurate Strike', 'All Levels'], ko: ['정밀 제조', '무게중심 최적화', '정확한 타격', '전 수준 적합'], ja: ['精密製造', '重心最適化', '正確な打撃', '全レベル対応'] }
-      },
-      'gear-fitting': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '专项训练辅助，系统提升技术水平',
-          en: 'Targeted Training Aids — Systematic Skill Elevation',
-          ko: '전문 훈련 보조기구 — 체계적인 기술 향상',
-          ja: '専門トレーニングエイド — 系統的なスキルアップ'
-        },
-        body: {
-          zh: '专业级训练辅助器具通过科学的即时反馈机制，帮助您快速识别并纠正技术缺陷。每次练习都变成有效的技术积累，让您在正式比赛中发挥最佳状态。TEEMaster训练器具是提升球技最高效的投资。',
-          en: 'Professional training aids use scientific instant feedback mechanisms to help you quickly identify and correct technical flaws. Every practice session becomes effective skill-building, enabling peak performance in official competition. TEEMASTER training equipment is the most efficient investment in improving your game.',
-          ko: '전문 훈련 보조기구는 과학적인 즉각적 피드백 메커니즘을 통해 기술적 결함을 빠르게 식별하고 교정하는 데 도움을 줍니다. 모든 연습 세션이 효과적인 기술 축적이 되어 공식 경기에서 최상의 상태를 발휘할 수 있게 합니다. TEEMASTER 훈련 장비는 실력 향상을 위한 가장 효율적인 투자입니다.',
-          ja: 'プロフェッショナルトレーニングエイドは、科学的な即時フィードバックメカニズムで技術的な欠陥を素早く特定し修正するのに役立ちます。すべての練習セッションが効果的なスキル蓄積となり、公式試合での最高のパフォーマンスを可能にします。'
-        },
-        tags: { zh: ['即时反馈', '专项训练', '技术提升', '科学训练'], en: ['Instant Feedback', 'Targeted Training', 'Skill Up', 'Scientific'], ko: ['즉각 피드백', '전문 훈련', '기술 향상', '과학적 훈련'], ja: ['即時フィードバック', '専門訓練', 'スキルアップ', '科学的'] }
-      },
-      'gear-beauty': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '全天候守护，让您专注每一球',
-          en: 'All-Day Protection — Full Focus on Every Shot',
-          ko: '하루 종일 보호 — 모든 샷에 완전히 집중',
-          ja: '一日中保護 — すべてのショットに全集中'
-        },
-        body: {
-          zh: '专为户外高尔夫运动设计的护肤与清洁系列，在烈日下为您提供全方位保护。先进的运动配方有效抵御紫外线、汗渍和环境污染，让您在长时间球场活动中始终保持清爽舒适的最佳竞技状态。',
-          en: 'Skincare and cleansing products designed for outdoor golf provide comprehensive protection under the sun. Advanced sports formulas effectively guard against UV, perspiration and environmental pollution, keeping you fresh and comfortable during long course sessions so you can focus entirely on your game.',
-          ko: '야외 골프를 위해 설계된 스킨케어 및 클렌징 제품은 태양 아래에서 포괄적인 보호를 제공합니다. 고급 스포츠 포뮬러는 자외선, 땀, 환경 오염으로부터 효과적으로 보호하여, 장시간 코스 활동 시에도 상쾌하고 편안한 최상의 경기 상태를 유지합니다.',
-          ja: '屋外ゴルフのために設計されたスキンケアとクレンジング製品は、太陽の下で包括的な保護を提供します。高度なスポーツフォーミュラがUV、汗、環境汚染から効果的に保護し、長時間のコース活動でも爽やかで快適な最高の競技状態を維持します。'
-        },
-        tags: { zh: ['UPF50+防晒', '清爽舒适', '专业配方', '全天候有效'], en: ['UPF50+ UV', 'Fresh & Cool', 'Pro Formula', 'All-day'], ko: ['UPF50+ UV 차단', '상쾌한 쿨링', '전문 포뮬라', '하루 종일'], ja: ['UPF50+ UV', '爽やかクール', 'プロフォーミュラ', '終日有効'] }
-      },
-      'gear-practice': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '专注训练，突破自我的每一个极限',
-          en: 'Train with Purpose — Break Every Personal Limit',
-          ko: '목적 있는 훈련으로 모든 개인 한계를 돌파하세요',
-          ja: '目的を持った訓練ですべての個人限界を突破'
-        },
-        body: {
-          zh: '我们的练习用品系列以真实球场体验为设计标准，从仿真草坪到专项训练垫，每件产品都旨在最大化您的练习效果。TEEMaster练习器材结合运动科学原理，帮助您系统性地纠正动作偏差、建立肌肉记忆，从而在正式球场上展现最出色的表现。',
-          en: 'Our practice equipment series is designed to the standard of real course experience — from simulated turf to specialized training mats. TEEMASTER training equipment combines sports science principles to help you systematically correct movement deviations and build muscle memory, enabling outstanding performance on the actual course.',
-          ko: '저희 연습 용품 시리즈는 실제 코스 경험을 기준으로 설계되었습니다. 시뮬레이션 잔디부터 전문 훈련 매트까지, 모든 제품은 연습 효과를 극대화하도록 설계되었습니다. TEEMASTER 훈련 장비는 스포츠 과학 원리를 결합하여 동작 편차를 체계적으로 교정하고 근육 기억을 형성하여, 실제 코스에서 뛰어난 성과를 발휘할 수 있도록 합니다.',
-          ja: '私たちの練習用品シリーズは、実際のコース体験を基準に設計されています。シミュレーション芝生から専門トレーニングマットまで、TEEMASTERのトレーニング機器はスポーツ科学原理を組み合わせ、動きのズレを系統的に修正し筋肉記憶を形成して、実際のコースで優れたパフォーマンスを発揮できるよう支援します。'
-        },
-        tags: { zh: ['仿真草坪', '专项训练', '肌肉记忆', '室内外兼用'], en: ['Sim Turf', 'Targeted Training', 'Muscle Memory', 'Indoor/Outdoor'], ko: ['시뮬레이션 잔디', '전문 훈련', '근육 기억', '실내외 겸용'], ja: ['シミュレーション芝', '専門訓練', '筋肉記憶', '室内外兼用'] }
-      },
-      'gear-screen': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '军工级材质，打造完美模拟室内球场',
-          en: 'Military-Grade Material — Perfect Indoor Simulation Course',
-          ko: '군용급 소재로 완벽한 실내 시뮬레이션 코스 구현',
-          ja: '軍用グレード素材で完璧な室内シミュレーションコースを実現'
-        },
-        body: {
-          zh: '采用军事级别防弹布材质制作的高尔夫模拟屏幕，能够承受高速球击冲击的同时呈现高清投影画面。精密的编织结构确保显示画面清晰锐利，优质的吸震性能让每次挥杆安全稳定。无论是专业模拟器还是家用设置，都能获得接近真实球场的完美体验。',
-          en: 'Golf simulation screens crafted with military-grade bulletproof fabric withstand high-speed ball impact while delivering HD projection clarity. Precision weave structure ensures sharp, clear display images, while premium shock absorption makes every swing safe and stable. From professional simulator to home setup, experience near-real-course perfection.',
-          ko: '군용 방탄 원단으로 제작된 골프 시뮬레이션 스크린은 고속 볼 충격을 견디면서 HD 프로젝션 선명도를 제공합니다. 정밀 직조 구조는 선명하고 명확한 디스플레이 이미지를 보장하며, 프리미엄 충격 흡수로 모든 스윙을 안전하고 안정적으로 만듭니다. 전문 시뮬레이터부터 가정용 설치까지 실제 코스에 가까운 완벽한 경험을 제공합니다.',
-          ja: '軍用グレードの防弾素材で製造されたゴルフシミュレーションスクリーンは、高速ボール衝撃に耐えながらHDプロジェクションの鮮明さを提供します。精密な織り構造は鮮明で明確な表示画像を確保し、プレミアムな衝撃吸収ですべてのスイングを安全で安定させます。'
-        },
-        tags: { zh: ['军工防弹布', 'HD高清显示', '耐高速冲击', '自定义尺寸'], en: ['Military-grade', 'HD Display', 'Impact-resistant', 'Custom Size'], ko: ['군용 방탄 소재', 'HD 고화질', '고속 충격 저항', '맞춤 사이즈'], ja: ['軍用防弾素材', 'HD高精細', '耐高速衝撃', 'カスタムサイズ'] }
-      },
-      'gear-park': {
-        label: { zh: '产品故事', en: 'PRODUCT STORY', ko: '제품 이야기', ja: 'プロダクトストーリー' },
-        headline: {
-          zh: '公园高尔夫，全年龄段共享的运动快乐',
-          en: 'Park Golf — Sports Joy for Every Generation',
-          ko: '파크골프 — 모든 세대가 함께하는 스포츠의 즐거움',
-          ja: 'パークゴルフ — すべての世代が楽しむスポーツ'
-        },
-        body: {
-          zh: '公园高尔夫球杆专为轻量休闲运动而生，让老中青三代都能共享户外运动的乐趣。铝合金材质保证轻盈操控，防滑握把提供稳定舒适的持杆感。TEEMaster公园高尔夫系列符合标准规则要求，让每一场比赛都充满乐趣与竞技精神。',
-          en: 'Park golf clubs are built for lightweight leisure play, allowing all generations to share the joy of outdoor sports. Aluminum alloy construction ensures easy handling, while anti-slip grips provide stable, comfortable hold. The TEEMASTER park golf series meets standard regulations, making every game full of fun and competitive spirit.',
-          ko: '파크골프 클럽은 경량 레저 플레이를 위해 설계되어, 모든 세대가 야외 스포츠의 즐거움을 함께 나눌 수 있습니다. 알루미늄 합금 구조로 쉬운 조작을 보장하고, 미끄럼 방지 그립으로 안정적이고 편안한 그립감을 제공합니다. TEEMASTER 파크골프 시리즈는 표준 규정을 충족하여 모든 경기를 즐거움과 경쟁 정신으로 가득 채웁니다.',
-          ja: 'パークゴルフクラブは軽量レジャープレー向けに設計され、全世代が屋外スポーツの喜びを分かち合えます。アルミニウム合金構造で扱いやすさを確保し、滑り止めグリップで安定した快適なグリップ感を提供します。TEEMASTERパークゴルフシリーズは標準規則を満たし、すべてのゲームを楽しさと競技精神で満たします。'
-        },
-        tags: { zh: ['轻量合金', '全年龄适合', '休闲竞技', '标准规格'], en: ['Lightweight Alloy', 'All Ages', 'Leisure Sport', 'Standard Spec'], ko: ['경량 합금', '전 연령 적합', '레저 스포츠', '표준 규격'], ja: ['軽量合金', '全年齢対応', 'レジャースポーツ', '標準規格'] }
-      }
+    <div id="details">
+
+      <div class="tm-detail-section" id="sec-philosophy">
+        <div class="tm-philosophy-banner" id="philosophy-banner"></div>
+        <div class="tm-stats-bar" id="stats-bar"></div>
+      </div>
+
+      <div class="tm-detail-section" id="sec-features">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">CORE FEATURES</p>
+          <h2 id="lbl-features">产品特点</h2>
+        </div>
+        <div class="tm-features-grid" id="features-grid"></div>
+      </div>
+
+      <div class="tm-detail-section" id="sec-highlights">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">PRODUCT HIGHLIGHTS</p>
+          <h2 id="lbl-highlights">产品亮点</h2>
+        </div>
+        <div class="tm-highlights-row" id="highlights-row"></div>
+      </div>
+
+      <div class="tm-detail-section" id="sec-usecases">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">USE CASES</p>
+          <h2 id="lbl-usecases">适用场景</h2>
+        </div>
+        <div class="tm-mode-cards" id="usecases-grid"></div>
+      </div>
+
+      <div class="tm-detail-section" id="sec-story">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">PRODUCT STORY</p>
+          <h2 id="lbl-story">产品故事</h2>
+        </div>
+        <div class="tm-highlights-row reverse" id="story-row"></div>
+      </div>
+
+      <div class="tm-detail-section" id="sec-scene">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">GOLF LIFESTYLE</p>
+          <h2 id="lbl-scene">골프, 그 이상의 경험</h2>
+        </div>
+        <div class="tm-scene-strip" id="scene-strip">
+          <div class="tm-scene-img tall">
+            <img src="https://images.pexels.com/photos/114972/pexels-photo-114972.jpeg?auto=compress&cs=tinysrgb&w=900&h=500&fit=crop" alt="Golf Swing" loading="lazy">
+            <span class="tm-scene-label">On The Course</span>
+          </div>
+          <div class="tm-scene-img">
+            <img src="https://images.pexels.com/photos/3414145/pexels-photo-3414145.jpeg?auto=compress&cs=tinysrgb&w=600&h=240&fit=crop" alt="Golf Player" loading="lazy">
+            <span class="tm-scene-label">Perfect Swing</span>
+          </div>
+          <div class="tm-scene-img">
+            <img src="https://images.pexels.com/photos/1325681/pexels-photo-1325681.jpeg?auto=compress&cs=tinysrgb&w=600&h=240&fit=crop" alt="Golf Bag" loading="lazy">
+            <span class="tm-scene-label">Ready To Play</span>
+          </div>
+          <div class="tm-scene-img">
+            <img src="https://images.pexels.com/photos/54123/pexels-photo-54123.jpeg?auto=compress&cs=tinysrgb&w=600&h=240&fit=crop" alt="Golf Green" loading="lazy">
+            <span class="tm-scene-label">Green Target</span>
+          </div>
+          <div class="tm-scene-img">
+            <img src="https://images.pexels.com/photos/135051/pexels-photo-135051.jpeg?auto=compress&cs=tinysrgb&w=600&h=240&fit=crop" alt="Golf Ball" loading="lazy">
+            <span class="tm-scene-label">Fairway Life</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tm-detail-section" id="sec-specs">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">SPECIFICATIONS</p>
+          <h2 id="lbl-specs">产品规格</h2>
+        </div>
+        <div class="tm-specs-table-wrap">
+          <table class="tm-specs-table" id="specs-table"></table>
+        </div>
+      </div>
+
+      <div class="tm-detail-section" id="sec-related">
+        <div class="tm-detail-section-header">
+          <p class="tm-section-sub">RELATED PRODUCTS</p>
+          <h2 id="lbl-related">相关产品</h2>
+        </div>
+        <div class="tm-related-grid" id="related-grid"></div>
+      </div>
+
+      <div class="tm-cta-row">
+        <h2 id="lbl-cta-title">需要更多信息？</h2>
+        <p id="lbl-cta-desc">欢迎联系我们，我们的专业团队将为您提供最优质的服务</p>
+        <a href="contact.html" class="tm-cta-btn" id="lbl-cta-btn">立即咨询 →</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="tm-footer">
+    <div class="tm-footer-logo">TEEMASTER</div>
+    <div class="tm-footer-copy" data-i18n="footer-copy">&copy; 2026 TEEMASTER Ltd. 保留所有权利.</div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/gear-data.js"></script>
+  <script src="js/gear-cat-content.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const productId = params.get('id');
+
+    const pageLabels = {
+      breadHome:    { zh:'首页',          en:'Home',               ko:'홈',              ja:'ホーム' },
+      breadGear:    { zh:'高尔夫制造',    en:'Golf Making',        ko:'골프메이킹',      ja:'ゴルフメイキング' },
+      featTitle:    { zh:'产品特点',      en:'Product Features',   ko:'제품 특징',       ja:'製品の特徴' },
+      hlTitle:      { zh:'产品亮点',      en:'Product Highlights', ko:'제품 하이라이트', ja:'製品ハイライト' },
+      ucTitle:      { zh:'适用场景',      en:'Use Cases',          ko:'활용 상황',       ja:'ユースケース' },
+      storyTitle:   { zh:'产品故事',      en:'Product Story',      ko:'제품 이야기',     ja:'プロダクトストーリー' },
+      sceneTitle:   { zh:'高尔夫生活',    en:'Golf Lifestyle',     ko:'골프 라이프스타일', ja:'ゴルフライフスタイル' },
+      specsTitle:   { zh:'产品规格',      en:'Specifications',     ko:'제품 사양',       ja:'製品仕様' },
+      relTitle:     { zh:'相关产品',      en:'Related Products',   ko:'관련 제품',       ja:'関連製品' },
+      ctaTitle:     { zh:'需要更多信息？', en:'Need More Info?',   ko:'더 많은 정보가 필요하신가요?', ja:'詳細情報が必要ですか？' },
+      ctaDesc:      { zh:'欢迎联系我们，我们的专业团队将为您提供最优质的服务', en:'Contact us and our expert team will provide you with top-quality service', ko:'저희에게 연락하시면 전문 팀이 최고의 서비스를 제공합니다', ja:'お問い合わせください。専門チームが最高のサービスをご提供します' },
+      ctaBtn:       { zh:'立即咨询 →',   en:'Contact Us →',       ko:'문의하기 →',      ja:'お問い合わせ →' },
+      backBtn:      { zh:'← 返回列表',   en:'← Back to List',    ko:'← 목록으로',      ja:'← 一覧に戻る' },
+      viewDetail:   { zh:'查看详情',      en:'View Detail',        ko:'상세 보기',       ja:'詳細を見る' },
+      scrollBtn:    { zh:'查看详细参数 ↓', en:'View Specs ↓',     ko:'상세 사양 보기 ↓', ja:'詳細スペックを見る ↓' },
+      notFound:     { zh:'产品未找到',    en:'Product Not Found',  ko:'제품을 찾을 수 없습니다', ja:'製品が見つかりません' },
+      hlSub:        { zh:'PRODUCT HIGHLIGHTS', en:'PRODUCT HIGHLIGHTS', ko:'PRODUCT HIGHLIGHTS', ja:'PRODUCT HIGHLIGHTS' },
+      storySub:     { zh:'PRODUCT STORY', en:'PRODUCT STORY', ko:'PRODUCT STORY', ja:'PRODUCT STORY' }
     };
 
-    // ─────────────────────────────────────────────
-    // 특징 텍스트 → 아이콘 자동 매핑
-    // ─────────────────────────────────────────────
+    function t(key, l) {
+      const entry = pageLabels[key];
+      if (!entry) return key;
+      return entry[l] || entry.zh || key;
+    }
+
+    const iconMap = [
+      ['防水','waterproof','방수','防水','💧'],
+      ['轻量','lightweight','경량','軽量','⚖️'],
+      ['口袋','pocket','포켓','ポケット','🎒'],
+      ['皮革','leather','가죽','レザー','🏆'],
+      ['套装','set combo','세트','セット','🎁'],
+      ['脚架','stand','스탠드','スタンド','🦯'],
+      ['隔层','divider','분리','仕切り','📂'],
+      ['球杆','club','클럽','クラブ','🏌️'],
+      ['练习','practice','연습','練習','🎯'],
+      ['服装','apparel','의류','アパレル','👕'],
+      ['配件','accessory','액세서리','アクセサリー','🔧'],
+      ['屏幕','screen','스크린','スクリーン','📺'],
+      ['定制','custom','커스텀','カスタム','✨'],
+      ['舒适','comfort','편안','快適','☁️'],
+      ['防晒','uv','자외선','紫外線','🌞'],
+      ['防风','wind','방풍','防風','💨'],
+      ['弹性','stretch','신축','ストレッチ','🤸'],
+      ['抓地','grip','그립','グリップ','🤝'],
+      ['防滑','non-slip','미끄럼','滑り止め','⛓️'],
+      ['保暖','warm','보온','防寒','🔥'],
+      ['多功能','multi','다기능','多機能','⚙️'],
+      ['耐用','durable','내구','耐久','🛡️'],
+      ['折叠','fold','접이식','折りたたみ','📐'],
+      ['球','ball','볼','ボール','⛳'],
+    ];
+
     function getFeatureIcon(text) {
-      const t = (text || '').toLowerCase();
-      if (/water|防水|방수|防水/.test(t)) return '💧';
-      if (/light|轻量|경량|超軽|軽量/.test(t)) return '🌿';
-      if (/pocket|口袋|포켓|ポケット/.test(t)) return '🎁';
-      if (/stand|脚架|스탠드|スタンド/.test(t)) return '⚡';
-      if (/leather|皮质|가죽|レザー/.test(t)) return '✨';
-      if (/wheel|滚轮|바퀴|ホイール/.test(t)) return '🔄';
-      if (/travel|旅行|여행|トラベル/.test(t)) return '✈️';
-      if (/ergon|人体工学|인체공학|人間工学/.test(t)) return '🤝';
-      if (/alum|铝|알루미늄|アルミ/.test(t)) return '🔩';
-      if (/protect|保护|보호|保護/.test(t)) return '🛡️';
-      if (/fold|折叠|접이|折り畳/.test(t)) return '📐';
-      if (/dual|双|양면|デュアル|二合/.test(t)) return '🔀';
-      if (/sport|运动|스포티|スポーティ/.test(t)) return '🏆';
-      if (/classic|经典|클래식|クラシック/.test(t)) return '⭐';
-      if (/complete|完整|완전|完全/.test(t)) return '✅';
-      if (/uv|upf|防晒|자외선|日焼け/.test(t)) return '☀️';
-      if (/breath|透气|통기|通気/.test(t)) return '💨';
-      if (/mesh|网眼|메쉬|メッシュ/.test(t)) return '🌐';
-      if (/clean|清洁|청소|クリーン/.test(t)) return '🧹';
-      if (/anti.slip|防滑|미끄럼/.test(t)) return '🔒';
-      if (/adjust|调节|조절|調節/.test(t)) return '⚙️';
-      if (/quick|速干|속건|速乾/.test(t)) return '⚡';
-      if (/magnetic|磁扣|마그네틱|マグネ/.test(t)) return '🧲';
-      if (/swing|挥杆|스윙|スイング/.test(t)) return '🏌️';
-      if (/bunker|沙坑|벙커|バンカー/.test(t)) return '🏖️';
-      if (/distance|飞行距离|비거리|飛距離/.test(t)) return '🚀';
-      if (/hd|高清|고화질/.test(t)) return '📺';
-      if (/impact|吸震|충격|衝撃/.test(t)) return '💪';
-      if (/custom|定制|맞춤|カスタム/.test(t)) return '🔧';
-      if (/rubber|橡胶|고무|ゴム/.test(t)) return '⚫';
-      if (/pu|leather/.test(t)) return '✨';
-      if (/sim|模拟|시뮬|シミュ/.test(t)) return '🎮';
-      if (/turf|草坪|잔디|芝/.test(t)) return '🌿';
-      if (/ground|地面|지면|地面/.test(t)) return '🌍';
-      return '◆';
-    }
-
-    // ─────────────────────────────────────────────
-    // 특징 보조 설명 자동 생성
-    // ─────────────────────────────────────────────
-    function getFeatureNote(text, lang) {
-      const t = (text || '').toLowerCase();
-      const notes = {
-        water: { zh: '防水处理确保在各种天气条件下的可靠性', en: 'Waterproof treatment ensures reliability in all weather', ko: '방수 처리로 모든 날씨 조건에서 신뢰성 보장', ja: '防水加工であらゆる天候での信頼性を確保' },
-        light: { zh: '轻量设计减少携带疲劳，长时间使用更轻松', en: 'Lightweight design reduces fatigue for extended use', ko: '경량 설계로 장시간 사용 시 피로 감소', ja: '軽量設計で長時間使用の疲労を軽減' },
-        protect: { zh: '全面保护确保装备和球具的安全', en: 'Comprehensive protection keeps equipment and clubs safe', ko: '종합적인 보호로 장비와 클럽의 안전 보장', ja: '包括的な保護で装備とクラブを安全に' },
-        stand: { zh: '稳固支撑系统确保在任何地形上的稳定性', en: 'Stable support system ensures stability on any terrain', ko: '안정적인 지지 시스템으로 어떤 지형에서도 안정성 보장', ja: '安定したサポートシステムであらゆる地形での安定性を確保' },
-        fold: { zh: '折叠设计便于收纳和运输，节省空间', en: 'Folding design enables compact storage and easy transport', ko: '접이식 설계로 컴팩트한 수납과 쉬운 운반', ja: '折り畳み設計でコンパクトな収納と簡単な運搬' },
-        uv:   { zh: 'UPF防晒技术有效阻隔有害紫外线', en: 'UPF technology effectively blocks harmful UV radiation', ko: 'UPF 기술로 유해한 자외선을 효과적으로 차단', ja: 'UPF技術で有害な紫外線を効果的にブロック' },
-        dual: { zh: '双面可用设计增加灵活性和使用效率', en: 'Double-face design increases versatility and efficiency', ko: '양면 사용 설계로 유연성과 사용 효율성 증가', ja: 'ダブルフェイス設計で汎用性と効率性を向上' },
-        default: { zh: '精心工艺确保最优品质与使用体验', en: 'Careful craftsmanship ensures optimal quality and experience', ko: '세심한 장인 정신으로 최상의 품질과 경험 보장', ja: '丁寧な職人技で最高の品質と体験を確保' }
-      };
-      let key = 'default';
-      if (/water|防水|방수/.test(t)) key = 'water';
-      else if (/light|轻量|경량/.test(t)) key = 'light';
-      else if (/protect|保护|보호/.test(t)) key = 'protect';
-      else if (/stand|脚架|스탠드/.test(t)) key = 'stand';
-      else if (/fold|折叠|접이/.test(t)) key = 'fold';
-      else if (/uv|upf|防晒|자외선/.test(t)) key = 'uv';
-      else if (/dual|双|양면/.test(t)) key = 'dual';
-      return notes[key][lang] || notes[key].zh;
-    }
-
-    // ─────────────────────────────────────────────
-    // 갤러리 상태
-    // ─────────────────────────────────────────────
-    let galleryImages = [];
-    let currentGalleryIdx = 0;
-
-    function switchGallery(idx) {
-      currentGalleryIdx = idx;
-      const mainImg = document.getElementById('gallery-main');
-      if (mainImg && galleryImages[idx]) {
-        mainImg.style.opacity = '0';
-        setTimeout(() => {
-          mainImg.src = galleryImages[idx];
-          mainImg.style.opacity = '1';
-        }, 180);
-      }
-      document.querySelectorAll('.tm-gallery-thumb').forEach((el, i) => {
-        el.classList.toggle('active', i === idx);
-      });
-    }
-
-    // ─────────────────────────────────────────────
-    // 메인 렌더 로직
-    // ─────────────────────────────────────────────
-    document.addEventListener('DOMContentLoaded', () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = urlParams.get('id');
-      let lang = localStorage.getItem('tm-lang') || 'zh';
-
-      const i18n = {
-        breadHome:   { zh:'首页', en:'Home', ko:'홈', ja:'ホーム' },
-        breadGear:   { zh:'高尔夫用品', en:'Golf Gear', ko:'골프 용품', ja:'ゴルフ用品' },
-        specsTitle:  { zh:'产品规格', en:'Specifications', ko:'제품 규격', ja:'製品仕様' },
-        relTitle:    { zh:'同系列商品', en:'Related Products', ko:'관련 상품', ja:'関連商品' },
-        featTitle:   { zh:'产品特点', en:'Product Features', ko:'제품 특징', ja:'製品特長' },
-        storyTitle:  { zh:'品质故事', en:'Quality Story', ko:'품질 이야기', ja:'品質ストーリー' },
-        ctaInquiry:  { zh:'✉ 咨询订购', en:'✉ Inquire Now', ko:'✉ 문의하기', ja:'✉ お問い合わせ' },
-        ctaCatalog:  { zh:'← 返回列表', en:'← Back to List', ko:'← 목록으로', ja:'← 一覧に戻る' },
-        notFound:    { zh:'产品未找到', en:'Product Not Found', ko:'제품을 찾을 수 없습니다', ja:'製品が見つかりません' },
-        viewDetail:  { zh:'查看详情 →', en:'View Details →', ko:'상세 보기 →', ja:'詳細を見る →' },
-      };
-      function t(key) { return i18n[key]?.[lang] || i18n[key]?.zh || key; }
-
-      function renderPage(currentLang) {
-        lang = currentLang;
-        const root = document.getElementById('product-root');
-        const breadcrumb = document.getElementById('breadcrumb');
-        const product = getProductById(productId);
-
-        if (!product) {
-          breadcrumb.innerHTML = `<a href="index.html">${t('breadHome')}</a> <span class="sep">/</span> <a href="golf-gear.html">${t('breadGear')}</a>`;
-          root.innerHTML = `<div class="tm-not-found"><h2>${t('notFound')}</h2><p>ID: ${productId || 'N/A'}</p></div>`;
-          return;
+      const lower = text.toLowerCase();
+      for (const row of iconMap) {
+        for (let i = 0; i < 4; i++) {
+          if (lower.includes(row[i].toLowerCase())) return row[4];
         }
+      }
+      return '⭐';
+    }
 
-        const { catKey, catInfo } = product;
-        const name     = product.name[lang] || product.name.zh;
-        const nameEn   = product.name.en;
-        const desc     = product.desc[lang] || product.desc.zh;
-        const features = product.features[lang] || product.features.zh || [];
-        const catTitle = getCatTitle(catKey, lang);
-        const story    = catContent[catKey];
+    let _galleryImages = [];
+    function switchGallery(idx) {
+      const mainImg = document.getElementById('pdp-main-img');
+      if (!mainImg || !_galleryImages[idx]) return;
+      mainImg.style.opacity = '0';
+      setTimeout(() => { mainImg.src = _galleryImages[idx]; mainImg.style.opacity = '1'; }, 200);
+      document.querySelectorAll('.tm-pdp-thumbs img').forEach((el, i) => el.classList.toggle('active', i === idx));
+    }
 
-        // 갤러리 이미지 배열
-        galleryImages = [product.img, product.thumb].filter(Boolean);
-        currentGalleryIdx = 0;
+    function renderPage(currentLang) {
+      const l = currentLang || localStorage.getItem('tm-lang') || 'zh';
 
-        // 브레드크럼
-        breadcrumb.innerHTML = `
-          <a href="index.html">${t('breadHome')}</a>
-          <span class="sep">/</span>
-          <a href="golf-gear.html">${t('breadGear')}</a>
-          <span class="sep">/</span>
-          <a href="category.html?cat=${catKey}">${catTitle}</a>
-          <span class="sep">/</span>
-          <span class="current">${name}</span>
-        `;
-        document.title = `${name} | TEEMASTER Golf Gear`;
-
-        // 갤러리 썸네일 HTML
-        const thumbsHtml = galleryImages.map((src, i) => `
-          <div class="tm-gallery-thumb ${i === 0 ? 'active' : ''}" onclick="switchGallery(${i})">
-            <img src="${src}" alt="${name} view ${i+1}" loading="lazy" onerror="this.style.display='none'">
-          </div>
-        `).join('');
-
-        // 체크리스트 HTML (우측 패널)
-        const checklistHtml = features.map(f => `<li>${f}</li>`).join('');
-
-        // Quick Stats (첫 3개 스펙)
-        const stats = (product.specs || []).slice(0, 3);
-        const statsHtml = stats.map(s => `
-          <div class="tm-stat-item">
-            <div class="tm-stat-value">${s.v}</div>
-            <div class="tm-stat-label">${s.l}</div>
-          </div>
-        `).join('');
-
-        // 특징 카드 HTML
-        const featureCardsHtml = features.map(f => `
-          <div class="tm-feature-card">
-            <div class="tm-feature-icon">${getFeatureIcon(f)}</div>
-            <div class="tm-feature-title">${f}</div>
-            <div class="tm-feature-note">${getFeatureNote(f, lang)}</div>
-          </div>
-        `).join('');
-
-        // 스토리 섹션 HTML
-        const storyHtml = story ? `
-          <div class="tm-section" id="sec-story">
-            <div class="tm-section-header">
-              <h2>${t('storyTitle')}</h2>
-            </div>
-            <div class="tm-story">
-              <div class="tm-story-visual">
-                <img src="${product.thumb || product.img}" alt="${name}"
-                  onerror="this.style.opacity='0.2'">
-              </div>
-              <div class="tm-story-text">
-                <div class="tm-story-label">${story.label?.[lang] || story.label?.en || 'PRODUCT STORY'}</div>
-                <h2 class="tm-story-title">${story.headline?.[lang] || story.headline?.en}</h2>
-                <p class="tm-story-body">${story.body?.[lang] || story.body?.en}</p>
-                <div class="tm-story-tags">
-                  ${(story.tags?.[lang] || story.tags?.en || []).map(tag => `<span class="tm-story-tag">${tag}</span>`).join('')}
-                </div>
-              </div>
-            </div>
-          </div>
-        ` : '';
-
-        // 전체 스펙 HTML
-        const specsHtml = (product.specs || []).map(s => `
-          <div class="tm-spec-card">
-            <div class="tm-spec-label">${s.l}</div>
-            <div class="tm-spec-value">${s.v}</div>
-          </div>
-        `).join('');
-
-        // 연관 상품 HTML
-        const relItems = (catInfo.items || []).filter(item => item.id !== productId).slice(0, 6);
-        const relHtml = relItems.map(item => {
-          const rName = item.name[lang] || item.name.zh;
-          const rDesc = item.desc[lang] || item.desc.zh;
-          return `
-            <a href="gear-detail.html?id=${item.id}" class="tm-related-card">
-              <div class="tm-related-img">
-                <img src="${item.thumb || item.img}" alt="${rName}" loading="lazy"
-                  onerror="this.style.opacity='0.3'">
-              </div>
-              <div class="tm-related-body">
-                <h4>${rName}</h4>
-                <p>${rDesc}</p>
-                <span class="tm-related-arrow">${t('viewDetail')}</span>
-              </div>
-            </a>
-          `;
-        }).join('');
-
-        // ── 전체 렌더 ──
-        root.innerHTML = `
-          <!-- Hero: 2-col -->
-          <div class="tm-product-hero">
-            <!-- Left: Gallery -->
-            <div class="tm-product-gallery">
-              <div class="tm-main-image">
-                <span class="tm-img-badge">${catKey.replace('gear-','').toUpperCase()}</span>
-                <img id="gallery-main" src="${galleryImages[0]}" alt="${name}"
-                  style="transition: opacity 0.18s ease;"
-                  onerror="this.src='${galleryImages[1] || ''}'; this.onerror=null;">
-              </div>
-              ${galleryImages.length > 1 ? `<div class="tm-gallery-thumbs">${thumbsHtml}</div>` : ''}
-            </div>
-
-            <!-- Right: Info -->
-            <div class="tm-product-info">
-              <span class="tm-product-cat">${catTitle}</span>
-              <h1 class="tm-product-title">${name}</h1>
-              <p class="tm-product-en-name">${nameEn}</p>
-              <div class="tm-divider"></div>
-              <p class="tm-product-desc">${desc}</p>
-              ${checklistHtml ? `
-              <ul class="tm-features">
-                ${checklistHtml}
-              </ul>` : ''}
-              <div class="tm-cta-group">
-                <a href="contact.html" class="tm-btn-primary">${t('ctaInquiry')}</a>
-                <a href="category.html?cat=${catKey}" class="tm-btn-secondary">${t('ctaCatalog')}</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Quick Stats Bar -->
-          ${statsHtml ? `<div class="tm-stats-bar">${statsHtml}</div>` : ''}
-
-          <!-- Feature Cards -->
-          ${featureCardsHtml ? `
-          <div class="tm-section" id="sec-features">
-            <div class="tm-section-header">
-              <h2>${t('featTitle')}</h2>
-            </div>
-            <div class="tm-feature-grid">${featureCardsHtml}</div>
-          </div>` : ''}
-
-          <!-- Story Section -->
-          ${storyHtml}
-
-          <!-- Specs -->
-          ${specsHtml ? `
-          <div class="tm-section" id="sec-specs">
-            <div class="tm-section-header">
-              <h2>${t('specsTitle')}</h2>
-            </div>
-            <div class="tm-specs-grid">${specsHtml}</div>
-          </div>` : ''}
-
-          <!-- Related Products -->
-          ${relHtml ? `
-          <div class="tm-section" id="sec-related">
-            <div class="tm-section-header">
-              <h2>${t('relTitle')}</h2>
-            </div>
-            <div class="tm-related-grid">${relHtml}</div>
-          </div>` : ''}
-        `;
-
-        // 스크롤 reveal 애니메이션
-        setTimeout(() => {
-          document.querySelectorAll('.tm-section').forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), i * 160);
-          });
-        }, 80);
-
-        updateLanguage(lang);
+      if (!productId) {
+        document.querySelector('.tm-pdp-hero').style.display = 'none';
+        document.getElementById('details').style.display = 'none';
+        document.getElementById('breadcrumb').innerHTML = `<a href="index.html">${t('breadHome',l)}</a> / <span>${t('notFound',l)}</span>`;
+        return;
       }
 
-      renderPage(lang);
-      window.addEventListener('languageChanged', (e) => renderPage(e.detail.lang));
+      const product = getProductById(productId);
+      if (!product) {
+        document.querySelector('.tm-pdp-hero').style.display = 'none';
+        document.getElementById('details').innerHTML = `<div class="tm-not-found"><p>${t('notFound',l)}</p><a href="golf-gear.html" class="tm-back-btn">${t('backBtn',l)}</a></div>`;
+        document.getElementById('breadcrumb').innerHTML = `<a href="index.html">${t('breadHome',l)}</a> / <span>${t('notFound',l)}</span>`;
+        return;
+      }
+
+      const catKey   = product.catKey;
+      const catInfo  = product.catInfo;
+      const story    = (typeof catContent !== 'undefined' && catContent[catKey]) ? catContent[catKey] : {};
+      const name     = product.name[l] || product.name.zh;
+      const desc     = product.desc[l] || product.desc.zh;
+      const features = product.features[l] || product.features.zh || [];
+      const specs    = product.specs || [];
+
+      document.title = name + ' | TEEMASTER Golf Making';
+
+      // Breadcrumb
+      const catHref  = 'category.html?cat=' + catKey;
+      const catTitle = getCatTitle(catKey, l);
+      document.getElementById('breadcrumb').innerHTML =
+        `<a href="index.html">${t('breadHome',l)}</a> / <a href="golf-gear.html">${t('breadGear',l)}</a> / <a href="${catHref}">${catTitle}</a> / <span class="current">${name}</span>`;
+
+      // Back button
+      document.getElementById('back-btn').href = catHref;
+      document.getElementById('back-btn').textContent = t('backBtn', l);
+
+      // Gallery images
+      _galleryImages = [product.thumb, product.img].filter(Boolean);
+      const mainImg = document.getElementById('pdp-main-img');
+      mainImg.src = _galleryImages[0] || '';
+      mainImg.alt = name;
+
+      // Hero text
+      document.getElementById('pdp-title').textContent = name;
+      document.getElementById('pdp-subtitle').textContent = catInfo.sub || catKey.replace('gear-','').toUpperCase();
+      document.getElementById('pdp-desc').textContent = desc;
+      document.getElementById('scroll-btn').textContent = t('scrollBtn', l);
+
+      // Thumbs
+      document.getElementById('thumb-container').innerHTML = _galleryImages.map((src, i) =>
+        `<img src="${src}" onclick="switchGallery(${i})" class="${i===0?'active':''}" loading="lazy" alt="${name}">`
+      ).join('');
+
+      // Hero features checklist
+      const checklistEl = document.getElementById('features-checklist');
+      if (features.length) {
+        checklistEl.innerHTML = `<ul>${features.slice(0,4).map(f=>`<li><span class="tm-hl-marker">✓</span> ${f}</li>`).join('')}</ul>`;
+        checklistEl.style.display = '';
+      } else {
+        checklistEl.style.display = 'none';
+      }
+
+      // Philosophy banner
+      const storyHeadline = ((story.headline||{})[l]) || ((story.headline||{}).zh) || name;
+      const storyBody     = ((story.body||{})[l])     || ((story.body||{}).zh)     || desc;
+      document.getElementById('philosophy-banner').innerHTML =
+        `<p class="tm-philosophy-quote">${storyHeadline}</p><p class="tm-philosophy-sub">${storyBody}</p>`;
+
+      // Stats bar
+      const statsData = ((story.stats||{})[l]) || ((story.stats||{}).zh) || [];
+      document.getElementById('stats-bar').innerHTML = statsData.map(s =>
+        `<div class="tm-stat-item"><div class="tm-stat-number">${s.n}</div><div class="tm-stat-label">${s.l}</div></div>`
+      ).join('');
+
+      // Section labels
+      document.getElementById('lbl-features').textContent  = t('featTitle', l);
+      document.getElementById('lbl-highlights').textContent = t('hlTitle', l);
+      document.getElementById('lbl-usecases').textContent  = t('ucTitle', l);
+      document.getElementById('lbl-story').textContent     = ((story.label||{})[l]) || ((story.label||{}).zh) || t('storyTitle', l);
+      document.getElementById('lbl-scene').textContent     = t('sceneTitle', l);
+      document.getElementById('lbl-specs').textContent     = t('specsTitle', l);
+      document.getElementById('lbl-related').textContent   = t('relTitle', l);
+      document.getElementById('lbl-cta-title').textContent = t('ctaTitle', l);
+      document.getElementById('lbl-cta-desc').textContent  = t('ctaDesc', l);
+      document.getElementById('lbl-cta-btn').textContent   = t('ctaBtn', l);
+
+      // Features grid (3-col)
+      document.getElementById('features-grid').innerHTML = features.map(f =>
+        `<div class="tm-feature-card"><div class="tm-feature-icon">${getFeatureIcon(f)}</div><h3>${f}</h3></div>`
+      ).join('');
+
+      // Highlights row: feature list left + product image right
+      document.getElementById('highlights-row').innerHTML =
+        `<div class="tm-highlights-content">
+          <h3>${name}</h3>
+          <p class="tm-hl-sub">PRODUCT HIGHLIGHTS</p>
+          <ul class="tm-highlights-list">${features.map(h=>`<li><span class="tm-hl-marker">—</span>${h}</li>`).join('')}</ul>
+        </div>
+        <div class="tm-highlights-visual"><img src="${product.img || product.thumb}" alt="${name}" loading="lazy"></div>`;
+
+      // Use cases (mode cards 2×2)
+      const useCasesData = ((story.useCases||{})[l]) || ((story.useCases||{}).zh) || [];
+      document.getElementById('usecases-grid').innerHTML = useCasesData.map(uc =>
+        `<div class="tm-mode-card">
+          <div class="tm-mode-card-header"><span class="tm-mode-icon">${uc.icon}</span> ${uc.name}</div>
+          <div class="tm-mode-card-body">
+            <span class="tm-mode-card-tag">${uc.tag}</span>
+            <p>${uc.desc}</p>
+            <ul>${(uc.items||[]).map(it=>`<li><span class="tm-hl-marker">✓</span>${it}</li>`).join('')}</ul>
+          </div>
+        </div>`
+      ).join('');
+
+      // Story row (reverse): product thumb left + story tags + body right
+      const tagsArr = ((story.tags||{})[l]) || ((story.tags||{}).zh) || [];
+      document.getElementById('story-row').innerHTML =
+        `<div class="tm-highlights-visual"><img src="${product.thumb}" alt="${name}" loading="lazy"></div>
+        <div class="tm-highlights-content">
+          <h3>${storyHeadline}</h3>
+          <p class="tm-hl-sub">PRODUCT STORY</p>
+          <div class="tm-story-tags">${tagsArr.map(tag=>`<span class="tm-story-tag">${tag}</span>`).join('')}</div>
+          <p style="color:var(--tm-color-text-muted);margin-top:16px;line-height:1.8;">${storyBody}</p>
+        </div>`;
+
+      // Specs table
+      document.getElementById('specs-table').innerHTML = specs.map(row =>
+        `<tr><th>${row.l}</th><td>${row.v}</td></tr>`
+      ).join('');
+
+      // Related products (same category, exclude current)
+      const catItems = catInfo.items || [];
+      const related  = catItems.filter(item => item.id !== productId).slice(0, 6);
+      document.getElementById('related-grid').innerHTML = related.map(item => {
+        const iname = item.name[l] || item.name.zh;
+        const idesc = item.desc[l] || item.desc.zh;
+        return `<a href="gear-detail.html?id=${item.id}" class="tm-related-card">
+          <div class="tm-related-img"><img src="${item.thumb}" alt="${iname}" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="tm-related-body">
+            <h4>${iname}</h4>
+            <p>${idesc}</p>
+            <span class="tm-related-arrow">${t('viewDetail',l)} →</span>
+          </div>
+        </a>`;
+      }).join('');
+
+      // Scroll reveal
+      const observer = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      }), { threshold: 0.1 });
+      document.querySelectorAll('.tm-detail-section').forEach(el => observer.observe(el));
+
+      if (typeof updateLanguage === 'function') updateLanguage(l);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderPage(localStorage.getItem('tm-lang') || 'zh');
     });
-    </script>
+
+    window.addEventListener('languageChanged', e => renderPage(e.detail.lang));
+
+    document.addEventListener('click', e => {
+      if (e.target.classList.contains('tm-lang-option')) {
+        setTimeout(() => renderPage(localStorage.getItem('tm-lang') || 'zh'), 50);
+      }
+    });
+  </script>
+
 </body>
 </html>
