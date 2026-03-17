@@ -44,22 +44,42 @@
 }
 
 .tm-hero-title {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--tm-color-text);
     margin-bottom: var(--tm-spacing-sm);
+    line-height: 1;
+}
+
+/* 브랜드명 라인: TEEMASTER */
+.tm-hero-brand {
+    display: block;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 900;
+    color: var(--tm-color-text);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+/* 태그라인 라인: 포괄적인 골프 솔루션 */
+.tm-hero-tagline {
+    display: block;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 300;
+    color: var(--tm-color-primary);
     letter-spacing: 0;
-    line-height: 1.25;
+    line-height: 1.3;
     word-break: keep-all;
+    opacity: 0.92;
 }
 
 .tm-hero-subtitle {
-    font-size: 1.6rem;
-    font-weight: 300;
-    color: var(--tm-color-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--tm-color-text-muted);
     margin-bottom: var(--tm-spacing-xl);
-    letter-spacing: 2px;
-    word-break: keep-all;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.7;
 }
 
 .tm-hero-btn {
@@ -107,13 +127,18 @@
 }
 
 @media (max-width: 768px) {
-    .tm-hero-title {
-        font-size: 2.2rem;
-        line-height: 1.3;
+    .tm-hero-brand {
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+    }
+
+    .tm-hero-tagline {
+        font-size: clamp(1.1rem, 5vw, 1.4rem);
     }
 
     .tm-hero-subtitle {
-        font-size: 1.1rem;
-        letter-spacing: 1px;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        margin-bottom: var(--tm-spacing-lg);
     }
 }
