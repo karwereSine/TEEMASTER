@@ -1,10 +1,10 @@
 /**
  * TEEMASTER Golf Gear Product Data
  * Source: golfmaking.com catalog (51 products)
- * Images served from: http://www.golfmaking.com
+ * Images served from: local git repo (img/gear-products/)
  */
 
-const GM = 'http://www.golfmaking.com/UploadProductPic/Products/';
+const GM = 'img/gear-products/';
 
 const gearData = {
   'gear-bags': {
