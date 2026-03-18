@@ -252,7 +252,7 @@
 }
 
 @media (max-width: 768px) {
-    .tm-dropdown {
+    .tm-mega-menu {
         display: none !important;
         /* Never show mega menu on mobile */
     }
@@ -302,6 +302,12 @@
     .tm-nav-list a {
         font-size: 1.3rem;
         letter-spacing: 2px;
+    }
+
+    .tm-nav-list li[data-mega-col="5"] a {
+        pointer-events: none;
+        color: var(--tm-color-text-muted);
+        opacity: 0.8;
     }
 
     /* Mobile language selector inside menu */
