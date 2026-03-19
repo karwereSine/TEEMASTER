@@ -28,11 +28,16 @@
 }
 
 .tm-logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--tm-color-text);
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    height: 40px; /* Logo 容器高度 */
+    text-decoration: none;
+}
+
+.tm-logo-img {
+    height: 100%;
+    width: auto;
+    display: block;
 }
 
 .tm-nav-list {
