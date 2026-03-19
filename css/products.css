@@ -16,7 +16,7 @@
     letter-spacing: 0;
     color: var(--tm-color-text);
     margin-bottom: var(--tm-spacing-sm);
-    word-break: keep-all;
+    /* 移除 word-break: keep-all 以防止长标题溢出 */
 }
 
 .tm-section-title::after {
@@ -199,7 +199,6 @@
     color: var(--tm-color-text);
     margin-bottom: 20px;
     line-height: 1.15;
-    word-break: keep-all;
 }
 
 .tm-product-banner-desc {
@@ -208,7 +207,6 @@
     line-height: 1.9;
     max-width: 500px;
     margin-bottom: 32px;
-    word-break: keep-all;
 }
 
 .tm-product-banner-btn {

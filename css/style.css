@@ -15,6 +15,14 @@ html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
+  overflow-x: hidden; /* 防止全局水平溢出 */
+}
+
+body {
+  overflow-x: hidden;
+  /* 针对中日韩文字增加全局换行约束 */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /*

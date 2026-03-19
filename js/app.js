@@ -195,6 +195,8 @@ const i18n = {
     "loc-korea-desc": "Product R&D and design center, responsible for core technology innovation, software platform development and global market strategy.",
     "loc-china": "China",
     "loc-china-desc": "Smart hardware production base, handling ODM/OEM custom manufacturing, quality control and global supply chain delivery.",
+    "loc-japan": "Japan",
+    "loc-japan-desc": "Based on the TEEMASTER brand's extensive golf product line, responsible for the total business operations of TEEMASTER GOLF & CAFE and TEEMASTER GOLF unmanned golf chain stores.",
     "app-download-on": "Download on the",
     "app-get-on": "GET IT ON",
     "sec-contact-cta-title": "Building the Future of Golf Together",

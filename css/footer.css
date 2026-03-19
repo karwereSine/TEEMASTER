@@ -7,11 +7,32 @@
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .tm-contact-section {
+        padding: var(--tm-spacing-lg) 20px; /* 减少移动端边距 */
+    }
+}
+
 .tm-contact-wrapper {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     gap: var(--tm-spacing-lg);
     margin-bottom: var(--tm-spacing-lg);
+}
+
+.tm-contact-cta {
+    max-width: var(--tm-max-width);
+    margin: 0 auto;
+    padding: 0 var(--tm-spacing-lg);
+    text-align: center;
+}
+
+.tm-contact-cta p {
+    font-size: 1.05rem;
+    color: var(--tm-color-text-muted);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
 }
 
 /* B2B Form */
@@ -333,6 +354,16 @@ textarea.tm-form-control {
    Responsive
    ============================================================ */
 @media (max-width: 768px) {
+    .tm-contact-cta {
+        padding: 0 20px;
+    }
+
+    .tm-contact-cta p {
+        max-width: 100%;
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+    }
+
     .tm-contact-wrapper {
         grid-template-columns: 1fr;
     }
@@ -344,6 +375,7 @@ textarea.tm-form-control {
     .tm-global-layout {
         flex-direction: column;
         text-align: center;
+        padding: 24px 16px;
     }
 
     .tm-footer-inner {

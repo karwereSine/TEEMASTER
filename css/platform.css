@@ -15,6 +15,12 @@
     gap: var(--tm-spacing-xl);
 }
 
+@media (max-width: 768px) {
+    .tm-platform-container {
+        padding: 0 20px; /* 进一步缩小边距，增加文字显示空间 */
+    }
+}
+
 .tm-platform-content {
     flex: 1;
     min-width: 0;
@@ -92,6 +98,10 @@
 .tm-feature-text p {
     font-size: 0.95rem;
     color: var(--tm-color-text-muted);
+    /* 强制中日文长句换行，防止溢出 */
+    word-break: break-all;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 /* 平台区域标题红线左对齐（覆盖全局居中） */
@@ -102,10 +112,34 @@
 @media (max-width: 900px) {
     .tm-platform-container {
         flex-direction: column;
+        gap: var(--tm-spacing-lg);
+        align-items: center; /* 确保子元素在 column 模式下水平居中 */
+        text-align: center;
+    }
+
+    .tm-platform-content {
+        padding-top: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tm-feature-list {
+        text-align: left; /* 列表文字依然保持左对齐 */
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .tm-platform-visual {
+        width: 100%;
+        align-items: center;
     }
 
     .tm-app-showcase {
         gap: 10px;
+        width: 100%;
+        justify-content: center;
     }
 
     .tm-app-screen {
@@ -115,4 +149,96 @@
     .tm-app-screen-center {
         width: 130px;
     }
+}
+
+/* 适配超窄屏幕 (如 iPhone SE 或语言文字特别长的情况) */
+@media (max-width: 480px) {
+    .tm-platform-container {
+        padding: 0 16px;
+    }
+
+    .tm-app-showcase {
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .tm-app-screen {
+        width: calc(30% - 4px);
+        max-width: 85px;
+    }
+
+    .tm-app-screen-center {
+        width: calc(35% - 4px);
+        max-width: 105px;
+    }
+
+    .tm-app-download {
+        flex-direction: row; /* 保持并排 */
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .tm-download-btn {
+        width: 110px; /* 增大方形尺寸 */
+        height: 110px;
+        flex-direction: column; /* 垂直堆叠图标与文字 */
+        padding: 12px 8px;
+        justify-content: center;
+        text-align: center;
+        border-radius: 16px;
+    }
+
+    .tm-download-btn span:last-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 6px;
+    }
+
+    .tm-download-btn small {
+        display: block !important; /* 恢复显示 */
+        font-size: 0.5rem;
+        opacity: 0.8;
+        line-height: 1;
+        margin-bottom: 2px;
+    }
+
+    .tm-download-btn strong {
+        font-size: 0.72rem; /* 稍微缩小以适应 PC 完整文案 */
+        display: block;
+        line-height: 1.1;
+        white-space: nowrap; /* 尽量保持在一行 */
+    }
+
+    .tm-download-btn span:first-child {
+        font-size: 2.2rem !important; /* 调整图标大小 */
+    }
+}
+
+/* 下载按钮基础样式 (从 HTML 内联移出) */
+.tm-app-download {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+.tm-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: #111;
+    border: 1px solid var(--tm-color-border);
+    border-radius: 10px;
+    color: var(--tm-color-text);
+    text-decoration: none;
+    transition: var(--tm-transition-fast);
+}
+
+.tm-download-btn:hover {
+    border-color: var(--tm-color-accent);
 }
