@@ -265,12 +265,16 @@ body {
     font-weight: 700;
     color: var(--tm-color-text);
     margin-bottom: 8px;
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 .tm-feature-card p {
     font-size: 0.88rem;
     color: var(--tm-color-text-muted);
     line-height: 1.6;
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 /* Highlights Section */
@@ -949,7 +953,7 @@ body {
     }
 
     .tm-stats-bar {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
     }
 
