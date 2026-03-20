@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/product-detail.css?v=3">
+  <style>
+    /* Prevent flash of unlocalized content */
+    .tm-pdp-main { opacity: 0; transition: opacity 0.3s ease; }
+    .tm-pdp-main.loaded { opacity: 1; }
+  </style>
   <meta name="theme-color" content="#0a0a0a">
   <style>
     .tm-hero-cta { display:flex; gap:16px; align-items:center; margin-top:24px; flex-wrap:wrap; }
@@ -157,26 +162,22 @@
     </div>
   </header>
 
-  <main class="tm-pdp-main">
-    <div class="tm-pdp-breadcrumb" id="breadcrumb">
-      <a href="index.html">首页</a> /
-      <a href="golf-gear.html">高尔夫制造</a> /
-      <span class="current" id="bread-name">产品详情</span>
-    </div>
+  <main class="tm-pdp-main" id="pdp-main">
+    <div class="tm-pdp-breadcrumb" id="breadcrumb">&nbsp;</div>
 
     <section class="tm-pdp-hero">
       <div class="tm-pdp-gallery">
         <img id="pdp-main-img" src="" alt="" style="transition:opacity 0.2s;">
       </div>
       <div class="tm-pdp-info">
-        <h1 class="tm-pdp-title" id="pdp-title">—</h1>
-        <p class="tm-pdp-subtitle" id="pdp-subtitle"></p>
-        <p class="tm-pdp-desc" id="pdp-desc"></p>
+        <h1 id="pdp-title">&nbsp;</h1>
+        <p class="tm-pdp-subtitle" id="pdp-subtitle">&nbsp;</p>
+        <p class="tm-pdp-desc" id="pdp-desc">&nbsp;</p>
         <div class="tm-pdp-features-list" id="features-checklist"></div>
         <div class="tm-pdp-thumbs" id="thumb-container"></div>
         <div class="tm-hero-cta">
-          <a href="#details" class="tm-pdp-scroll-btn" id="scroll-btn">查看详细参数 ↓</a>
-          <a href="#" class="tm-back-btn" id="back-btn">← 返回列表</a>
+          <a href="#details" class="tm-pdp-scroll-btn" id="scroll-btn">&nbsp;</a>
+          <a href="#" class="tm-back-btn" id="back-btn">&nbsp;</a>
         </div>
       </div>
     </section>
@@ -199,7 +200,7 @@
       <div class="tm-detail-section" id="sec-highlights">
         <div class="tm-detail-section-header">
           <p class="tm-section-sub">PRODUCT HIGHLIGHTS</p>
-          <h2 id="lbl-highlights">产品亮点</h2>
+          <h2 id="lbl-highlights">&nbsp;</h2>
         </div>
         <div class="tm-highlights-row" id="highlights-row"></div>
       </div>
@@ -207,7 +208,7 @@
       <div class="tm-detail-section" id="sec-usecases">
         <div class="tm-detail-section-header">
           <p class="tm-section-sub">USE CASES</p>
-          <h2 id="lbl-usecases">适用场景</h2>
+          <h2 id="lbl-usecases">&nbsp;</h2>
         </div>
         <div class="tm-mode-cards" id="usecases-grid"></div>
       </div>
@@ -215,7 +216,7 @@
       <div class="tm-detail-section" id="sec-story">
         <div class="tm-detail-section-header">
           <p class="tm-section-sub">PRODUCT STORY</p>
-          <h2 id="lbl-story">产品故事</h2>
+          <h2 id="lbl-story">&nbsp;</h2>
         </div>
         <div class="tm-highlights-row reverse" id="story-row"></div>
       </div>
@@ -223,7 +224,7 @@
       <div class="tm-detail-section" id="sec-scene">
         <div class="tm-detail-section-header">
           <p class="tm-section-sub">GOLF LIFESTYLE</p>
-          <h2 id="lbl-scene">골프, 그 이상의 경험</h2>
+          <h2 id="lbl-scene">&nbsp;</h2>
         </div>
         <div class="tm-scene-strip" id="scene-strip">
           <div class="tm-scene-img tall">
@@ -252,7 +253,7 @@
       <div class="tm-detail-section" id="sec-specs">
         <div class="tm-detail-section-header">
           <p class="tm-section-sub">SPECIFICATIONS</p>
-          <h2 id="lbl-specs">产品规格</h2>
+          <h2 id="lbl-specs">&nbsp;</h2>
         </div>
         <div class="tm-specs-table-wrap">
           <table class="tm-specs-table" id="specs-table"></table>
@@ -262,15 +263,15 @@
       <div class="tm-detail-section" id="sec-related">
         <div class="tm-detail-section-header">
           <p class="tm-section-sub">RELATED PRODUCTS</p>
-          <h2 id="lbl-related">相关产品</h2>
+          <h2 id="lbl-related">&nbsp;</h2>
         </div>
         <div class="tm-related-grid" id="related-grid"></div>
       </div>
 
       <div class="tm-cta-row">
-        <h2 id="lbl-cta-title">需要更多信息？</h2>
-        <p id="lbl-cta-desc">欢迎联系我们，我们的专业团队将为您提供最优质的服务</p>
-        <a href="contact.html" class="tm-cta-btn" id="lbl-cta-btn">立即咨询 →</a>
+        <h2 id="lbl-cta-title">&nbsp;</h2>
+        <p id="lbl-cta-desc">&nbsp;</p>
+        <a href="contact.html" class="tm-cta-btn" id="lbl-cta-btn">&nbsp;</a>
       </div>
 
     </div>
@@ -515,6 +516,9 @@
       document.querySelectorAll('.tm-detail-section').forEach(el => observer.observe(el));
 
       if (typeof updateLanguage === 'function') updateLanguage(l);
+      
+      // Reveal page
+      document.getElementById('pdp-main').classList.add('loaded');
     }
 
     document.addEventListener('DOMContentLoaded', () => {

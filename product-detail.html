@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/product-detail.css">
     <meta name="theme-color" content="#0a0a0a">
+    <style>
+        /* Prevent flash of unlocalized content */
+        .tm-pdp-main { opacity: 0; transition: opacity 0.3s ease; }
+        .tm-pdp-main.loaded { opacity: 1; }
+    </style>
 </head>
 
 <body>
@@ -109,12 +114,12 @@
     </div>
   </header>
 
-    <main class="tm-pdp-main">
+    <main class="tm-pdp-main" id="pdp-main">
         <div class="tm-pdp-breadcrumb">
-            <a href="index.html">首页</a> /
-            <a href="products.html">产品中心</a> /
-            <a href="category.html?cat=simulator">室内模拟器系列</a> /
-            <span class="current">果岭贝贝智能推杆模拟器</span>
+            <a href="index.html" data-i18n="nav-home">首页</a> /
+            <a href="products.html" data-i18n="nav-products">产品中心</a> /
+            <a href="category.html?cat=simulator" data-i18n="hw-sim">智能模拟器</a> /
+            <span class="current" data-i18n="hw-putter">智能推杆模拟器</span>
         </div>
         <section class="tm-pdp-hero">
             <div class="tm-pdp-gallery">
@@ -171,6 +176,11 @@
                 if (img.src === src) img.classList.add('active');
             });
         }
+        
+        // Reveal page
+        window.addEventListener('load', () => {
+            document.getElementById('pdp-main').classList.add('loaded');
+        });
     </script>
 </body>
 

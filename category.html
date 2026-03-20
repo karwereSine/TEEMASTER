@@ -212,7 +212,7 @@
     <main class="tm-category-main">
         <div class="tm-breadcrumb" id="breadcrumb"></div>
         <div class="tm-category-header">
-            <h1 class="tm-section-title" id="cat-title">产品分类</h1>
+            <h1 class="tm-section-title" id="cat-title" data-i18n="cat-page-title">产品分类</h1>
             <p class="tm-section-subtitle" id="cat-subtitle">PRODUCTS CATEGORY</p>
             <p class="tm-category-desc" id="cat-desc"></p>
         </div>
@@ -506,8 +506,10 @@
                     `;
                 });
             } else {
-                document.getElementById('cat-title').textContent = "未找到分类";
-                document.getElementById('cat-desc').textContent = "请从首页导航进入正确的分类页面。";
+                document.getElementById('cat-title').textContent = i18n[lang]['cat-not-found'] || "未找到分类";
+                document.getElementById('cat-desc').textContent = i18n[lang]['cat-not-found-desc'] || "请从首页导航进入正确的分类页面。";
+                // Remove data-i18n to prevent updateLanguage from overwriting with default title
+                document.getElementById('cat-title').removeAttribute('data-i18n');
             }
             updateLanguage(lang);
         }

@@ -128,6 +128,9 @@ const i18n = {
     'pdp-distributor-title': '智能配球机',
     'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
     'pdp-distributor-desc': '智能微电脑控制的系列配球设备，集成球体清洗、分发与回收统计管理。模块化设计支持从小型室内馆到百打位大型场地的弹性部署，实现高尔夫球流转的全自动化闭环。',
+    'cat-not-found': '未找到分类',
+    'cat-not-found-desc': '请从首页导航进入正确的分类页面。',
+    'cat-page-title': '产品分类',
 
   },
   en: {
@@ -258,6 +261,9 @@ const i18n = {
     'pdp-distributor-title': 'Smart Ball Distributor',
     'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
     'pdp-distributor-desc': 'A series of smart microcomputer-controlled ball distribution equipment integrating washing, distribution, and recycling management. Its modular design supports flexible deployment from small indoor studios to large driving ranges.',
+    'cat-not-found': 'Category Not Found',
+    'cat-not-found-desc': 'Please navigate to the correct category from the homepage.',
+    'cat-page-title': 'Product Category',
 
   },
   ko: {
@@ -388,6 +394,9 @@ const i18n = {
     'pdp-distributor-title': '스마트 자동 볼 배분기',
     'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
     'pdp-distributor-desc': '세척, 배분 및 수거 관리를 통합한 스마트 마이크로컴퓨터 제어 볼 배분기 시리즈입니다. 모듈식 설계로 소규모 실내 스튜디오부터 대형 연습장까지 탄력적 배치 구조를 지원하여 골프공 흐름을 자동화합니다.',
+    'cat-not-found': '카테고리를 찾을 수 없습니다',
+    'cat-not-found-desc': '홈페이지 내비게이션을 통해 올바른 카테고리 페이지로 이동해 주세요.',
+    'cat-page-title': '제품 카테고리',
 
   },
   ja: {
@@ -518,6 +527,9 @@ const i18n = {
     'pdp-distributor-title': 'スマート配球機',
     'pdp-distributor-subtitle': 'SMART BALL DISTRIBUTOR',
     'pdp-distributor-desc': 'ボールの洗浄、配球、回収管理を統合した、スマートマイコン制御の配球機器シリーズです。モジュール設計により、小規模な室内スタジオから大規模な練習場まで柔軟な配置をサポートし、完全自動化を実現します。',
+    'cat-not-found': 'カテゴリーが見つかりません',
+    'cat-not-found-desc': 'ホームページのナビゲーションから正しいカテゴリーページに移動してください。',
+    'cat-page-title': '製品カテゴリー',
 
   }
 };

@@ -14,6 +14,11 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/product-detail.css?v=2">
   <meta name="theme-color" content="#0a0a0a">
+  <style>
+    /* Prevent flash of unlocalized content */
+    .tm-pdp-main { opacity: 0; transition: opacity 0.3s ease; }
+    .tm-pdp-main.loaded { opacity: 1; }
+  </style>
 </head>
 
 <body>
@@ -95,12 +100,12 @@
     </div>
   </header>
 
-  <main class="tm-pdp-main">
+  <main class="tm-pdp-main" id="pdp-main">
     <div class="tm-pdp-breadcrumb">
       <a href="index.html" data-i18n="nav-home">首页</a> /
       <a href="products.html" data-i18n="nav-products">产品中心</a> /
       <a href="category.html?cat=distributor" data-i18n="hw-distributor">自动配球机</a> /
-      <span class="current" id="breadcrumb-current">125型 智能配球机</span>
+      <span class="current" id="breadcrumb-current">&nbsp;</span>
     </div>
 
     <!-- Hero Section -->
@@ -109,7 +114,7 @@
         <img id="pdp-main-img" src="img/products/各种供球机/125供球机.png" alt="Ball Distributor">
       </div>
       <div class="tm-pdp-info">
-        <h1 class="tm-pdp-title" id="pdp-title">125型 智能配球机</h1>
+        <h1 class="tm-pdp-title" id="pdp-title">&nbsp;</h1>
         <p class="tm-pdp-subtitle" id="pdp-subtitle">MODEL 125 · SMART BALL DISTRIBUTOR</p>
         <p class="tm-pdp-desc" id="pdp-desc"></p>
 
@@ -119,7 +124,7 @@
           <img src="img/products/各种供球机/185供球机_new.png" onclick="changeMainImg(this.src)">
         </div>
 
-        <a href="#details" class="tm-pdp-scroll-btn" id="scroll-btn">查看详细参数 ↓</a>
+        <a href="#details" class="tm-pdp-scroll-btn" id="scroll-btn">&nbsp;</a>
       </div>
     </section>
 
@@ -184,9 +189,9 @@
 
       <!-- CTA -->
       <div class="tm-cta-row">
-        <h2 id="lbl-cta-title"></h2>
-        <p id="lbl-cta-desc"></p>
-        <a href="contact.html" class="tm-cta-btn" id="lbl-cta-btn">立即咨询 →</a>
+        <h2 id="lbl-cta-title">&nbsp;</h2>
+        <p id="lbl-cta-desc">&nbsp;</p>
+        <a href="contact.html" class="tm-cta-btn" id="lbl-cta-btn">&nbsp;</a>
       </div>
 
     </div>
@@ -605,6 +610,9 @@
         });
       }, { threshold: 0.1 });
       document.querySelectorAll('.tm-detail-section').forEach(el => observer.observe(el));
+      
+      // Reveal page
+      document.getElementById('pdp-main').classList.add('loaded');
     }
 
     document.addEventListener('DOMContentLoaded', renderPage);
