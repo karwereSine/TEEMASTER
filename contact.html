@@ -422,7 +422,7 @@
                     <span class="tm-b2b-badge">Interactive Module</span>
                 </div>
                 <p class="tm-b2b-desc" data-i18n="sec-b2b-desc">收集潜在合作伙伴信息与业务意向</p>
-                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('成功提交 / Submitted / 제출되었습니다.');">
+                <form id="b2b-form">
                     <div class="tm-form-row">
                         <div class="tm-form-group">
                             <label for="name" data-i18n="form-name">姓名 (Name)</label>
@@ -452,8 +452,47 @@
                         <textarea id="intent" class="tm-form-control" placeholder="请简要描述您的合作需求与业务类型..."
                             data-i18n-placeholder="form-intent-ph" required></textarea>
                     </div>
-                    <button type="submit" class="tm-submit-btn" data-i18n="form-submit">✈ 提交申请</button>
+                    <div id="form-msg" style="font-size:0.85rem;margin-bottom:8px;min-height:20px;"></div>
+                    <button type="submit" class="tm-submit-btn" id="form-submit-btn" data-i18n="form-submit">✈ 提交申请</button>
                 </form>
+                <script>
+                document.getElementById('b2b-form').addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    const btn = document.getElementById('form-submit-btn');
+                    const msg = document.getElementById('form-msg');
+                    btn.disabled = true;
+                    btn.textContent = '제출 중...';
+                    msg.style.color = '#888';
+                    msg.textContent = '';
+                    try {
+                        const res = await fetch('/api/inquiry', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                name: document.getElementById('name').value,
+                                company: document.getElementById('company').value,
+                                email: document.getElementById('email').value,
+                                phone: document.getElementById('phone').value,
+                                intent: document.getElementById('intent').value
+                            })
+                        });
+                        const data = await res.json();
+                        if (data.success) {
+                            msg.style.color = '#2ecc71';
+                            msg.textContent = '✔ 신청이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.';
+                            this.reset();
+                        } else {
+                            msg.style.color = '#e74c3c';
+                            msg.textContent = '오류가 발생했습니다. 다시 시도해 주세요.';
+                        }
+                    } catch(err) {
+                        msg.style.color = '#e74c3c';
+                        msg.textContent = '서버 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.';
+                    }
+                    btn.disabled = false;
+                    btn.textContent = '✈ 提交申请';
+                });
+                </script>
             </div>
 
             <!-- 右：法律指引 -->

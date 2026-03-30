@@ -534,6 +534,9 @@ const i18n = {
   }
 };
 
+// Expose i18n globally so inline scripts in non-index pages can access it
+window.i18n = i18n;
+
 document.addEventListener('DOMContentLoaded', () => {
   // Navigation Scroll Effect
   const header = document.getElementById('tm-header');
@@ -812,6 +815,43 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     });
   });
+});
+
+// ── Footer: Global Company Info ──────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  const footerBottom = document.querySelector('.tm-footer-bottom');
+  if (!footerBottom || document.querySelector('.tm-footer-companies')) return;
+
+  const section = document.createElement('div');
+  section.className = 'tm-footer-companies';
+  section.innerHTML = `
+    <div class="tm-footer-companies-inner">
+      <div class="tm-footer-company-item">
+        <span class="tm-footer-company-flag">🇯🇵</span>
+        <div>
+          <div class="tm-footer-company-label">Japan</div>
+          <div class="tm-footer-company-name">TEEMASTER株式会社</div>
+        </div>
+      </div>
+      <div class="tm-footer-company-divider"></div>
+      <div class="tm-footer-company-item">
+        <span class="tm-footer-company-flag">🇰🇷</span>
+        <div>
+          <div class="tm-footer-company-label">Korea</div>
+          <div class="tm-footer-company-name">토보텍 (Tobortec)</div>
+        </div>
+      </div>
+      <div class="tm-footer-company-divider"></div>
+      <div class="tm-footer-company-item">
+        <span class="tm-footer-company-flag">🇨🇳</span>
+        <div>
+          <div class="tm-footer-company-label">China</div>
+          <div class="tm-footer-company-name">北京幸运博迪科技有限公司</div>
+        </div>
+      </div>
+    </div>
+  `;
+  footerBottom.parentNode.insertBefore(section, footerBottom);
 });
 
 
